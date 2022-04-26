@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import './CartPayment.scss';
 
 const CartPayment = () => {
+  const navtigate = useNavigate();
+  const goPayment = () => {
+    navtigate('/Cart');
+  };
   return (
     <div id="cartPayment">
       <div className="paymentTop">
@@ -9,7 +14,7 @@ const CartPayment = () => {
         <div className="detailPayment">
           <div className="selectedPrice">
             <span>총 상품금액</span>
-            <span>68,300원</span>
+            <span>"모든 상품 금액 더한 값"</span>
           </div>
           <div className="discountPrice">
             <span>총 즉시할인 금액</span>
@@ -26,10 +31,12 @@ const CartPayment = () => {
         </div>
         <div className="wholePrice">
           <span>총 결제 예상 금액</span>
-          <span>68,300원</span>
+          <span>"모든 상품 금액 더한 값"</span>
         </div>
       </div>
-      <button className="startPayment">구매하기</button>
+      <button className="startPayment" onClick={goPayment}>
+        구매하기
+      </button>
     </div>
   );
 };

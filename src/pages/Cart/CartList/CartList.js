@@ -16,6 +16,11 @@ const CartList = () => {
       <CartProduct />
       <CartProduct />
       <CartProduct />
+      <CartProduct />
+      <CartProduct />
+      <CartProduct />
+      <CartProduct />
+      <CartProduct />
     </div>
   );
 };
