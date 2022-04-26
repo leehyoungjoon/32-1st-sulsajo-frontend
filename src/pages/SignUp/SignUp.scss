@@ -1,0 +1,122 @@
+@import '../../styles/variables.scss';
+
+#signUp {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  padding: 20px;
+  color: $detailFontColor;
+
+  .signUpContainer {
+    display: flex;
+    width: 70%;
+    padding: 20px;
+    justify-content: center;
+
+    .leftSignUpImg {
+      width: 300px;
+      height: 500px;
+      margin-right: 70px;
+      border-radius: 10px;
+    }
+
+    .signupHeader {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .signupTitle {
+        font-size: 30px;
+        margin-bottom: 10px;
+        padding: 0 20px;
+        color: $navFontColor;
+      }
+
+      .signUpImg {
+        width: 300px;
+        border-radius: 10px;
+        opacity: 0.7;
+      }
+    }
+
+    .signUpForm {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .inputText {
+        margin-top: 30px;
+        font-size: 15px;
+      }
+
+      .signUpFormTitle {
+        color: $navFontColor;
+        margin-top: 30px;
+        font-size: 23px;
+      }
+
+      .signUpInput {
+        border-style: none;
+        border-bottom: 1.5px solid $navFontColor;
+        width: 500px;
+        height: 30px;
+        margin-top: 10px;
+        color: $detailFontColor;
+      }
+
+      .emailCheck {
+        margin-top: 10px;
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border-style: none;
+        color: $navFontColor;
+        border: 3px solid $navFontColor;
+        cursor: pointer;
+      }
+
+      .btnSignUp {
+        margin-top: 30px;
+        width: 200px;
+        height: 30px;
+        background-color: white;
+        border-style: none;
+        color: $navFontColor;
+        border: 3px solid $navFontColor;
+        cursor: pointer;
+      }
+
+      .btnSignUp:hover {
+        border: 3px solid rgb(160, 241, 160);
+        color: rgb(160, 241, 160);
+      }
+
+      .show {
+        margin-top: 5px;
+        font-size: 11px;
+        color: red;
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
+    .signUpInput:focus {
+      outline: none;
+      border-bottom: 3px solid $detailFontColor;
+    }
+    .know {
+      margin-top: 100px;
+      font-size: 20px;
+    }
+    @media (max-width: 1160px) {
+      .leftSignUpImg {
+        display: none;
+      }
+    }
+  }
+}
