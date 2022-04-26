@@ -1,0 +1,18 @@
+#cartMain {
+  margin-top: 50px;
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #f7f7f7;
+
+  #cart {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 65%;
+    min-height: 800px;
+  }
+}
