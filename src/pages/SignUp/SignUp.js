@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import './SignUp.scss';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: '',
     realname: '',
@@ -26,7 +28,7 @@ const SignUp = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.MESSAGE === 'SUCCEDD') {
+        if (result.MESSAGE === 'SUCCESS') {
           alert('사용 가능한 이메일입니다.');
         } else {
           alert('이미 존재하는 이메일입니다. 다시 입력해 주세요.');
@@ -40,7 +42,7 @@ const SignUp = () => {
     inputValue.pwd &&
     inputValue.nickname;
 
-  const succeedSignUp = () => {
+  const goToSignUp = () => {
     if (signUpCheck) {
       fetch('api 주소', {
         method: 'POST',
@@ -52,31 +54,18 @@ const SignUp = () => {
         }),
       })
         .then(response => response.json())
-        .then(result => console.log('result', result));
+        .then(result => {
+          if (result.MESSAGE === 'SUCCESS') {
+            alert('회원가입에 성공하였습니다.');
+            navigate('/login');
+          }
+        });
     } else {
       alert(
         '이메일, 이름, 비밀번호, 닉네임을 제대로 입력했는지 확인해 주세요.'
       );
     }
   };
-
-  useEffect(() => {
-    fetch('api주소', {
-      method: 'GET',
-      body: JSON.stringify({
-        email: inputValue.email,
-        realname: inputValue.realname,
-        pwd: inputValue.pwd,
-        nickname: inputValue.nickname,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        if (result.MESSAGE === 'SUCCESS') {
-          alert('회원가입에 성공하였습니다.');
-        }
-      });
-  });
 
   const emailCheck =
     inputValue.email === ''
@@ -171,7 +160,7 @@ const SignUp = () => {
             <div className={nicknameCheck}>
               닉네임을 확인해 주세요 한글만 입력할 수 있습니다.
             </div>
-            <button className="btnSignUp" onClick={succeedSignUp}>
+            <button className="btnSignUp" onClick={goToSignUp}>
               회원가입
             </button>
           </div>
