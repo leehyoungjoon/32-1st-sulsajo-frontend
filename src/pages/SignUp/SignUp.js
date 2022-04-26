@@ -34,18 +34,30 @@ const SignUp = () => {
       });
   };
 
+  const signUpCheck =
+    inputValue.email &&
+    inputValue.realname &&
+    inputValue.pwd &&
+    inputValue.nickname;
+
   const succeedSignUp = () => {
-    fetch('api 주소', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: inputValue.email,
-        realname: inputValue.realname,
-        pwd: inputValue.pwd,
-        nickname: inputValue.nickname,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => console.log('result', result));
+    if (signUpCheck) {
+      fetch('api 주소', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: inputValue.email,
+          realname: inputValue.realname,
+          pwd: inputValue.pwd,
+          nickname: inputValue.nickname,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => console.log('result', result));
+    } else {
+      alert(
+        '이메일, 이름, 비밀번호, 닉네임을 제대로 입력했는지 확인해 주세요.'
+      );
+    }
   };
 
   useEffect(() => {
