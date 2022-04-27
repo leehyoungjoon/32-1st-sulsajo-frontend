@@ -1,15 +1,18 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './CartList.scss';
 import CartProduct from './CartProduct/CartProduct';
 
-const CartList = () => {
-  const checkBoxRef = useRef();
+const CartList = ({
+  handlePlusCount,
+  handledCount,
+  countMinusHandle,
+  ModDataProducts,
+}) => {
   return (
     <div id="cartList">
       <div className="cartListTop">
         <div className="cartSelectAllBox">
           <input
-            ref={checkBoxRef}
             className="cartCheckAllBox"
             type="checkbox"
             id="cartProductSelectAll"
@@ -18,8 +21,17 @@ const CartList = () => {
         </div>
         <span className="cartSelectedDeleteAll">선택삭제</span>
       </div>
-      <CartProduct />
-      <CartProduct />
+      <div>
+        {ModDataProducts.map((product, index) => (
+          <CartProduct
+            key={index}
+            product={product}
+            handlePlusCount={handlePlusCount}
+            countMinusHandle={countMinusHandle}
+            handledCount={handledCount}
+          />
+        ))}
+      </div>
     </div>
   );
 };
