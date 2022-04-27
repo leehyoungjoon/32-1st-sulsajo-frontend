@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -8,6 +9,7 @@ const Login = () => {
   const handleIdInput = event => {
     setIdInput(event.target.value);
   };
+
   const [pwInput, setPwInput] = useState('');
 
   const handlePwInput = event => {
@@ -94,9 +96,7 @@ const Login = () => {
           <a className="findPw" href="">
             비밀번호 찾기
           </a>
-          {/* <button className="memberJoin" onClick={goToSignUp}>
-            회원가입
-          </button> */}
+          <button className="memberJoin">회원가입</button>
         </div>
       </div>
     </div>
