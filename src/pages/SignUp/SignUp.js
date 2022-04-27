@@ -40,8 +40,7 @@ const SignUp = () => {
   const signUpCheck =
     inputValue.email.includes('@') &&
     inputValue.realname &&
-    inputValue.pwd.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/) &&
-    inputValue.nickname.match(/^[가-힣].{1,10}$/);
+    inputValue.pwd.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/);
 
   const goToSignUp = e => {
     e.preventDefault();
