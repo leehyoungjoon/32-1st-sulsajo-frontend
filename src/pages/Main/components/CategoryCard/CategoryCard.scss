@@ -1,0 +1,23 @@
+@import '/src/styles/variables.scss';
+
+.mainCategory {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 0 35px;
+
+  .drinkType {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  .drinkTypeImg {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  .drinkTypeName {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}

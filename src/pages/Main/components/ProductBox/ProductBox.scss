@@ -1,0 +1,76 @@
+@import '/src/styles/variables.scss';
+
+.mainSojuRecommend {
+  max-width: 948px;
+  margin: 0 auto;
+  padding-top: 149px;
+  position: relative;
+  .sectionContent {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f3bb60;
+  }
+  .sectionSubContent {
+    text-align: center;
+    margin: 15px 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(62, 62, 62);
+  }
+
+  .viewMore {
+    text-align: right;
+    font-size: 14px;
+    color: #1890ff;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .sojuCarouselOuter {
+    // display: flex;
+    overflow: hidden;
+    width: 100%;
+    .sojuCarouselSet1 {
+      width: 300%;
+      display: flex;
+      transition: transform 1s;
+    }
+    .sojuCarouselSet2 {
+      width: 300%;
+      display: flex;
+      transform: translate(calc(-100% / 3));
+      transition: transform 1s;
+    }
+    .sojuCarouselSet3 {
+      width: 300%;
+      display: flex;
+      transform: translate(calc(-200% / 3));
+      transition: transform 1s;
+    }
+  }
+
+  .arrowLeftBtn,
+  .arrowRightBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 60%;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3bb60;
+    border-radius: 50%;
+    .fa-solid {
+      font-size: 30px;
+      color: #f3bb60;
+    }
+  }
+
+  .arrowLeftBtn {
+    left: -65px;
+  }
+  .arrowRightBtn {
+    right: -65px;
+  }
+}

@@ -4,11 +4,11 @@
   height: 40px;
   background-color: rgb(244, 244, 244);
   .mainHeaderTitle {
+    max-width: 1006px;
+    height: 40px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 40px;
-    max-width: 1006px;
     background-color: transparent;
     margin: 0 auto;
     .mainHeaderMenu {
@@ -45,117 +45,8 @@
   }
 }
 
-.mainCategory {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 30px 0 35px;
-  .drinkType {
-    display: flex;
-    flex-direction: column;
-    margin: 0 20px;
-  }
-  .drinkTypeImg {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-  }
-  .drinkTypeName {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-}
-
-.mainSojuRecommend {
-  width: 948px;
-  margin: 0 auto;
-  padding-top: 149px;
-  .sectionContent {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #f3bb60;
-  }
-  .sectionSubContent {
-    text-align: center;
-    margin: 15px 0 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: rgb(62, 62, 62);
-  }
-
-  .viewMore {
-    text-align: right;
-    font-size: 14px;
-    color: #1890ff;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  .sojuCarousel {
-    display: flex;
-    .sojuRecommendList {
-      width: 237px;
-      margin: 0 7px;
-      .recommendListImg {
-        width: 100%;
-        border-radius: 10px;
-      }
-      .contentWrapper {
-        padding: 15px 10px 10px;
-        .contentTitle {
-          font-size: 15px;
-          color: rgb(62, 62, 62);
-          font-weight: bold;
-          margin-bottom: 18px;
-        }
-        .price {
-          font-size: 16px;
-          color: rgb(62, 62, 62);
-          margin-bottom: 9px;
-          font-weight: bold;
-        }
-        .scoreAndReview {
-          display: flex;
-          align-items: center;
-          margin-bottom: 10px;
-          .score,
-          .review {
-            font-size: 13px;
-          }
-
-          .score {
-            color: rgb(62, 62, 62);
-            margin: 0 8px 0 5px;
-            font-weight: bold;
-          }
-          .border {
-            display: inline-block;
-            width: 1px;
-            height: 18px;
-            background-color: rgb(235, 235, 235);
-          }
-
-          .review {
-            color: rgb(112, 112, 112);
-            margin-left: 7px;
-          }
-        }
-        .hashtags {
-          padding-top: 10px;
-          border-top: 1px solid rgb(235, 235, 235);
-          font-size: 13px;
-          color: rgb(112, 112, 112);
-          .tag {
-            padding: 3px 0;
-          }
-        }
-      }
-    }
-  }
-}
 .specialPriceSection {
-  width: 1006px;
+  max-width: 1006px;
   margin: 150px auto;
   text-align: center;
 
@@ -311,7 +202,7 @@
   }
 }
 .mainReview {
-  width: 1006px;
+  max-width: 1006px;
   margin: 0px auto;
   text-align: center;
   padding-top: 149px;
