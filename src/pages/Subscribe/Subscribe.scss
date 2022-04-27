@@ -1,0 +1,424 @@
+.mainWrap {
+  margin-top: 50px;
+  font-size: 24px;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .topWrap {
+    .firstComment {
+      font-size: 28px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: rgb(62, 62, 62);
+    }
+  }
+  .scrollEvent {
+    width: 230px;
+    border-bottom: 2px solid;
+    margin-top: 50px;
+    color: rgb(81, 151, 242);
+    display: flex;
+    text-align: center;
+  }
+  .imageBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    .leftCell {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .leftImage {
+        width: 500px;
+        height: 609px;
+        margin-right: 30px;
+      }
+      .leftComment {
+        width: 400px;
+        height: 260px;
+        background-color: #fff;
+        position: absolute;
+        top: 90%;
+        left: 50px;
+        border-radius: 10px;
+        box-shadow: rgb(62 62 62 / 10%) 0px 2px 5px 0px;
+
+        .leftBox {
+          .header {
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            margin-top: 30px;
+            .box {
+              font-size: 30px;
+              color: #707070;
+              font-weight: bold;
+              margin-right: 10px;
+            }
+            .price {
+              font-size: 20px;
+              color: rgb(81, 151, 242);
+              padding-left: 50px;
+              font-weight: bold;
+            }
+          }
+          .boxComment {
+            color: #707070;
+            font-size: 20px;
+            padding-left: 30px;
+            margin-top: 25px;
+          }
+          .hipoon {
+            width: 20px;
+            height: 1.5px;
+            background-color: rgb(224, 224, 224);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 30px;
+          }
+        }
+        .date {
+          color: #707070;
+          font-size: 18px;
+          padding-left: 30px;
+          margin-top: 25px;
+
+          .buyDate {
+            margin-bottom: 10px;
+          }
+        }
+        .hintBox {
+          display: flex;
+          justify-content: left;
+          gap: 6px;
+          margin-top: 10px;
+
+          .hintOpen {
+            width: 100px;
+            height: 33px;
+            border-radius: 5px;
+            font-size: 18px;
+            padding: 0px 10px;
+            margin-left: 28px;
+            margin-top: 6px;
+            border: none;
+            background-color: #f5f5f5;
+            color: #5197f2;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .rightCell {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .rightImage {
+        width: 500px;
+        height: 609px;
+      }
+      .rightComment {
+        width: 400px;
+        height: 260px;
+        background-color: #fff;
+        position: absolute;
+        top: 90%;
+        left: 50px;
+        border-radius: 10px;
+        box-shadow: rgb(62 62 62 / 10%) 0px 2px 5px 0px;
+
+        .rightBox {
+          .header {
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            margin-top: 30px;
+            .box {
+              font-size: 30px;
+              color: #707070;
+              font-weight: bold;
+              margin-right: 10px;
+              margin-right: -37px;
+            }
+            .price {
+              font-size: 20px;
+              color: rgb(81, 151, 242);
+              padding-left: 50px;
+              font-weight: bold;
+            }
+          }
+          .boxComment {
+            color: #707070;
+            font-size: 20px;
+            padding-left: 30px;
+            margin-top: 25px;
+          }
+          .hipoon {
+            width: 20px;
+            height: 1.5px;
+            background-color: rgb(224, 224, 224);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 30px;
+          }
+        }
+        .date {
+          color: #707070;
+          font-size: 18px;
+          padding-left: 30px;
+          margin-top: 25px;
+
+          .buyDate {
+            margin-bottom: 10px;
+          }
+        }
+        .hintBox {
+          display: flex;
+          justify-content: left;
+          gap: 6px;
+          margin-top: 10px;
+
+          .hintOpen {
+            width: 100px;
+            height: 33px;
+            border-radius: 5px;
+            font-size: 18px;
+            padding: 0px 10px;
+            margin-left: 28px;
+            margin-top: 6px;
+            border: none;
+            background-color: #f5f5f5;
+            color: #5197f2;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  .mainBanner {
+    width: 100%;
+    margin-top: 300px;
+
+    .mainBannerImg {
+      width: 100%;
+      height: 430px;
+    }
+  }
+
+  .firstMainText {
+    margin-top: 50px;
+    font-size: 28px;
+    color: #707070;
+  }
+  .secondMainText {
+    margin-top: 20px;
+    font-size: 28px;
+    color: #707070;
+    font-weight: bold;
+  }
+
+  .subscribeButton {
+    width: 206px;
+    height: 46px;
+    margin-top: 50px;
+    background-color: #f4bb5f;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+
+  .firstSubscribeText {
+    margin-top: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f4bb5f;
+  }
+
+  .secondSubscribeText {
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f4bb5f;
+  }
+
+  .landingBanner {
+    margin-top: 40px;
+    > img {
+      width: 680px;
+      height: 380px;
+    }
+  }
+
+  .descriptionWrapper {
+    margin-top: 50px;
+    .landingIcon {
+      margin-top: 60px;
+      > img {
+        width: 210px;
+        height: 110px;
+      }
+
+      .firstDescription {
+        margin-top: 30px;
+        font-size: 18px;
+        text-align: center;
+        color: #f4bb5f;
+        font-weight: bold;
+      }
+
+      .secondDescription {
+        margin-top: 30px;
+        font-size: 18px;
+        color: #707070;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .thirdDescription {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #707070;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+
+  .dontWorry {
+    margin-top: 250px;
+    font-size: 28px;
+    color: #5197f2;
+    font-weight: bold;
+  }
+  .dontWorryWrapper {
+    display: flex;
+    margin-top: 30px;
+    width: 575px;
+    height: 430px;
+  }
+  .leftIcon {
+    width: 100px;
+    text-align: center;
+    margin-top: 190px;
+    > button {
+      background-color: transparent;
+      border: none;
+      &::before {
+        background-image: url('../../../public/images/lefticon.png');
+        background-size: cover;
+        display: inline-block;
+        width: 22px;
+        height: 40px;
+        content: '';
+      }
+    }
+  }
+
+  .dontWorryBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 375px;
+    background-color: #5197f2;
+    > img {
+      width: 100px;
+      height: 100px;
+      margin: 100px 0 30px 0;
+    }
+    > div {
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 2;
+    }
+  }
+
+  .rightIcon {
+    width: 100px;
+    text-align: center;
+    margin-top: 190px;
+    > button {
+      background-color: transparent;
+      border: none;
+      &::before {
+        background-image: url('../../../public//images/rightIcon.png');
+        background-size: cover;
+        display: inline-block;
+        width: 22px;
+        height: 40px;
+        content: '';
+      }
+    }
+  }
+  .buttonWrapper {
+    display: flex;
+    width: 50px;
+    margin-top: 10px;
+    justify-content: space-evenly;
+
+    .slideButton {
+      width: 7px;
+      height: 7px;
+      background-color: #707070;
+      border-radius: 100%;
+      display: inline-block;
+      padding-right: 2px;
+    }
+  }
+  .recentlyText {
+    margin-top: 200px;
+    font-weight: bold;
+    font-size: 28px;
+    color: #707070;
+  }
+
+  .recentylBox {
+    width: 430px;
+    height: 116px;
+    padding: 12px 50px;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 0px 3px 0px;
+    margin: 30px auto 40px;
+    text-align: center;
+
+    > div {
+      line-height: 2;
+      font-size: 16px;
+      color: #707070;
+    }
+  }
+
+  .converSationWrapper {
+    > img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  .tripDescription {
+    margin-top: 100px;
+    font-size: 28px;
+    color: #f4bb5f;
+    font-weight: bold;
+  }
+
+  .startDescription {
+    margin-top: 10px;
+    font-size: 28px;
+    color: #f4bb5f;
+    font-weight: bold;
+  }
+}
