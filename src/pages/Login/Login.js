@@ -1,24 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
-
-// fetch('http://10.58.2.16:8000/users/signin', {
-//   method: 'POST',
-//   body: JSON.stringify({
-//     email: idInput,
-//     password: pwInput,
-//   }),
-// })
-//   .then(response => response.json())
-//   .then(result => {
-//     if (result.message === 'SUCCESS') {
-//       alert('환영합니다!');
-//       navigate('/');
-//     } else {
-//       alert('확인해주세요');
-//     }
-//   });
-
 const Login = () => {
   const navigate = useNavigate();
 
@@ -32,14 +14,10 @@ const Login = () => {
     setPwInput(event.target.value);
   };
 
-  // const goToSignUp = () => {
-  // navigate("/");
-  // };
-
   const goToLogin = e => {
     e.preventDefault();
     if (idInput && pwInput) {
-      fetch('http://10.58.2.16:8000/users/signin', {
+      fetch('아이피주소', {
         method: 'POST',
         body: JSON.stringify({
           email: idInput,
@@ -50,7 +28,7 @@ const Login = () => {
         .then(result => {
           if (result.message === 'SUCCESS') {
             alert('환영합니다!');
-            navigate('/');
+            navigate('/main');
           } else {
             alert('확인해주세요');
           }
