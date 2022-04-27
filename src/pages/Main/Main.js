@@ -22,19 +22,35 @@ const Main = () => {
       </section>
       <section className="mainCategory">
         <div className="drinkType">
-          <img alt="" src="/images/Main/wine.png" className="drinkTypeImg" />
+          <img
+            alt="wineImg"
+            src="/images/Main/wine.png"
+            className="drinkTypeImg"
+          />
           <span className="drinkTypeName">소주</span>
         </div>
         <div className="drinkType">
-          <img alt="" src="/images/Main/wine.png" className="drinkTypeImg" />
+          <img
+            alt="wineImg"
+            src="/images/Main/wine.png"
+            className="drinkTypeImg"
+          />
           <span className="drinkTypeName">소주</span>
         </div>
         <div className="drinkType">
-          <img alt="" src="/images/Main/wine.png" className="drinkTypeImg" />
+          <img
+            alt="wineImg"
+            src="/images/Main/wine.png"
+            className="drinkTypeImg"
+          />
           <span className="drinkTypeName">소주</span>
         </div>
         <div className="drinkType">
-          <img alt="" src="/images/Main/wine.png" className="drinkTypeImg" />
+          <img
+            alt="wineImg"
+            src="/images/Main/wine.png"
+            className="drinkTypeImg"
+          />
           <span className="drinkTypeName">소주</span>
         </div>
       </section>
@@ -49,7 +65,7 @@ const Main = () => {
         <div className="sojuCarousel">
           <div className="sojuRecommendList">
             <img
-              alt=""
+              alt="april"
               src="/images/Main/april.png"
               className="recommendListImg"
             />
@@ -71,7 +87,7 @@ const Main = () => {
           </div>
           <div className="sojuRecommendList">
             <img
-              alt=""
+              alt="april"
               src="/images/Main/april.png"
               className="recommendListImg"
             />
@@ -93,7 +109,7 @@ const Main = () => {
           </div>
           <div className="sojuRecommendList">
             <img
-              alt=""
+              alt="april"
               src="/images/Main/april.png"
               className="recommendListImg"
             />
@@ -140,15 +156,90 @@ const Main = () => {
       <section className="specialPriceSection">
         <section className="specialPriceBar">
           <div className="specialPriceTime">
-            <div className="specialPrice">릴레이특가</div>
-            <div>43시간 남았어요</div>
+            <div className="clockImg">
+              <img
+                alt="clock"
+                src="/images/Main/clock.png"
+                className="specialPriceImg"
+              />
+              <span className="specialPriceTitle">릴레이특가</span>
+              <div className="specialPriceBorder"> </div>
+            </div>
+            <div className="timeBox">
+              <span className="countTime">43 : 31 : 58</span>
+              <span className="timeText">남았어요</span>
+            </div>
           </div>
           <div className="specialPriceTimeBox">
             시간이 지나면 가격이 올라가요
           </div>
         </section>
-        <div className="specialPriceImg">
-          <img alt="specialPrice" src="/images/Main/logo.jpg" />
+        <div className="specialPriceLink">
+          <div className="specialImageWrapper">
+            <img
+              alt="sojuImg"
+              src="/images/Main/soju.jpeg"
+              className="specialImage"
+            />
+          </div>
+          <div className="specialContentText">
+            <div className="contentText">
+              <div className="contentRedBox">특가</div>
+              <div className="sellingPoint">
+                겨울소주 1병, 희석식 소주 10병 안부럽다
+              </div>
+              <div className="productName-wrapper">
+                <div>겨울소주 25</div>
+                <div>》</div>
+              </div>
+              <div className="productPrice-wrapper">
+                <div className="productPriceReview">
+                  <div>⭐ 4.5 | </div>
+                  <div>리뷰 123</div>
+                </div>
+                <div className="productPrice">9,000원</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mainReview">
+        <div className="reviewContent">"이 순간 다른 분들은"</div>
+        <div className="reviewSubContent">실시간 후기</div>
+        <div className="mainReviewBox">
+          <div className="reviewBoxContent">
+            <img
+              alt="userProductImg"
+              src="/images/Main/april.png"
+              className="reviewBoxImg"
+            />
+            <div className="mainReviewScore">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            <div className="reviewInfo">
+              <div className="mainReviewComment">맛있어요</div>
+            </div>
+          </div>
+          <div className="reviewBoxContent">
+            <img
+              alt="userProductImg"
+              src="/images/Main/april.png"
+              className="reviewBoxImg"
+            />
+            <div className="mainReviewScore">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            <div className="reviewInfo">
+              <div className="mainReviewComment">맛있어요</div>
+            </div>
+          </div>
+          <div className="reviewBoxContent">
+            <img
+              alt="userProductImg"
+              src="/images/Main/april.png"
+              className="reviewBoxImg"
+            />
+            <div className="mainReviewScore">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            <div className="reviewInfo">
+              <div className="mainReviewComment">맛있어요</div>
+            </div>
+          </div>
         </div>
       </section>
     </section>

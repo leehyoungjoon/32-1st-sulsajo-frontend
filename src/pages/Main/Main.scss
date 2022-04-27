@@ -1,3 +1,5 @@
+@import '/src/styles/variables.scss';
+
 .mainHeader {
   height: 40px;
   background-color: rgb(244, 244, 244);
@@ -153,30 +155,208 @@
   }
 }
 .specialPriceSection {
+  width: 1006px;
+  margin: 150px auto;
+  text-align: center;
+
   .specialPriceBar {
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px;
+    align-items: center;
+
     .specialPriceTime {
       display: flex;
-      .specialPrice {
-        border-right: 1px solid black;
+      align-items: center;
+      .clockImg {
+        display: flex;
+        align-items: center;
+      }
+      .specialPriceImg {
+        width: 29px;
+      }
+      .specialPriceTitle {
+        color: rgb(62, 62, 62);
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      .specialPriceBorder {
+        width: 0.8px;
+        height: 15px;
+        background-color: rgb(112, 112, 112);
+      }
+      .timeBox {
+        display: flex;
+        align-items: center;
+        .countTime {
+          display: flex;
+          align-items: center;
+          color: rgb(62, 62, 62);
+          font-size: 18px;
+          font-weight: bold;
+          margin-left: 10px;
+        }
+        .timeText {
+          font-size: 14px;
+          font-weight: 300;
+          margin-left: 5px;
+        }
       }
     }
     .specialPriceTimeBox {
       width: 180px;
-      background-color: red;
-      border: 1px solid red;
-      border-radius: 5px;
-      text-align: center;
-      color: wheat;
-      line-height: 20px;
-      font-size: 10px;
+      height: 32px;
+      background-color: rgb(211, 57, 57);
+      color: rgb(255, 255, 255);
+      font-size: 13px;
+      border-radius: 15px 15px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
     }
   }
   .specialPriceImg {
     display: flex;
     justify-content: center;
-    background-color: brown;
+  }
+
+  .specialPriceLink {
+    height: 32vw;
+    max-height: 360px;
+    background-color: rgb(62, 62, 62);
+    border-radius: 10px;
+    position: relative;
+    margin-top: 26px;
+
+    .specialImageWrapper {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 42%;
+      height: 100%;
+
+      .specialImage {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .specialContentText {
+      width: 58%;
+      height: 100%;
+      top: 0px;
+      right: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: left;
+      position: absolute;
+
+      .contentText {
+        .contentRedBox {
+          width: 44px;
+          height: 24px;
+          border-radius: 4px;
+          background-color: rgb(211, 57, 57);
+          color: rgb(255, 255, 255);
+          font-weight: bold;
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .sellingPoint {
+          color: rgb(196, 196, 196);
+          font-weight: normal;
+          margin-bottom: 4px;
+          font-size: 15px;
+        }
+
+        .productName-wrapper {
+          display: flex;
+          justify-content: space-between;
+          font-size: 18px;
+          font-weight: 500;
+          color: rgb(255, 255, 255);
+        }
+
+        .productPrice-wrapper {
+          margin-top: 10px;
+          border-top: 1px solid rgb(112, 112, 112);
+          padding-top: 14px;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          display: flex;
+          align-items: center;
+
+          .productPriceReview {
+            display: flex;
+            color: rgb(255, 255, 255);
+            margin: 0px 8px 0px 5px;
+            font-size: 14px;
+          }
+          .productPrice {
+            color: rgb(255, 255, 255);
+            font-size: 23px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+.mainReview {
+  width: 1006px;
+  margin: 0px auto;
+  text-align: center;
+  padding-top: 149px;
+
+  .reviewContent {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: rgb(244, 187, 95);
+  }
+
+  .reviewSubContent {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(62, 62, 62);
+    margin-top: 15px;
+  }
+
+  .mainReviewBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    .reviewBoxContent {
+      text-align: center;
+      margin: 0 10px;
+      .reviewBoxImg {
+        width: 270px;
+        height: 270px;
+        border-radius: 15px;
+      }
+      .mainReviewScore {
+        margin: 20px 0;
+      }
+      .reviewInfo {
+        .mainReviewComment {
+          font-size: 12px;
+          color: rgb(112, 112, 112);
+          width: 270px;
+          height: 70px;
+          margin-top: 20px;
+          text-align: left;
+        }
+      }
+    }
   }
 }
