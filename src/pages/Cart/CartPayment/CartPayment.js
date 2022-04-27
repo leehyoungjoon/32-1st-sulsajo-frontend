@@ -25,7 +25,7 @@ const CartPayment = () => {
             <span>0원</span>
           </div>
           <span className="deliverySoHard">
-            <i class="fa-solid fa-circle-info" />
+            <i className="fa-solid fa-circle-info" />
             제주도 및 도서 산간의 경우 배송비가 추가될 수 있습니다.
           </span>
         </div>

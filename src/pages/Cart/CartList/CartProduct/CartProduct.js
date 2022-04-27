@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import './CartProduct.scss';
 
 const CartProduct = () => {
+  const cartAProductCheckBox = useRef();
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
+  const []
+
+  // console.log(cartAProductCheckBox.current.current.checked);
 
   const plusProductCount = () => {
     if (count === 5) {
@@ -29,11 +33,19 @@ const CartProduct = () => {
   return (
     <div id="cartProduct">
       <div className="cartProductTop">
-        <span>"제품 카테고리"</span>
+        <span>"categories.id"</span>
         <span className="freeDelevery">이벤트기간 무료배송!</span>
       </div>
       <div className="cartProductBottom">
-        <input className="cartProductCheck" type="checkbox" />
+        <input
+          onClick={() => {
+            console.log(cartAProductCheckBox.current.checked);
+          }}
+          ref={cartAProductCheckBox}
+          className="cartProductCheck"
+          type="checkbox"
+          id="cartProductCheckBox"
+        />
         <div className="btnRight">
           <div className="cartProductDetail">
             <div className="showCartProduct">
@@ -44,7 +56,7 @@ const CartProduct = () => {
               />
               <div className="productOption">
                 <div className="productNameAndOption">
-                  <div className="CartProductName">"상품명"</div>
+                  <div className="CartProductName">"products.id"</div>
                   <button className="cartDeleteProduct">X</button>
                 </div>
                 <input
@@ -61,25 +73,26 @@ const CartProduct = () => {
               <div className="cartProductCountBtn">
                 <button
                   className="productCounterBtn"
-                  onClick={plusProductCount}
-                >
-                  +
-                </button>
-                <div className="productCount">{count}</div>
-                <button
-                  className="productCounterBtn"
                   onClick={minusProductCount}
                 >
                   -
                 </button>
+
+                <div className="productCount">{count}</div>
+                <button
+                  className="productCounterBtn"
+                  onClick={plusProductCount}
+                >
+                  +
+                </button>
               </div>
-              <span className="cartProductPrice">"상품가격"원</span>
+              <span className="cartProductPrice">"products.price"원</span>
             </div>
           </div>
           <div className="aProductDetailPrice">
             <div className="aProductDetail">
               <span>상품금액</span>
-              <span>"상품가격 * count"원</span>
+              <span>"products.price * {count}"원</span>
             </div>
             <div className="aProductDetail">
               <span>즉시할인금액</span>
@@ -91,7 +104,9 @@ const CartProduct = () => {
             </div>
             <div className="aProductWholeDetail">
               <span>총 금액</span>
-              <span className="aProductWholePrice">"총 금액 원"</span>
+              <span className="aProductWholePrice">
+                "products.price * {count}"
+              </span>
             </div>
           </div>
           <button className="SeeMoreProductOfShop" onClick={goToCategory}>
