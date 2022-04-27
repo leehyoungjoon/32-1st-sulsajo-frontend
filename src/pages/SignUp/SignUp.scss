@@ -68,6 +68,11 @@
         color: $detailFontColor;
       }
 
+      .signUpInput:focus {
+        outline: none;
+        border-bottom: 3px solid $detailFontColor;
+      }
+
       .emailCheck {
         margin-top: 10px;
         width: 100px;
@@ -104,10 +109,6 @@
       .hidden {
         display: none;
       }
-    }
-    .signUpInput:focus {
-      outline: none;
-      border-bottom: 3px solid $detailFontColor;
     }
     .know {
       margin-top: 100px;
