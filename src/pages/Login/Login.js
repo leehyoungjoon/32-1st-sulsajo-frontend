@@ -1,36 +1,73 @@
 import { useState } from 'react';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
+// fetch('http://10.58.2.16:8000/users/signin', {
+//   method: 'POST',
+//   body: JSON.stringify({
+//     email: idInput,
+//     password: pwInput,
+//   }),
+// })
+//   .then(response => response.json())
+//   .then(result => {
+//     if (result.message === 'SUCCESS') {
+//       alert('환영합니다!');
+//       navigate('/');
+//     } else {
+//       alert('확인해주세요');
+//     }
+//   });
+
 const Login = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [idInput, setIdInput] = useState('');
   const handleIdInput = event => {
     setIdInput(event.target.value);
+  };
+  const [pwInput, setPwInput] = useState('');
+
+  const handlePwInput = event => {
+    setPwInput(event.target.value);
   };
 
   // const goToSignUp = () => {
   // navigate("/");
   // };
 
-  const [pwInput, setPwInput] = useState('');
-  const handlePwInput = event => {
-    setPwInput(event.target.value);
+  const goToLogin = e => {
+    e.preventDefault();
+    if (idInput && pwInput) {
+      fetch('http://10.58.2.16:8000/users/signin', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: idInput,
+          password: pwInput,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.message === 'SUCCESS') {
+            alert('환영합니다!');
+            navigate('/');
+          } else {
+            alert('확인해주세요');
+          }
+        });
+    } else {
+      alert('이메일 및 비밀번호를 확인해 주세요');
+    }
   };
 
-  const [isButtonActive, setIsButtonActive] = useState(false);
+  const isBtnActive =
+    idInput.includes('@') && pwInput.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/);
 
-  const buttonColorChange = () => {
-    idInput.includes('@') && pwInput.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/)
-      ? setIsButtonActive(true)
-      : setIsButtonActive();
-  };
   return (
     <div>
       <div className="loginWrap">
         <p className="topLogin">로그인</p>
-        <form className="inputWrap" onKeyUp={buttonColorChange}>
+        <form className="inputWrap" onSubmit={goToLogin}>
           <div className="topEmail">이메일</div>
           <div className="loginWrapper">
             <input
@@ -39,8 +76,9 @@ const Login = () => {
               placeholder="이메일을 입력해주세요"
               onChange={handleIdInput}
             />
-            <span className="separator"> </span>
+            <span className="separator" />
           </div>
+          <div className="topEmail">비밀번호</div>
           <div className="loginWrapper">
             <input
               className="inputPw"
@@ -48,24 +86,27 @@ const Login = () => {
               placeholder="비밀번호을 입력해주세요"
               onChange={handlePwInput}
             />
-            <span className="separator"> </span>
+            <span className="separator" />
           </div>
 
           <button
-            className={isButtonActive ? 'loginButtonActive ' : 'loginButton'}
+            className={isBtnActive ? 'loginButtonActive ' : 'loginButton'}
           >
             로그인
           </button>
         </form>
         <div className="socialLogin">
           <button className="kakaoLoginButton">
-            <i class="fa-regular fa-1x fa-comment"></i>카카오 로그인
+            <i class="fa-regular fa-1x fa-comment" />
+            카카오 로그인
           </button>
           <button className="naverLoginButton">
-            <i class="fa-brands fa-1x fa-neos"></i>네이버 로그인
+            <i class="fa-brands fa-1x fa-neos" />
+            네이버 로그인
           </button>
           <button className="googleLoginButton">
-            <i class="fa-brands fa-1x fa-google"></i>구글 로그인
+            <i class="fa-brands fa-1x fa-google" />
+            구글 로그인
           </button>
         </div>
         <div className="linkWrap">
