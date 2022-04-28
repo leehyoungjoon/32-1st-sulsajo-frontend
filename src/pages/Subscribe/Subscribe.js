@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Subscribe.scss';
 const Subscribe = () => {
+  const [index, setIndex] = useState(0);
+  // const clickhandler = ({ target }) => {
+  //   target.className === 'leftIcon' ? setIndex(index - 1) : setIndex(index + 1);
+  // };
+  const clickhandler = ({ target }) => {
+    return setIndex(index - 1);
+  };
+  const clickhandlerr = ({ target }) => {
+    return setIndex(index + 1);
+  };
+
+  console.log(index);
   return (
     <div className="mainWrap">
       <div className="topWrap">
@@ -23,7 +35,7 @@ const Subscribe = () => {
                 {/* <div>O</div> */}
               </div>
               <div className="boxComment">
-                다양한 주종을 경험할 수 있는 담화박스
+                다양한 주종을 경험할 수 있는 담와박스
               </div>
               <div className="hipoon" />
             </div>
@@ -51,7 +63,7 @@ const Subscribe = () => {
                 {/* <div>O</div> */}
               </div>
               <div className="boxComment">
-                다양한 주종을 경험할 수 있는 담화박스
+                다양한 주종을 경험할 수 있는 담와박스
               </div>
               <div className="hipoon" />
             </div>
@@ -73,7 +85,7 @@ const Subscribe = () => {
       <div className="secondMainText">가장 편리한 방법</div>
       <button className="subscribeButton">구독하러 가기</button>
       <div className="firstSubscribeText">전통주 구독을</div>
-      <div className="secondSubscribeText">술담화로 시작해야 하는 이유</div>
+      <div className="secondSubscribeText">술담와로 시작해야 하는 이유</div>
       <div className="landingBanner">
         <img src="./images/landing-banner-pc2.png" />
       </div>
@@ -84,7 +96,7 @@ const Subscribe = () => {
             유일하게 문 앞 배송이 가능한 술
           </div>
           <div className="secondDescription">편리한 홈술</div>
-          <div className="thirdDescription">일상 속 소중한 담화</div>
+          <div className="thirdDescription">일상 속 소중한 담와</div>
         </div>
         <div className="landingIcon">
           <img src="./images/landing-icon2.png" />
@@ -104,24 +116,47 @@ const Subscribe = () => {
       <div className="dontWorry">걱정 마세요!</div>
       <div className="dontWorryWrapper">
         <div className="leftIcon">
-          <button />
+          <button onClick={clickhandler} />
         </div>
-        <div className="dontWorryBox">
-          <img src="./images/landing-slide-icon2.png" />
-          <div>노련한 소믈리에들이</div>
-          <div>매달 블라인드 테이스팅을 통해</div>
-          <div>누군가의 '인생술'이 될 수 있는 술들을 선별합니다.</div>
-        </div>
-        <div className="rightIcon">
-          <button />
+        <div className="dontWorrySlideBox">
+          <div
+            className="dontWorrySubSlideBox"
+            style={{
+              transform: `translateX(${Number(index) * -375}px)`,
+              transition: `transform 1s`,
+            }}
+          >
+            <div className="dontWorryBox">
+              <img src="./images/landing-slide-icon2.png" />
+              <div>노련한 </div>
+              <div>매달 블라인드 테이스팅을 통해</div>
+              <div>누군가의 '인생술'이 될 수 있는 술들을 선별합니다.</div>
+            </div>
+            <div className="dontWorryBox">
+              <img src="./images/landing-slide-icon2.png" />
+              <div>노련한 소믈리에</div>
+              <div>매달 블라인드 테이스팅을 통해</div>
+              <div>누군가의 '인생술'이 될 수 있는 술들을 선별합니다.</div>
+            </div>
+            <div className="dontWorryBox">
+              <img src="./images/landing-slide-icon2.png" />
+              <div>노련한 소믈리에들이</div>
+              <div>매달 블라인드 테이스팅을 통해</div>
+              <div>누군가의 '인생술'이 될 수 있는 술들을 선별합니다.</div>
+            </div>
+          </div>
+          <div className="rightIcon">
+            <button onClick={clickhandlerr} />
+          </div>
+          <ul className="buttonWrapper">
+            <li className="slideButton" />
+            <li className="slideButton" />
+            <li className="slideButton" />
+          </ul>
         </div>
       </div>
-      <ul className="buttonWrapper">
-        <li className="slideButton" />
-        <li className="slideButton" />
-        <li className="slideButton" />
-      </ul>
-      <div className="recentlyText">최근 담화, 함께 볼까요?</div>
+
+      <div className="recentlyText">최근 담와, 함께 볼까요?</div>
       <div className="recentylBox">
         <div>한달에 한번씩</div>
         <div>나에게 주는 선물</div>
