@@ -102,7 +102,7 @@ const Cart = () => {
 
   const countPlusHandle = e => {
     // console.log(products);
-    products.map(product => console.log(product[0]));
+    products.map(product => console.log(product));
     console.log(typeof products);
     // console.log(newCount);
     // setData(data.map(x => {
