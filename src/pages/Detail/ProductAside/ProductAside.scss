@@ -1,0 +1,100 @@
+@import '/src/styles/variables.scss';
+
+.aside {
+  width: 350px;
+  position: sticky;
+  top: 30px;
+  float: right;
+  margin-right: 100px;
+
+  .asideBar {
+    width: 300px;
+    text-align: center;
+    border-radius: 5%;
+    box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+    padding: 30px 20px;
+
+    .label {
+      text-align: right;
+      margin: 25px 0;
+    }
+
+    .option {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+      padding: 20px;
+      border-radius: 3px;
+
+      select {
+        width: 160px;
+        border: none;
+        height: 25px;
+      }
+    }
+
+    .amount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+      margin-bottom: 100px;
+
+      .minus,
+      .plus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      .plus {
+        color: $mainLayoutColor;
+      }
+    }
+
+    .price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+      height: 50px;
+      margin-bottom: 30px;
+    }
+
+    .delivery {
+      margin-bottom: 30px;
+
+      .label {
+        color: $mainLayoutColor;
+      }
+    }
+
+    .cart,
+    .purchase {
+      width: 150px;
+      height: 40px;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+
+    .cart {
+      background-color: $mainLayoutColor;
+    }
+
+    .purchase {
+      background-color: $productDetailFontColor;
+    }
+  }
+}
