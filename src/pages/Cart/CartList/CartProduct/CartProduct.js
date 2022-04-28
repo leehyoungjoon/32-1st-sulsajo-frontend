@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import './CartProduct.scss';
 
 const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
@@ -57,9 +57,8 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
             <div className="cartProductCountAndPrice">
               <div key={product.id} className="cartProductCountBtn">
                 <button
-                  id={product.id}
                   className="productCounterBtn"
-                  onClick={countMinusHandle}
+                  onClick={() => countMinusHandle(product.id)}
                 >
                   -
                 </button>
@@ -67,9 +66,8 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
                 <div className="productCount">{product.ordercount}</div>
 
                 <button
-                  id={product.id}
                   className="productCounterBtn"
-                  onClick={handlePlusCount}
+                  onClick={() => handlePlusCount(product.id)}
                 >
                   +
                 </button>
