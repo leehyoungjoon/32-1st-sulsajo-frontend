@@ -19,8 +19,8 @@ const Login = () => {
   const goToLogin = e => {
     e.preventDefault();
     if (idInput && pwInput) {
-      fetch('아이피주소', {
-        method: 'POST',
+      fetch('http://10.58.5.183:8000/users/login', {
+        method: 'post',
         body: JSON.stringify({
           email: idInput,
           password: pwInput,
@@ -28,6 +28,7 @@ const Login = () => {
       })
         .then(response => response.json())
         .then(result => {
+          console.log(result);
           if (result.message === 'SUCCESS') {
             alert('환영합니다!');
             navigate('/main');
@@ -85,7 +86,7 @@ const Login = () => {
             네이버 로그인
           </button>
           <button className="googleLoginButton">
-            <i class="fa-brands fa-1x fa-google" />
+            <i className="fa-brands fa-1x fa-google" />
             구글 로그인
           </button>
         </div>
