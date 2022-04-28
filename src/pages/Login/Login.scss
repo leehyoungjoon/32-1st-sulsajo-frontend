@@ -68,27 +68,21 @@
       font-weight: bold;
       font-size: 18px;
       background-color: transparent;
-    }
 
-    .loginButtonActive {
-      width: 150px;
-      height: 45px;
-      border-radius: 10px;
-      color: white;
-      border: 1px solid rgb(178, 178, 178);
-      font-weight: bold;
-      font-size: 18px;
-      background-color: #f4bb5f;
-      cursor: pointer;
+      &.Active {
+        background-color: #f4bb5f;
+        cursor: pointer;
+      }
     }
   }
+
   .socialLogin {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
 
-    .kakaoLoginButton {
+    .socialLoginBtn {
       width: 190px;
       height: 50px;
       display: flex;
@@ -97,44 +91,33 @@
       font-size: 15px;
       margin-bottom: 20px;
       border-radius: 10px;
-      background-color: rgb(255, 232, 18);
       border: none;
 
-      .fa-comment {
-        color: #59500e;
+      &.kakao {
+        background-color: rgb(255, 232, 18);
+
+        .fa-comment {
+          color: #59500e;
+        }
       }
-    }
-    .naverLoginButton {
-      width: 190px;
-      height: 50px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      font-size: 15px;
-      color: white;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      background-color: #37c736;
-      border: none;
 
-      .fa-neos {
+      &.naver {
         color: white;
+        background-color: #37c736;
+
+        .fa-neos {
+          color: white;
+        }
       }
-    }
-    .googleLoginButton {
-      width: 190px;
-      height: 50px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      font-size: 15px;
-      color: rgba(0, 0, 0, 0.54);
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 0.5px solid rgb(178, 178, 178);
-      background-color: transparent;
+
+      &.google {
+        color: rgba(0, 0, 0, 0.54);
+        border: 0.5px solid rgb(178, 178, 178);
+        background-color: transparent;
+      }
     }
   }
+
   .linkWrap {
     display: flex;
     flex-direction: column;

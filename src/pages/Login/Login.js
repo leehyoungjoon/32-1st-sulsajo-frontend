@@ -69,20 +69,20 @@ const Login = () => {
           <span className="separator" />
         </div>
 
-        <button className={isBtnActive ? 'loginButtonActive ' : 'loginButton'}>
+        <button className={isBtnActive ? 'loginButton Active ' : 'loginButton'}>
           로그인
         </button>
       </form>
       <div className="socialLogin">
-        <button className="kakaoLoginButton">
+        <button className="socialLoginBtn kakao">
           <i class="fa-regular fa-1x fa-comment" />
           카카오 로그인
         </button>
-        <button className="naverLoginButton">
+        <button className="socialLoginBtn naver">
           <i class="fa-brands fa-1x fa-neos" />
           네이버 로그인
         </button>
-        <button className="googleLoginButton">
+        <button className="socialLoginBtn google">
           <i className="fa-brands fa-1x fa-google" />
           구글 로그인
         </button>
