@@ -312,6 +312,7 @@
     width: 100px;
     text-align: center;
     margin-top: 190px;
+
     > button {
       background-color: transparent;
       border: none;
@@ -347,19 +348,20 @@
     }
   }
   .dontWorrySlideBox {
+    height: 600px;
     width: 375px;
     overflow: hidden;
-    // transition: transform 1s;
 
     .dontWorrySubSlideBox {
       width: 1125px;
       display: flex;
 
       .dontWorryBox {
+        border-radius: 20px;
+        height: 450px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        // transition: transform 1s;
 
         width: 375px;
         background-color: #5197f2;
