@@ -1,10 +1,9 @@
-@import '/src/styles/variables.scss';
-
 .mainSojuRecommend {
   max-width: 948px;
   margin: 0 auto;
   padding-top: 149px;
   position: relative;
+
   .sectionContent {
     text-align: center;
     margin-top: 10px;
@@ -12,6 +11,7 @@
     font-weight: bold;
     color: #f3bb60;
   }
+
   .sectionSubContent {
     text-align: center;
     margin: 15px 0 20px;
@@ -27,21 +27,24 @@
     font-weight: bold;
     margin-bottom: 20px;
   }
+
   .sojuCarouselOuter {
-    // display: flex;
     overflow: hidden;
     width: 100%;
+
     .sojuCarouselSet1 {
       width: 300%;
       display: flex;
       transition: transform 1s;
     }
+
     .sojuCarouselSet2 {
       width: 300%;
       display: flex;
       transform: translate(calc(-100% / 3));
       transition: transform 1s;
     }
+
     .sojuCarouselSet3 {
       width: 300%;
       display: flex;
@@ -61,6 +64,7 @@
     height: 50px;
     border: 3px solid #f3bb60;
     border-radius: 50%;
+
     .fa-solid {
       font-size: 30px;
       color: #f3bb60;
@@ -70,6 +74,7 @@
   .arrowLeftBtn {
     left: -65px;
   }
+
   .arrowRightBtn {
     right: -65px;
   }

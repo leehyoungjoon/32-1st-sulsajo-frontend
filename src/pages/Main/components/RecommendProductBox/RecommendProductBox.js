@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
 import ProductBoxCard from '../ProductBoxCard/ProductBoxCard';
-import './ProductBox.scss';
+import './RecommendProductBox.scss';
 
-const ProductBox = () => {
-  const [recommendList, setRecommendList] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
-  ]);
-  const [recoomendTitle, setRecommendTitle] = useState('');
-  const [recoomendSubTitle, setRecommendSubTitle] = useState('');
+const ProductBox = ({ data }) => {
   const [productCardNum, setProductCardNum] = useState(1);
 
-  useEffect(() => {
-    //setRecommentList(백엔드에서 fetch해온 데이터)
-  });
+  // const getTitle = () => {
+  //   if (data.category === '탁주') {
+  //     return '술담화 전통주 소믈리에의 이번 주 P.I.C.K!';
+  //   } else if () {
+
+  //   } else if () {
+
+  //   } else {
+
+  //   }
+  // };
+
   const moveCardLeft = () => {
     if (productCardNum !== 1) {
       setProductCardNum(productCardNum - 1);
@@ -23,7 +27,6 @@ const ProductBox = () => {
       setProductCardNum(productCardNum + 1);
     }
   };
-
   return (
     <section className="mainSojuRecommend">
       <div className="sectionContent">
@@ -35,8 +38,8 @@ const ProductBox = () => {
       <div className="viewMore">더보기 </div>
       <div className="sojuCarouselOuter">
         <div className={`sojuCarouselSet${productCardNum}`}>
-          {recommendList.map(el => (
-            <ProductBoxCard />
+          {data.map(value => (
+            <ProductBoxCard key={value.id} data={value} />
           ))}
         </div>
       </div>

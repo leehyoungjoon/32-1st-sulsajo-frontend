@@ -1,13 +1,34 @@
-import React, { useState } from 'react';
-import ProductBox from './components/ProductBox/ProductBox';
+import React, { useEffect, useState } from 'react';
+import RecommendProductBox from './components/RecommendProductBox/RecommendProductBox';
 import CategoryCard from './components/CategoryCard/CategoryCard';
+import ReviewCard from './components/ReviewCard/ReviewCard';
+import Data from './Data';
 import './Main.scss';
 
 const Main = () => {
-  const [productList, setProductList] = useState('');
+  const [recommendProductTakju, setRecommendProductTakju] = useState([]);
+  const [recommendProductBoxies, setRecommendProductBoxies] = useState([]);
+
+  useEffect(() => {
+    const totalData = Data;
+
+    // totalData에서 객체 하나하나를 훑어서 그 객체의 category가 탁주인 것 추려서 하나의 또 다른 배열로 만들기!
+    // 배열에서 원하는 데이터를 추출해서 걸러낼 때 쓰는 메소드 --> filter
+    // X4
+    const filteredTakju = totalData.filter(value => value.category === '탁주');
+    setRecommendProductTakju(filteredTakju);
+
+    const filteredYakju = totalData.filter(value => value.category === '약주');
+    const filteredChungju = totalData.filter(
+      value => value.category === '청주'
+    );
+    const filteredSoju = totalData.filter(value => value.category === '증류주');
+
+    setRecommendProductBoxies([filteredYakju, filteredChungju, filteredSoju]);
+  }, []);
 
   return (
-    <section className="mainLayOut">
+    <section className="Main">
       <header className="mainHeader">
         <section className="mainHeaderTitle">
           <div className="mainHeaderMenu">신상품</div>
@@ -31,7 +52,7 @@ const Main = () => {
         <CategoryCard />
       </section>
 
-      <ProductBox />
+      <RecommendProductBox data={recommendProductTakju} />
 
       <section className="specialPriceSection">
         <section className="specialPriceBar">
@@ -43,7 +64,7 @@ const Main = () => {
                 className="specialPriceImg"
               />
               <span className="specialPriceTitle">릴레이특가</span>
-              <div className="specialPriceBorder"> </div>
+              <div className="specialPriceBorder" />
             </div>
             <div className="timeBox">
               <span className="countTime">43 : 31 : 58</span>
@@ -57,7 +78,7 @@ const Main = () => {
         <div className="specialPriceLink">
           <div className="specialImageWrapper">
             <img
-              alt="sojuImg"
+              alt="soju"
               src="/images/Main/soju.jpeg"
               className="specialImage"
             />
@@ -84,47 +105,17 @@ const Main = () => {
         </div>
       </section>
 
-      <ProductBox />
-      <ProductBox />
-      <ProductBox />
+      {recommendProductBoxies.map((value, i) => (
+        <RecommendProductBox key={i} data={value} />
+      ))}
 
       <section className="mainReview">
         <div className="reviewContent">"이 순간 다른 분들은"</div>
         <div className="reviewSubContent">실시간 후기</div>
         <div className="mainReviewBox">
-          <div className="reviewBoxContent">
-            <img
-              alt="userProductImg"
-              src="/images/Main/april.png"
-              className="reviewBoxImg"
-            />
-            <div className="mainReviewScore">⭐ ⭐ ⭐ ⭐ ⭐</div>
-            <div className="reviewInfo">
-              <div className="mainReviewComment">맛있어요</div>
-            </div>
-          </div>
-          <div className="reviewBoxContent">
-            <img
-              alt="userProductImg"
-              src="/images/Main/april.png"
-              className="reviewBoxImg"
-            />
-            <div className="mainReviewScore">⭐ ⭐ ⭐ ⭐ ⭐</div>
-            <div className="reviewInfo">
-              <div className="mainReviewComment">맛있어요</div>
-            </div>
-          </div>
-          <div className="reviewBoxContent">
-            <img
-              alt="userProductImg"
-              src="/images/Main/april.png"
-              className="reviewBoxImg"
-            />
-            <div className="mainReviewScore">⭐ ⭐ ⭐ ⭐ ⭐</div>
-            <div className="reviewInfo">
-              <div className="mainReviewComment">맛있어요</div>
-            </div>
-          </div>
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
         </div>
       </section>
     </section>

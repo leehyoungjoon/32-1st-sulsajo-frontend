@@ -1,8 +1,7 @@
-@import '/src/styles/variables.scss';
-
 .mainHeader {
   height: 40px;
   background-color: rgb(244, 244, 244);
+
   .mainHeaderTitle {
     max-width: 1006px;
     height: 40px;
@@ -11,16 +10,19 @@
     align-items: center;
     background-color: transparent;
     margin: 0 auto;
+
     .mainHeaderMenu {
-      cursor: pointer;
       margin: 0 20px;
       font-size: 15px;
       color: rgb(112, 112, 112);
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(244, 187, 95);
+        transition: 0.3s;
+      }
     }
-    .mainHeaderMenu:hover {
-      color: rgb(244, 187, 95);
-      transition: 0.3s;
-    }
+
     .mainSearchBar {
       margin: 0 20px;
       width: 198px;
@@ -40,6 +42,7 @@
 .mainRecommend {
   width: 100vw;
   text-align: center;
+
   .recommendImg {
     width: 100vw;
   }
@@ -58,27 +61,33 @@
     .specialPriceTime {
       display: flex;
       align-items: center;
+
       .clockImg {
         display: flex;
         align-items: center;
       }
+
       .specialPriceImg {
         width: 29px;
       }
+
       .specialPriceTitle {
         color: rgb(62, 62, 62);
         font-size: 18px;
         font-weight: bold;
         margin-right: 10px;
       }
+
       .specialPriceBorder {
         width: 0.8px;
         height: 15px;
         background-color: rgb(112, 112, 112);
       }
+
       .timeBox {
         display: flex;
         align-items: center;
+
         .countTime {
           display: flex;
           align-items: center;
@@ -87,6 +96,7 @@
           font-weight: bold;
           margin-left: 10px;
         }
+
         .timeText {
           font-size: 14px;
           font-weight: 300;
@@ -94,6 +104,7 @@
         }
       }
     }
+
     .specialPriceTimeBox {
       width: 180px;
       height: 32px;
@@ -107,6 +118,7 @@
       margin-left: auto;
     }
   }
+
   .specialPriceImg {
     display: flex;
     justify-content: center;
@@ -191,6 +203,7 @@
             margin: 0px 8px 0px 5px;
             font-size: 14px;
           }
+
           .productPrice {
             color: rgb(255, 255, 255);
             font-size: 23px;
@@ -201,6 +214,7 @@
     }
   }
 }
+
 .mainReview {
   max-width: 1006px;
   margin: 0px auto;
@@ -226,28 +240,5 @@
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-
-    .reviewBoxContent {
-      text-align: center;
-      margin: 0 10px;
-      .reviewBoxImg {
-        width: 270px;
-        height: 270px;
-        border-radius: 15px;
-      }
-      .mainReviewScore {
-        margin: 20px 0;
-      }
-      .reviewInfo {
-        .mainReviewComment {
-          font-size: 12px;
-          color: rgb(112, 112, 112);
-          width: 270px;
-          height: 70px;
-          margin-top: 20px;
-          text-align: left;
-        }
-      }
-    }
   }
 }
