@@ -1,7 +1,4 @@
-* {
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-}
-.loginWrap {
+.Login {
   .topLogin {
     display: flex;
     justify-content: center;
@@ -61,6 +58,7 @@
       color: rgb(112, 112, 112);
       margin-bottom: 30px;
     }
+
     .loginButton {
       width: 150px;
       height: 45px;
@@ -71,6 +69,7 @@
       font-size: 18px;
       background-color: transparent;
     }
+
     .loginButtonActive {
       width: 150px;
       height: 45px;
