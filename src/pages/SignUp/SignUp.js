@@ -11,6 +11,8 @@ const SignUp = () => {
     passwordcheck: '',
     nick_name: '',
   });
+
+  const { email, name, password, passwordcheck, nick_name } = inputValue;
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({
@@ -19,44 +21,43 @@ const SignUp = () => {
     });
   };
 
-  // const emailCheckToDB = e => {
-  //   e.preventDefault();
-  //   fetch('http://10.58.5.183:8000/users/signup', {
-  //     method: 'post',
-  //     body: JSON.stringify({
-  //       email: inputValue.email,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       if (result.message === 'SUCCESS') {
-  //         alert('사용 가능한 이메일입니다.');
-  //       } else if (result.message === 'KEY_ERROR') {
-  //         alert('이미 존재하는 이메일입니다. 다시 입력해 주세요.');
-  //       }
-  //     });
-  // };
+  const checkEmailValid = e => {
+    e.preventDefault();
+    fetch('http://10.58.5.183:8000/users/signup', {
+      method: 'post',
+      body: JSON.stringify({
+        email,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'KEY_ERROR') {
+          alert('사용 가능한 이메일입니다.');
+        } else if (result.message !== 'SUCCESS') {
+          alert('이미 존재하는 이메일입니다. 다시 입력해 주세요.');
+        }
+      });
+  };
 
-  const signUpCheck =
+  const isSignUpCheck =
     inputValue.email.includes('@') &&
     inputValue.name &&
     inputValue.password.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/);
 
   const goToSignUp = e => {
     e.preventDefault();
-    if (signUpCheck) {
+    if (isSignUpCheck) {
       fetch('http://10.58.5.183:8000/users/signup', {
         method: 'post',
         body: JSON.stringify({
-          email: inputValue.email,
-          name: inputValue.name,
-          password: inputValue.password,
-          nick_name: inputValue.nick_name,
+          email,
+          name,
+          password,
+          nick_name,
         }),
       })
         .then(response => response.json())
         .then(result => {
-          console.log(result);
           if (result.message === 'SUCCESS') {
             alert('회원가입에 성공하였습니다.');
             navigate('/login', { replace: false });
@@ -70,39 +71,33 @@ const SignUp = () => {
   };
 
   const emailCheck =
-    inputValue.email === ''
+    email === '' ? 'hidden' : email.includes('@') ? 'hidden' : 'show';
+  const checkPwd =
+    password === ''
       ? 'hidden'
-      : inputValue.email.includes('@')
-      ? 'hidden'
-      : 'show';
-  const CheckPwd =
-    inputValue.password === ''
-      ? 'hidden'
-      : inputValue.password.match(
-          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-        ) // 대문자 소문자 숫자 8글자 이상
+      : password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)
       ? 'hidden'
       : 'show';
   const DoubleCheckPwd =
-    inputValue.passwordcheck === ''
+    passwordcheck === ''
       ? 'hidden'
-      : inputValue.password === inputValue.passwordcheck
+      : password === passwordcheck
       ? 'hidden'
       : 'show';
   const nick_nameCheck =
-    inputValue.nick_name === ''
+    nick_name === ''
       ? 'hidden'
-      : inputValue.nick_name.match(/^[가-힣].{1,10}$/)
+      : nick_name.match(/^[가-힣].{1,10}$/)
       ? 'hidden'
       : 'show';
 
   return (
-    <div id="signUp">
+    <div className="signUp">
       <div className="signUpContainer">
         <img
           className="leftSignUpImg"
           src="https://cdn.pixabay.com/photo/2017/01/11/22/54/glass-of-wine-1973136_1280.png"
-          alt="회원가입 메인이미지"
+          alt="SignUp Main Img"
         />
         <div className="rightSignUp">
           <div className="signupHeader">
@@ -125,7 +120,9 @@ const SignUp = () => {
               type="text"
               placeholder="이메일을 입력해주세요"
             />
-            <button className="emailCheck">중복확인</button>
+            <button className="emailCheck" onClick={checkEmailValid}>
+              중복확인
+            </button>
             <div className={emailCheck}>올바르지 않은 이메일 형식입니다.</div>
 
             {/* 실명 */}
@@ -147,7 +144,7 @@ const SignUp = () => {
               type="password"
               placeholder="8자 이상 / 영문 / 숫자를 조합해 주세요"
             />
-            <div className={CheckPwd}>8자 이상, 영문, 숫자를 조합해 주세요</div>
+            <div className={checkPwd}>8자 이상, 영문, 숫자를 조합해 주세요</div>
 
             {/* 비밀번호 확인 */}
             <p className="inputText">비밀번호 확인</p>
