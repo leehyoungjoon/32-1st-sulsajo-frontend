@@ -2,13 +2,7 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router';
 import './CartProduct.scss';
 
-const CartProduct = ({
-  handlePlusCount,
-  handledCount,
-  countMinusHandle,
-  product,
-  key,
-}) => {
+const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
   const cartAProductCheckBox = useRef();
   const navigate = useNavigate();
 
@@ -70,7 +64,7 @@ const CartProduct = ({
                   -
                 </button>
 
-                <div className="productCount">{handledCount}</div>
+                <div className="productCount">{product.ordercount}</div>
 
                 <button
                   id={product.id}
@@ -90,7 +84,7 @@ const CartProduct = ({
               <span>상품금액</span>
 
               <span>
-                {String(product.price * handledCount).replace(
+                {String(product.price * product.ordercount).replace(
                   /\B(?=(\d{3})+(?!\d))/g,
                   ','
                 )}
@@ -114,7 +108,7 @@ const CartProduct = ({
               <span>총 금액</span>
 
               <span className="aProductWholePrice">
-                {String(product.price * handledCount).replace(
+                {String(product.price * product.ordercount).replace(
                   /\B(?=(\d{3})+(?!\d))/g,
                   ','
                 )}

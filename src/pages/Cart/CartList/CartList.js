@@ -2,12 +2,8 @@ import React from 'react';
 import './CartList.scss';
 import CartProduct from './CartProduct/CartProduct';
 
-const CartList = ({
-  handlePlusCount,
-  handledCount,
-  countMinusHandle,
-  ModDataProducts,
-}) => {
+const CartList = ({ handlePlusCount, countMinusHandle, ModDataProducts }) => {
+  console.log(ModDataProducts);
   return (
     <div id="cartList">
       <div className="cartListTop">
@@ -28,7 +24,6 @@ const CartList = ({
             product={product}
             handlePlusCount={handlePlusCount}
             countMinusHandle={countMinusHandle}
-            handledCount={handledCount}
           />
         ))}
       </div>
