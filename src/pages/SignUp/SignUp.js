@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 
 const SignUp = () => {
@@ -33,7 +33,7 @@ const SignUp = () => {
       .then(result => {
         if (result.message === 'KEY_ERROR') {
           alert('사용 가능한 이메일입니다.');
-        } else if (result.message !== 'SUCCESS') {
+        } else if (result.message === 'ALREADY_EXISTS_EMAIL') {
           alert('이미 존재하는 이메일입니다. 다시 입력해 주세요.');
         }
       });
