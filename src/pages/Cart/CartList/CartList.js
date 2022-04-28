@@ -3,7 +3,6 @@ import './CartList.scss';
 import CartProduct from './CartProduct/CartProduct';
 
 const CartList = ({ handlePlusCount, countMinusHandle, ModDataProducts }) => {
-  console.log(ModDataProducts);
   return (
     <div id="cartList">
       <div className="cartListTop">

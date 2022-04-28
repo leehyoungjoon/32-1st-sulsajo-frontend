@@ -58,7 +58,9 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
               <div key={product.id} className="cartProductCountBtn">
                 <button
                   className="productCounterBtn"
-                  onClick={() => countMinusHandle(product.id)}
+                  onClick={() =>
+                    countMinusHandle(product.id, product.ordercount)
+                  }
                 >
                   -
                 </button>

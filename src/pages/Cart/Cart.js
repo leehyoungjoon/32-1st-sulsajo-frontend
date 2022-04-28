@@ -70,7 +70,24 @@ const Cart = () => {
 
     setProductsCount(newProducts);
   };
-  const countMinusHandle = () => {};
+  const countMinusHandle = (id, ordercount) => {
+    if (ordercount - 1 === 0) {
+      const newProducts = [...products];
+      setProductsCount(newProducts);
+    } else {
+      const productIdx = products.findIndex(product => product.id === id);
+      const newProducts = [...products];
+      newProducts[productIdx].ordercount--;
+      setProductsCount(newProducts);
+    }
+  };
+
+  const amoutPrice = () => {
+    const sum = products.map(product => product.ordercount * product.price);
+    const result = sum.reduce((x, y) => x + y);
+    return result;
+  };
+
   return (
     <div id="cartMain">
       <div id="cart">
@@ -79,7 +96,7 @@ const Cart = () => {
           handlePlusCount={countPlusHandle}
           countMinusHandle={countMinusHandle}
         />
-        <CartPayment />
+        <CartPayment wholePrice={amoutPrice()} />
       </div>
     </div>
   );
