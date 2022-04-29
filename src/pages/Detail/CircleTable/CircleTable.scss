@@ -1,0 +1,26 @@
+@import '/src/styles/variables.scss';
+
+.circleTable {
+  display: inline-block;
+  position: relative;
+
+  svg {
+    width: 130px;
+    height: 100px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+  }
+
+  .intensity {
+    position: absolute;
+    left: 47px;
+    top: 40px;
+    color: $detailFontColor;
+  }
+
+  .text {
+    position: absolute;
+    left: 25px;
+    bottom: 0;
+  }
+}
