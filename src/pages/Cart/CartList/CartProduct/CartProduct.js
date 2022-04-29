@@ -12,23 +12,24 @@ const CartProduct = ({
   const navigate = useNavigate();
 
   const goToCategory = () => {
-    navigate('/Cart');
+    navigate('/signup');
   };
 
   return (
     <div id="cartProduct">
       <div className="cartProductTop">
-        <span>{product.category}</span>
+        <span />
         <span className="freeDelevery">이벤트기간 무료배송!</span>
       </div>
 
       <div className="cartProductBottom">
         <input
-          id={product.id}
           onClick={e => {
-            const currentValue = e.target.checked;
-            isChangeValue(product.id, currentValue);
+            const currentCheckedValue = e.target.checked;
+            isChangeValue(product.id, currentCheckedValue);
+            // selectDelete(product.id);
           }}
+          checked
           className="cartProductCheck"
           type="checkbox"
         />
@@ -72,14 +73,12 @@ const CartProduct = ({
               <div key={product.id} className="cartProductCountBtn">
                 <button
                   className="productCounterBtn"
-                  onClick={() =>
-                    countMinusHandle(product.id, product.ordercount)
-                  }
+                  onClick={() => countMinusHandle(product.id, product.count)}
                 >
                   -
                 </button>
 
-                <div className="productCount">{product.ordercount}</div>
+                <div className="productCount">{product.count}</div>
 
                 <button
                   className="productCounterBtn"
@@ -100,7 +99,7 @@ const CartProduct = ({
               <span>상품금액</span>
 
               <span>
-                {String(product.price * product.ordercount).replace(
+                {String(product.price * product.count).replace(
                   /\B(?=(\d{3})+(?!\d))/g,
                   ','
                 )}
@@ -124,7 +123,7 @@ const CartProduct = ({
               <span>총 금액</span>
 
               <span className="aProductWholePrice">
-                {String(product.price * product.ordercount).replace(
+                {String(product.price * product.count).replace(
                   /\B(?=(\d{3})+(?!\d))/g,
                   ','
                 )}
@@ -134,7 +133,7 @@ const CartProduct = ({
           </div>
 
           <button className="SeeMoreProductOfShop" onClick={goToCategory}>
-            양조장 상품 더보기 해당 카테고리로 이동
+            양조장 상품 더보기
           </button>
         </div>
       </div>
