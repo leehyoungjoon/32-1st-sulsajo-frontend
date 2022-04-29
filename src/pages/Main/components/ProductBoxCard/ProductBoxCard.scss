@@ -11,23 +11,23 @@
     padding: 15px 10px 10px;
 
     .contentTitle {
-      font-size: 15px;
-      color: rgb(62, 62, 62);
-      font-weight: bold;
       margin-bottom: 18px;
+      color: rgb(62, 62, 62);
+      font-size: 15px;
+      font-weight: bold;
     }
 
     .price {
-      font-size: 16px;
-      color: rgb(62, 62, 62);
       margin-bottom: 9px;
+      color: rgb(62, 62, 62);
+      font-size: 16px;
       font-weight: bold;
     }
 
     .scoreAndReview {
       display: flex;
-      align-items: center;
       margin-bottom: 10px;
+      align-items: center;
 
       .score,
       .review {
@@ -35,8 +35,8 @@
       }
 
       .score {
-        color: rgb(62, 62, 62);
         margin: 0 8px 0 5px;
+        color: rgb(62, 62, 62);
         font-weight: bold;
       }
 
@@ -56,8 +56,8 @@
     .hashtags {
       padding-top: 10px;
       border-top: 1px solid rgb(235, 235, 235);
-      font-size: 13px;
       color: rgb(112, 112, 112);
+      font-size: 13px;
 
       .tag {
         padding: 3px 0;

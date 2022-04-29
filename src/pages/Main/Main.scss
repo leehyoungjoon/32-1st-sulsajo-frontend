@@ -3,13 +3,13 @@
   background-color: rgb(244, 244, 244);
 
   .mainHeaderTitle {
-    max-width: 1006px;
-    height: 40px;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    background-color: transparent;
+    max-width: 1006px;
+    height: 40px;
     margin: 0 auto;
+    background-color: transparent;
+    align-items: center;
 
     .mainHeaderMenu {
       margin: 0 20px;
@@ -24,17 +24,17 @@
     }
 
     .mainSearchBar {
-      margin: 0 20px;
-      width: 198px;
-      height: 25px;
-      line-height: 25px;
-      border-radius: 4px;
-      background-color: rgb(255, 255, 255);
-      padding-left: 10px;
-      font-size: 11px;
-      color: rgb(178, 178, 178);
       display: inline-block;
       vertical-align: middle;
+      width: 198px;
+      height: 25px;
+      margin: 0 20px;
+      padding-left: 10px;
+      border-radius: 4px;
+      line-height: 25px;
+      color: rgb(178, 178, 178);
+      background-color: rgb(255, 255, 255);
+      font-size: 11px;
     }
   }
 }
@@ -72,10 +72,10 @@
       }
 
       .specialPriceTitle {
+        margin-right: 10px;
         color: rgb(62, 62, 62);
         font-size: 18px;
         font-weight: bold;
-        margin-right: 10px;
       }
 
       .specialPriceBorder {
@@ -90,32 +90,32 @@
 
         .countTime {
           display: flex;
-          align-items: center;
+          margin-left: 10px;
           color: rgb(62, 62, 62);
           font-size: 18px;
           font-weight: bold;
-          margin-left: 10px;
+          align-items: center;
         }
 
         .timeText {
+          margin-left: 5px;
           font-size: 14px;
           font-weight: 300;
-          margin-left: 5px;
         }
       }
     }
 
     .specialPriceTimeBox {
+      display: flex;
+      justify-content: center;
       width: 180px;
       height: 32px;
+      margin-left: auto;
+      border-radius: 15px 15px 0px;
       background-color: rgb(211, 57, 57);
       color: rgb(255, 255, 255);
       font-size: 13px;
-      border-radius: 15px 15px 0px;
-      display: flex;
-      justify-content: center;
       align-items: center;
-      margin-left: auto;
     }
   }
 
@@ -125,19 +125,19 @@
   }
 
   .specialPriceLink {
-    height: 32vw;
-    max-height: 360px;
-    background-color: rgb(62, 62, 62);
-    border-radius: 10px;
     position: relative;
+    max-height: 360px;
+    height: 32vw;
     margin-top: 26px;
+    border-radius: 10px;
+    background-color: rgb(62, 62, 62);
 
     .specialImageWrapper {
       position: absolute;
-      top: 0px;
-      left: 0px;
       width: 42%;
       height: 100%;
+      top: 0px;
+      left: 0px;
 
       .specialImage {
         width: 100%;
@@ -148,59 +148,59 @@
     }
 
     .specialContentText {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       width: 58%;
       height: 100%;
       top: 0px;
       right: 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       text-align: left;
-      position: absolute;
+      align-items: center;
 
       .contentText {
         .contentRedBox {
+          display: flex;
+          justify-content: center;
           width: 44px;
           height: 24px;
+          margin-bottom: 8px;
           border-radius: 4px;
           background-color: rgb(211, 57, 57);
           color: rgb(255, 255, 255);
           font-weight: bold;
-          margin-bottom: 8px;
-          display: flex;
-          justify-content: center;
           align-items: center;
         }
 
         .sellingPoint {
-          color: rgb(196, 196, 196);
-          font-weight: normal;
           margin-bottom: 4px;
+          color: rgb(196, 196, 196);
           font-size: 15px;
+          font-weight: normal;
         }
 
         .productName-wrapper {
           display: flex;
           justify-content: space-between;
+          color: rgb(255, 255, 255);
           font-size: 18px;
           font-weight: 500;
-          color: rgb(255, 255, 255);
         }
 
         .productPrice-wrapper {
+          display: flex;
+          justify-content: space-between;
           margin-top: 10px;
           border-top: 1px solid rgb(112, 112, 112);
           padding-top: 14px;
           -webkit-box-pack: justify;
-          justify-content: space-between;
-          display: flex;
           align-items: center;
 
           .productPriceReview {
             display: flex;
-            color: rgb(255, 255, 255);
             margin: 0px 8px 0px 5px;
+            color: rgb(255, 255, 255);
             font-size: 14px;
           }
 
@@ -218,27 +218,27 @@
 .mainReview {
   max-width: 1006px;
   margin: 0px auto;
-  text-align: center;
   padding-top: 149px;
+  text-align: center;
 
   .reviewContent {
+    margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 10px;
     color: rgb(244, 187, 95);
   }
 
   .reviewSubContent {
+    margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
     color: rgb(62, 62, 62);
-    margin-top: 15px;
   }
 
   .mainReviewBox {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 50px;
+    align-items: center;
   }
 }

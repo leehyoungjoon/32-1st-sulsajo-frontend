@@ -12,9 +12,6 @@ const Main = () => {
   useEffect(() => {
     const totalData = Data;
 
-    // totalData에서 객체 하나하나를 훑어서 그 객체의 category가 탁주인 것 추려서 하나의 또 다른 배열로 만들기!
-    // 배열에서 원하는 데이터를 추출해서 걸러낼 때 쓰는 메소드 --> filter
-    // X4
     const filteredTakju = totalData.filter(value => value.category === '탁주');
     setRecommendProductTakju(filteredTakju);
 
