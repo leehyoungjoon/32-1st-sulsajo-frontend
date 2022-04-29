@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Subscribe.scss';
+import Modal from '../Modal/Modal';
+
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
 
-  const leftclickhandler = ({ target }) => {
+  const leftclickhandler = () => {
     return index !== 0 && setIndex(index - 1);
   };
-  const rightclickhandler = ({ target }) => {
+  const rightclickhandler = () => {
     return index !== 2 && setIndex(index + 1);
+  };
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   return (
@@ -16,7 +27,6 @@ const Subscribe = () => {
         <p className="firstComment">한달에 한 번, 찾아오는 인생술 만나보세요</p>
       </div>
       <div className="scrollEvent">구독이 망설여진다면 ?</div>
-
       <div className="imageBox">
         <div className="leftCell">
           <img
@@ -40,7 +50,14 @@ const Subscribe = () => {
               <div className="arriveDay">도착일 : 1월 28일</div>
             </div>
             <div className="hintBox">
-              <button className="hintOpen">힌트공개</button>
+              <button onClick={openModal}>힌트공개</button>
+              <Modal
+                className="hintOpen"
+                open={modalOpen}
+                close={closeModal}
+                header="술담아"
+              />
+              {/* <button className="hintOpen">힌트공개</button> */}
             </div>
           </div>
         </div>
@@ -119,7 +136,7 @@ const Subscribe = () => {
           <div
             className="dontWorrySubSlideBox"
             style={{
-              transform: `translateX(${Number(index) * -375}px)`,
+              transform: `translateX(${index * -375}px)`,
               transition: `transform 1s`,
             }}
           >
@@ -152,7 +169,6 @@ const Subscribe = () => {
           </ul>
         </div>
       </div>
-
       <div className="recentlyText">최근 담와, 함께 볼까요?</div>
       <div className="recentylBox">
         <div>한달에 한번씩</div>
