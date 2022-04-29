@@ -14,7 +14,9 @@ const CartPayment = ({ wholePrice }) => {
         <div className="detailPayment">
           <div className="selectedPrice">
             <span>총 상품금액</span>
-            <span>{wholePrice}원</span>
+            <span>
+              {String(wholePrice).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+            </span>
           </div>
           <div className="discountPrice">
             <span>총 즉시할인 금액</span>
@@ -22,7 +24,7 @@ const CartPayment = ({ wholePrice }) => {
           </div>
           <div className="deliveryCharge">
             <span>총 배송비</span>
-            <span>5000원</span>
+            <span>0원</span>
           </div>
           <span className="deliverySoHard">
             <i className="fa-solid fa-circle-info" />
@@ -31,7 +33,9 @@ const CartPayment = ({ wholePrice }) => {
         </div>
         <div className="wholePrice">
           <span>총 결제 예상 금액</span>
-          <span>{wholePrice + 5000}원</span>
+          <span>
+            {String(wholePrice).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+          </span>
         </div>
       </div>
       <button className="startPayment" onClick={goPayment}>

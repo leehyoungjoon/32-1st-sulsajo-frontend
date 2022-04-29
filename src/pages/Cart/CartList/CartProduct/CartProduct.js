@@ -1,9 +1,14 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CartProduct.scss';
 
-const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
-  const cartAProductCheckBox = useRef();
+const CartProduct = ({
+  handlePlusCount,
+  countMinusHandle,
+  product,
+  isChangeValue,
+  eachProductDelete,
+}) => {
   const navigate = useNavigate();
 
   const goToCategory = () => {
@@ -11,7 +16,7 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
   };
 
   return (
-    <div key={key} id="cartProduct">
+    <div id="cartProduct">
       <div className="cartProductTop">
         <span>{product.category}</span>
         <span className="freeDelevery">이벤트기간 무료배송!</span>
@@ -19,11 +24,13 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
 
       <div className="cartProductBottom">
         <input
-          onClick={() => {}}
-          ref={cartAProductCheckBox}
+          id={product.id}
+          onClick={e => {
+            const currentValue = e.target.checked;
+            isChangeValue(product.id, currentValue);
+          }}
           className="cartProductCheck"
           type="checkbox"
-          id="cartProductCheckBox"
         />
 
         <div className="btnRight">
@@ -39,7 +46,14 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
                 <div className="productNameAndOption">
                   <div className="CartProductName">{product.name}</div>
 
-                  <button className="cartDeleteProduct">X</button>
+                  <button
+                    className="cartDeleteProduct"
+                    onClick={() => {
+                      eachProductDelete(product.id);
+                    }}
+                  >
+                    X
+                  </button>
                 </div>
 
                 <input
@@ -75,7 +89,9 @@ const CartProduct = ({ handlePlusCount, countMinusHandle, product, key }) => {
                 </button>
               </div>
 
-              <span className="cartProductPrice">{product.price}원</span>
+              <span className="cartProductPrice">
+                {String(product.price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </span>
             </div>
           </div>
 
