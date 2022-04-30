@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './ProductBoxCard.scss';
 
 // {
@@ -17,21 +18,27 @@ import './ProductBoxCard.scss';
 
 const ProductBoxCard = ({ data }) => {
   return (
-    <div className="sojuRecommendList">
-      <img alt="recommend" src={data.productImg} className="recommendListImg" />
-      <div className="contentWrapper">
-        <h4 className="contentTitle">{data.description_detail}</h4>
-        <p className="price">{data.price}원</p>
-        <div className="scoreAndReview">
-          <span className="score">⭐ 4.5</span>
-          <div className="border" />
-          <span className="review">리뷰 5901</span>
-        </div>
-        <div className="hashtags">
-          <p className="tag">{data.description_tag}</p>
+    <Link className="sojuRecommendList" to={`/detail/${data.id}`}>
+      <div>
+        <img
+          alt="recommend"
+          src={data.productImg}
+          className="recommendListImg"
+        />
+        <div className="contentWrapper">
+          <h4 className="contentTitle">{data.name}</h4>
+          <p className="price">{data.price}원</p>
+          <div className="scoreAndReview">
+            <span className="score">⭐ 4.5</span>
+            <div className="border" />
+            <span className="review">리뷰 5901</span>
+          </div>
+          <div className="hashtags">
+            <p className="tag">{data.description_tag}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

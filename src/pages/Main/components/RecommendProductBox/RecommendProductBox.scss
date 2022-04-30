@@ -54,7 +54,9 @@
   }
 
   .arrowLeftBtn,
-  .arrowRightBtn {
+  .arrowRightBtn,
+  .arrowLeftBtnTak,
+  .arrowRightBtnTak {
     cursor: pointer;
     position: absolute;
     width: 50px;
@@ -71,11 +73,18 @@
     }
   }
 
-  .arrowLeftBtn {
+  .arrowLeftBtn,
+  .arrowLeftBtnTak {
     left: -65px;
   }
 
-  .arrowRightBtn {
+  .arrowRightBtn,
+  .arrowRightBtnTak {
     right: -65px;
+  }
+
+  .arrowLeftBtnTak,
+  .arrowRightBtnTak {
+    top: 30%;
   }
 }
