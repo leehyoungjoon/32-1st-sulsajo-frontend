@@ -14,9 +14,7 @@ const CartPayment = ({ wholePrice }) => {
         <div className="detailPayment">
           <div className="selectedPrice">
             <span>총 상품금액</span>
-            <span>
-              {String(wholePrice).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-            </span>
+            <span>{wholePrice.toLocaleString()}원</span>
           </div>
           <div className="discountPrice">
             <span>총 즉시할인 금액</span>
@@ -33,9 +31,7 @@ const CartPayment = ({ wholePrice }) => {
         </div>
         <div className="wholePrice">
           <span>총 결제 예상 금액</span>
-          <span>
-            {String(wholePrice).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-          </span>
+          <span>{wholePrice.toLocaleString()}원</span>
         </div>
       </div>
       <button className="startPayment" onClick={goPayment}>

@@ -9,6 +9,8 @@ const CartList = ({
   eachProductDelete,
   checkValueHandle,
   checkValueTrue,
+  selectedDelete,
+  isAllCheck,
 }) => {
   const emptyOrNot =
     ModDataProducts.length > 0 ? (
@@ -35,15 +37,19 @@ const CartList = ({
             onChange={e => {
               checkValueHandle(e.target.id, e.target.checked);
             }}
+            checked={isAllCheck}
             className="cartCheckAllBox"
             type="checkbox"
           />
           <span>모두 선택</span>
-          <span>
-            {checkValueTrue.length} / {ModDataProducts.length}
+          <span className="selectedLength">
+            {checkValueTrue.length.toLocaleString()} /{' '}
+            {ModDataProducts.length.toLocaleString()}
           </span>
         </div>
-        <button className="cartSelectedDeleteAll">선택삭제</button>
+        <button onClick={selectedDelete} className="cartSelectedDeleteAll">
+          선택삭제
+        </button>
       </div>
       <div>{emptyOrNot}</div>
     </div>

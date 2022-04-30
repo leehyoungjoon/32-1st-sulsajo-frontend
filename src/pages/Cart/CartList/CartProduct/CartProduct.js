@@ -62,11 +62,10 @@ const CartProduct = ({
                   list="cartProductOptionReCheck"
                   className="cartProductOptionReCheck"
                   placeholder="옵션 선택"
+                  value="500ml, Medium 사이즈"
                 />
 
-                <datalist id="cartProductOptionReCheck">
-                  <option value="500ml, Medium 사이즈" />
-                </datalist>
+                <datalist id="cartProductOptionReCheck" />
               </div>
             </div>
 
@@ -90,7 +89,7 @@ const CartProduct = ({
               </div>
 
               <span className="cartProductPrice">
-                {String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                {price.toLocaleString()}원
               </span>
             </div>
           </div>
@@ -99,9 +98,7 @@ const CartProduct = ({
             <div className="aProductDetail">
               <span>상품금액</span>
 
-              <span>
-                {String(price * count).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </span>
+              <span>{(price * count).toLocaleString()}원</span>
             </div>
 
             <div className="aProductDetail">
@@ -120,7 +117,7 @@ const CartProduct = ({
               <span>총 금액</span>
 
               <span className="aProductWholePrice">
-                {String(price * count).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                {(price * count).toLocaleString()}원
               </span>
             </div>
           </div>

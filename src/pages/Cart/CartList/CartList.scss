@@ -16,11 +16,19 @@
         width: 15px;
         height: 15px;
       }
+      .selectedLength {
+        margin-left: 15px;
+        padding: 4px;
+        font-weight: bold;
+      }
     }
 
     .cartSelectedDeleteAll {
       border-style: none;
       color: $productDetailFontColor;
+      background-color: #f7f7f7;
+      font-size: 15px;
+      font-weight: bold;
       &:hover {
         cursor: pointer;
       }
