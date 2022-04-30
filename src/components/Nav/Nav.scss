@@ -1,0 +1,57 @@
+.navHeader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .navBar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1006px;
+    width: 100vw;
+    height: 65px;
+    padding: 0 30px;
+    align-items: center;
+
+    .navLogo {
+      display: flex;
+      width: 120px;
+      align-items: center;
+      cursor: pointer;
+
+      .logoImg {
+        width: 100%;
+      }
+    }
+
+    .navLogin {
+      display: flex;
+      font-size: 16px;
+      font-weight: bold;
+      align-items: center;
+
+      .loginBtn,
+      .logoutBtn,
+      .subscribeBtn,
+      .storeBtn {
+        margin: 0 15px;
+        border: none;
+        background-color: transparent;
+        color: #1b5218;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .logoutBtn {
+        display: none;
+        cursor: pointer;
+      }
+
+      .fa-cart-shopping {
+        color: rgb(163, 175, 163);
+        cursor: pointer;
+      }
+    }
+  }
+}
