@@ -2,18 +2,14 @@ import React from 'react';
 import './CartList.scss';
 import CartProduct from './CartProduct/CartProduct';
 
-const CartList = (
-  {
-    handlePlusCount,
-    countMinusHandle,
-    ModDataProducts,
-    eachProductDelete,
-    selectDelete,
-    isChangeValue,
-    isCheckTrue,
-  },
-  e
-) => {
+const CartList = ({
+  handlePlusCount,
+  countMinusHandle,
+  ModDataProducts,
+  eachProductDelete,
+  checkValueHandle,
+  checkValueTrue,
+}) => {
   const emptyOrNot =
     ModDataProducts.length > 0 ? (
       ModDataProducts.map((product, index) => (
@@ -22,9 +18,8 @@ const CartList = (
           product={product}
           handlePlusCount={handlePlusCount}
           countMinusHandle={countMinusHandle}
-          isChangeValue={isChangeValue}
           eachProductDelete={eachProductDelete}
-          // selectDelete={selectDelete}
+          checkValueHandle={checkValueHandle}
         />
       ))
     ) : (
@@ -35,15 +30,20 @@ const CartList = (
     <div id="cartList">
       <div className="cartListTop">
         <div className="cartSelectAllBox">
-          <input className="cartCheckAllBox" type="checkbox" />
+          <input
+            id="cartCheckAll"
+            onChange={e => {
+              checkValueHandle(e.target.id, e.target.checked);
+            }}
+            className="cartCheckAllBox"
+            type="checkbox"
+          />
           <span>모두 선택</span>
           <span>
-            {isCheckTrue.length} / {ModDataProducts.length}
+            {checkValueTrue.length} / {ModDataProducts.length}
           </span>
         </div>
-        <button onClick={selectDelete} className="cartSelectedDeleteAll">
-          선택삭제
-        </button>
+        <button className="cartSelectedDeleteAll">선택삭제</button>
       </div>
       <div>{emptyOrNot}</div>
     </div>

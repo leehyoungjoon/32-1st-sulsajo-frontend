@@ -16,21 +16,21 @@ const temporaryData = [
   {
     id: 2,
     name: '스윗마마',
-    count: 6,
+    count: 1,
     isChecked: true,
     productImg:
       'https://cdn.pixabay.com/photo/2022/04/05/19/27/penguin-7114280_1280.jpg',
     price: 20000,
   },
-  {
-    id: 3,
-    name: '루드베리',
-    count: 3,
-    isChecked: true,
-    productImg:
-      'https://cdn.pixabay.com/photo/2022/04/15/06/32/river-7133713_1280.jpg',
-    price: 10000,
-  },
+  // {
+  //   id: 3,
+  //   name: '루드베리',
+  //   count: 3,
+  //   isChecked: true,
+  //   productImg:
+  //     'https://cdn.pixabay.com/photo/2022/04/15/06/32/river-7133713_1280.jpg',
+  //   price: 10000,
+  // },
   // {
   //   id: 4,
   //   name: '미상',
@@ -122,8 +122,9 @@ const Cart = () => {
     }
   };
 
+  const checkValueTrue = products.filter(product => product.isChecked === true);
   const amoutPrice = () => {
-    const sum = isCheckTrue.map(product => product.count * product.price);
+    const sum = checkValueTrue.map(product => product.count * product.price);
     const result = sum.reduce((x, y) => x + y, 0);
     return result;
   };
@@ -134,19 +135,19 @@ const Cart = () => {
     );
   };
 
-  const isChangeValue = (id, currentCheckedValue) => {
+  const checkValueHandle = (id, checked) => {
     const productIdx = products.findIndex(product => product.id === id);
-    const newProducts = [...products];
-    newProducts[productIdx].isChecked = currentCheckedValue;
-    setProductUpdate(newProducts);
-  };
-
-  const checkValue = [...products];
-  const isCheckTrue = checkValue.filter(x => x.isChecked === true);
-  const isCheckFalse = checkValue.filter(x => x.isChecked === false);
-
-  const selectDelete = () => {
-    setProductUpdate(isCheckFalse);
+    if (id === 'cartCheckAll') {
+      // const allCheck =
+      //   products.filter(product => product.isChecked === true).length > 0
+      //     ? true
+      //     : false;
+      // return allCheck;
+    } else if (id !== 'cartCheckAll') {
+      const newProducts = [...products];
+      newProducts[productIdx].isChecked = checked;
+      setProductUpdate(newProducts);
+    }
   };
 
   return (
@@ -157,9 +158,8 @@ const Cart = () => {
           handlePlusCount={countPlusHandle}
           countMinusHandle={countMinusHandle}
           eachProductDelete={eachProductDelete}
-          selectDelete={selectDelete}
-          isChangeValue={isChangeValue}
-          isCheckTrue={isCheckTrue}
+          checkValueHandle={checkValueHandle}
+          checkValueTrue={checkValueTrue}
         />
         <CartPayment wholePrice={amoutPrice()} ModDataProducts={products} />
       </div>

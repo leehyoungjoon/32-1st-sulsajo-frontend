@@ -6,9 +6,11 @@ const CartProduct = ({
   handlePlusCount,
   countMinusHandle,
   product,
-  isChangeValue,
   eachProductDelete,
+  checkValueHandle,
 }) => {
+  const { id, name, count, isChecked, productImg, price } = product;
+
   const navigate = useNavigate();
 
   const goToCategory = () => {
@@ -24,14 +26,13 @@ const CartProduct = ({
 
       <div className="cartProductBottom">
         <input
-          onClick={e => {
-            const currentCheckedValue = e.target.checked;
-            isChangeValue(product.id, currentCheckedValue);
-            // selectDelete(product.id);
+          onChange={e => {
+            checkValueHandle(id, e.target.checked);
           }}
-          checked
-          className="cartProductCheck"
+          checked={isChecked}
+          className="cartProductCheck altasdfasdf"
           type="checkbox"
+          readOnly
         />
 
         <div className="btnRight">
@@ -40,17 +41,17 @@ const CartProduct = ({
               <img
                 className="cartProductImg"
                 alt="cartProductImg"
-                src={product.productImg}
+                src={productImg}
               />
 
               <div className="productOption">
                 <div className="productNameAndOption">
-                  <div className="CartProductName">{product.name}</div>
+                  <div className="CartProductName">{name}</div>
 
                   <button
                     className="cartDeleteProduct"
                     onClick={() => {
-                      eachProductDelete(product.id);
+                      eachProductDelete(id);
                     }}
                   >
                     X
@@ -70,26 +71,26 @@ const CartProduct = ({
             </div>
 
             <div className="cartProductCountAndPrice">
-              <div key={product.id} className="cartProductCountBtn">
+              <div key={id} className="cartProductCountBtn">
                 <button
                   className="productCounterBtn"
-                  onClick={() => countMinusHandle(product.id, product.count)}
+                  onClick={() => countMinusHandle(id, count)}
                 >
                   -
                 </button>
 
-                <div className="productCount">{product.count}</div>
+                <div className="productCount">{count}</div>
 
                 <button
                   className="productCounterBtn"
-                  onClick={() => handlePlusCount(product.id)}
+                  onClick={() => handlePlusCount(id)}
                 >
                   +
                 </button>
               </div>
 
               <span className="cartProductPrice">
-                {String(product.price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                {String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </span>
             </div>
           </div>
@@ -99,11 +100,7 @@ const CartProduct = ({
               <span>상품금액</span>
 
               <span>
-                {String(product.price * product.count).replace(
-                  /\B(?=(\d{3})+(?!\d))/g,
-                  ','
-                )}
-                원
+                {String(price * count).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </span>
             </div>
 
@@ -123,11 +120,7 @@ const CartProduct = ({
               <span>총 금액</span>
 
               <span className="aProductWholePrice">
-                {String(product.price * product.count).replace(
-                  /\B(?=(\d{3})+(?!\d))/g,
-                  ','
-                )}
-                원
+                {String(price * count).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </span>
             </div>
           </div>
