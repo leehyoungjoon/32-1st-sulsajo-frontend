@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useRef } from 'react';
+import Recommend from './Recommend/Recommend';
 import './Subscribe.scss';
-import Modal from '../Modal/Modal';
 
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const leftclickhandler = () => {
     return index !== 0 && setIndex(index - 1);
@@ -12,12 +13,13 @@ const Subscribe = () => {
     return index !== 2 && setIndex(index + 1);
   };
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const outModal = useRef();
 
-  const openModal = () => {
+  const modalPop = () => {
     setModalOpen(true);
   };
-  const closeModal = () => {
+
+  const exitModal = () => {
     setModalOpen(false);
   };
 
@@ -28,65 +30,17 @@ const Subscribe = () => {
       </div>
       <div className="scrollEvent">구독이 망설여진다면 ?</div>
       <div className="imageBox">
-        <div className="leftCell">
-          <img
-            className="leftImage"
-            src="./images/damhwabox_basic.png"
-            alt="왼쪽이미지"
-          />
-          <div className="leftComment">
-            <div className="leftBox">
-              <div className="header">
-                <span className="box">담와박스</span>
-                <span className="price">39,000원 / 월</span>
-              </div>
-              <div className="boxComment">
-                다양한 주종을 경험할 수 있는 담와박스
-              </div>
-              <div className="hipoon" />
-            </div>
-            <div className="date">
-              <div className="buyDate">결제일 : 12월 25일</div>
-              <div className="arriveDay">도착일 : 1월 28일</div>
-            </div>
-            <div className="hintBox">
-              <button onClick={openModal}>힌트공개</button>
-              <Modal
-                className="hintOpen"
-                open={modalOpen}
-                close={closeModal}
-                header="술담아"
-              />
-              {/* <button className="hintOpen">힌트공개</button> */}
-            </div>
-          </div>
-        </div>
-        <div className="rightCell">
-          <img
-            className="rightImage"
-            src="./images/damhwabox_soju.png"
-            alt="우측이미지"
-          />
-          <div className="rightComment">
-            <div className="rightBox">
-              <div className="header">
-                <span className="box">증류주 담와박스</span>
-                <span className="price">49,000원 / 월</span>
-              </div>
-              <div className="boxComment">
-                다양한 주종을 경험할 수 있는 담와박스
-              </div>
-              <div className="hipoon" />
-            </div>
-            <div className="date">
-              <div className="buyDate">결제일 : 12월 25일</div>
-              <div className="arriveDay">도착일 : 1월 28일</div>
-            </div>
-            <div className="hintBox">
-              <button className="hintOpen">힌트공개</button>
-            </div>
-          </div>
-        </div>
+        <Recommend
+          modalOpen={modalOpen}
+          modalPop={modalPop}
+          outModal={outModal}
+          exitModal={exitModal}
+        />
+        {/* <Recommend
+          modalOpen={modalOpen}
+          outModal={outModal}
+          openModal={openModal}
+        /> */}
       </div>
       <div className="mainBanner">
         <img
@@ -118,7 +72,7 @@ const Subscribe = () => {
           <div className="secondDescription">
             전국 1,200개 이상의 양조장 술 중
           </div>
-          <div className="thirdDescription">잠재적 ‘인생술’만 골라 받기</div>
+          <div className="thirdDescription">잠재적 '인생술'만 골라 받기</div>
         </div>
         <div className="landingIcon">
           <img src="./images/landing-icon3.png" alt="술병가격이미지" />
