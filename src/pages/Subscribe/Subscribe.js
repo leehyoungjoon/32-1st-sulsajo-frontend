@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Subscribe.scss';
 import Modal from './Modal/Modal';
+import Carousel from './Carousel/Carousel';
+import CardBox from './CardBox/CardBox';
 
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
@@ -78,77 +80,14 @@ const Subscribe = () => {
         <p className="firstComment">한달에 한 번, 찾아오는 인생술 만나보세요</p>
       </div>
       <div className="scrollEvent">구독이 망설여진다면 ?</div>
-      <div className="imageBox">
-        <div className="leftCell">
-          <img
-            className="leftImage"
-            src="./images/damhwabox_basic.png"
-            alt="왼쪽이미지"
-          />
+      <CardBox
+        outModal={outModal}
+        modalOpen={modalOpen}
+        Modal={Modal}
+        closeModal={closeModal}
+        openModal={openModal}
+      />
 
-          <div className="leftComment">
-            <div className="leftBox">
-              <div className="header">
-                <span className="box">담와박스</span>
-                <span className="price">39,000원 / 월</span>
-              </div>
-              <div className="boxComment">
-                다양한 주종을 경험할 수 있는 담와박스
-              </div>
-              <div className="hipoon" />
-            </div>
-            <div className="date">
-              <div className="buyDate">결제일 : 12월 25일</div>
-              <div className="arriveDay">도착일 : 1월 28일</div>
-            </div>
-            <button className="modalOpenBtn" type="button" onClick={openModal}>
-              힌트공개
-            </button>
-            <div className="hintBox" />
-            <div className="modalPrac" ref={outModal}>
-              {modalOpen && (
-                <div className="big">
-                  <Modal
-                    closeModal={closeModal}
-                    // productData={product}
-                    // productData={product}
-                    // tasteData={taste}
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="rightCell">
-          <img
-            className="rightImage"
-            src="./images/damhwabox_soju.png"
-            alt="우측이미지"
-          />
-          <div className="rightComment">
-            <div className="rightBox">
-              <div className="header">
-                <span className="box">증류주 담와박스</span>
-                <span className="price">49,000원 / 월</span>
-              </div>
-              <div className="boxComment">
-                다양한 주종을 경험할 수 있는 담와박스
-              </div>
-              <div className="hipoon" />
-            </div>
-            <div className="date">
-              <div className="buyDate">결제일 : 12월 25일</div>
-              <div className="arriveDay">도착일 : 1월 28일</div>
-            </div>
-            <div className="hintBox">
-              <button className="hintOpen" onClick={openModal}>
-                힌트공개
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="mainBanner">
         <img
           className="mainBannerImg"
@@ -189,47 +128,11 @@ const Subscribe = () => {
         </div>
       </div>
       <div className="dontWorry">걱정 마세요!</div>
-      <div className="dontWorryWrapper">
-        <div className="leftIcon">
-          <button onClick={leftclickhandler} />
-        </div>
-        <div className="dontWorrySlideBox">
-          <div
-            className="dontWorrySubSlideBox"
-            style={{
-              transform: `translateX(${index * -375}px)`,
-              transition: `transform 1s`,
-            }}
-          >
-            <div className="dontWorryBox">
-              <img src="./images/landing-slide-icon1.png" alt="종이미지" />
-              <div>결제되기 3일 전</div>
-              <div>이번 달 담와박스 구성의 힌트와</div>
-              <div>결제 알림 문자를 보내드려요.</div>
-            </div>
-            <div className="dontWorryBox">
-              <img src="./images/landing-slide-icon2.png" alt="병이미지" />
-              <div>노련한 소믈리에들이</div>
-              <div>매달 블라인드 테이스팅을 통해</div>
-              <div>누군가의 '인생술'이 될 수 있는 술들을 선별합니다.</div>
-            </div>
-            <div className="dontWorryBox">
-              <img src="./images/landing-slide-icon3.png" alt="정지이미지" />
-              <div>이번 달 구독이 힘들 것 같다면</div>
-              <div>언제든 '쉬어가기' 할 수 있어요.</div>
-              <div>당연히, 금액은 청구되지 않아요.</div>
-            </div>
-          </div>
-          <div className="rightIcon">
-            <button onClick={rightclickhandler} />
-          </div>
-          <ul className="buttonWrapper">
-            <li className="slideButton" />
-            <li className="slideButton" />
-            <li className="slideButton" />
-          </ul>
-        </div>
-      </div>
+      <Carousel
+        leftclickhandler={leftclickhandler}
+        rightclickhandler={rightclickhandler}
+        index={index}
+      />
       <div className="recentlyText">최근 담와, 함께 볼까요?</div>
       <div className="recentylBox">
         <div>한달에 한번씩</div>

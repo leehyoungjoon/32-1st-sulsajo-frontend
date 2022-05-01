@@ -8,8 +8,8 @@ const Modal = ({ productData, tasteData, closeModal }) => {
   // const { taste } = tasteData;
   return (
     <>
-      <div className="big-back" onClick={closeModal} />
-      <div className="biggggg">
+      <div className="madalBack" onClick={closeModal} />
+      <div className="modalPage">
         {/* {size} */}
         <button className="modalBtn" onClick={closeModal}>
           X
