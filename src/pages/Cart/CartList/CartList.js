@@ -8,7 +8,7 @@ const CartList = ({
   ModDataProducts,
   eachProductDelete,
   checkValueHandle,
-  checkValueTrue,
+  // checkValueTrue,
   selectedDelete,
   isAllCheck,
 }) => {
@@ -43,7 +43,7 @@ const CartList = ({
           />
           <span>모두 선택</span>
           <span className="selectedLength">
-            {checkValueTrue.length.toLocaleString()} /{' '}
+            {/* {checkValueTrue.length.toLocaleString()} /{' '} */}
             {ModDataProducts.length.toLocaleString()}
           </span>
         </div>
