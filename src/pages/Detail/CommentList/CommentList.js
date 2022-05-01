@@ -9,14 +9,16 @@ const CommentList = ({ addComment, setAddComment }) => {
 
   return addComment.map(el => {
     return (
-      <Comment
-        id={el.id}
-        nickname={el.nickname}
-        products={el.products}
-        createdAt={el.created_at}
-        content={el.content}
-        deleteComment={deleteComment}
-      />
+      <div key={el.id}>
+        <Comment
+          id={el.id}
+          nickname={el.nickname}
+          products={el.products}
+          createdAt={el.created_at}
+          content={el.content}
+          deleteComment={deleteComment}
+        />
+      </div>
     );
   });
 };
