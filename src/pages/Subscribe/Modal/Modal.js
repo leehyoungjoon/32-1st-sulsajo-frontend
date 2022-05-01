@@ -11,11 +11,11 @@ const Modal = ({ productData, tasteData, closeModal }) => {
       <div className="big-back" onClick={closeModal} />
       <div className="biggggg">
         {/* {size} */}
+        <button className="modalBtn" onClick={closeModal}>
+          X
+        </button>
         <div className="modalbox">
-          <button className="modalBtn" onClick={closeModal}>
-            X
-          </button>
-          <div className="modalOpen">술담화</div>
+          <div className="modalOpen">술담아</div>
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Subscribe.scss';
-import Modal from '../Modal/Modal';
+import Modal from './Modal/Modal';
 
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
