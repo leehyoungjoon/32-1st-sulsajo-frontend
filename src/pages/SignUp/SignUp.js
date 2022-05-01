@@ -11,6 +11,7 @@ const SignUp = () => {
     passwordcheck: '',
     nick_name: '',
   });
+  const [isCheckEmailFirst, setIsCheckEmailFirst] = useState(false);
 
   const { email, name, password, passwordcheck, nick_name } = inputValue;
   const handleInput = e => {
@@ -33,8 +34,10 @@ const SignUp = () => {
       .then(result => {
         if (result.message === 'KEY_ERROR') {
           alert('사용 가능한 이메일입니다.');
+          setIsCheckEmailFirst(true);
         } else if (result.message === 'ALREADY_EXISTS_EMAIL') {
           alert('이미 존재하는 이메일입니다. 다시 입력해 주세요.');
+          setIsCheckEmailFirst(false);
         }
       });
   };
@@ -46,27 +49,31 @@ const SignUp = () => {
 
   const goToSignUp = e => {
     e.preventDefault();
-    if (isSignUpCheck) {
-      fetch('http://10.58.5.183:8000/users/signup', {
-        method: 'post',
-        body: JSON.stringify({
-          email,
-          name,
-          password,
-          nick_name,
-        }),
-      })
-        .then(response => response.json())
-        .then(result => {
-          if (result.message === 'SUCCESS') {
-            alert('회원가입에 성공하였습니다.');
-            navigate('/login', { replace: false });
-          }
-        });
+    if (isCheckEmailFirst) {
+      if (isSignUpCheck) {
+        fetch('http://10.58.5.183:8000/users/signup', {
+          method: 'post',
+          body: JSON.stringify({
+            email,
+            name,
+            password,
+            nick_name,
+          }),
+        })
+          .then(response => response.json())
+          .then(result => {
+            if (result.message === 'SUCCESS') {
+              alert('회원가입에 성공하였습니다.');
+              navigate('/login', { replace: false });
+            }
+          });
+      } else {
+        alert(
+          '이메일, 이름, 비밀번호, 닉네임을 제대로 입력했는지 확인해 주세요.'
+        );
+      }
     } else {
-      alert(
-        '이메일, 이름, 비밀번호, 닉네임을 제대로 입력했는지 확인해 주세요.'
-      );
+      alert('이메일 중복체크를 먼저 해 주세요');
     }
   };
 
