@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Cart.scss';
 import CartList from './CartList/CartList';
 import CartPayment from './CartPayment/CartPayment';
@@ -25,82 +26,86 @@ const temporaryData = [
   {
     id: 3,
     name: '루드베리',
-    count: 3,
+    count: 1,
     isChecked: true,
     productImg:
       'https://cdn.pixabay.com/photo/2022/04/15/06/32/river-7133713_1280.jpg',
     price: 10000,
   },
-  // {
-  //   id: 4,
-  //   name: '미상',
-  //   count: 4,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2022/02/06/19/05/lamp-6997864_1280.jpg',
-  //   price: 15900,
-  // },
-  // {
-  //   id: 5,
-  //   name: '복순도가',
-  //   count: 7,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2021/08/12/05/29/feather-6539949_1280.jpg',
-  //   price: 52000,
-  // },
-  // {
-  //   id: 6,
-  //   name: '별산',
-  //   count: 2,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2022/02/16/18/10/fox-7017260_1280.jpg',
-  //   price: 8000,
-  // },
-  // {
-  //   id: 7,
-  //   name: '백련',
-  //   count: 1,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2021/10/09/07/37/maisan-provincial-park-6693310_1280.jpg',
-  //   price: 25000,
-  // },
-  // {
-  //   id: 8,
-  //   name: '미스티',
-  //   count: 5,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2022/04/09/17/30/coffee-7121939_1280.jpg',
-  //   price: 90000,
-  // },
-  // {
-  //   id: 9,
-  //   name: '나루',
-  //   count: 2,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2022/03/24/08/52/bird-7088667_1280.jpg',
-  //   price: 20000,
-  // },
-  // {
-  //   id: 10,
-  //   name: '매화깊은 밤',
-  //   count: 10,
-  //   isChecked: true,
-  //   productImg:
-  //     'https://cdn.pixabay.com/photo/2022/03/16/21/01/gentoo-penguin-7073391_1280.jpg',
-  //   price: 14900,
-  // },
+  {
+    id: 4,
+    name: '미상',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2022/02/06/19/05/lamp-6997864_1280.jpg',
+    price: 15900,
+  },
+  {
+    id: 5,
+    name: '복순도가',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2021/08/12/05/29/feather-6539949_1280.jpg',
+    price: 52000,
+  },
+  {
+    id: 6,
+    name: '별산',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2022/02/16/18/10/fox-7017260_1280.jpg',
+    price: 8000,
+  },
+  {
+    id: 7,
+    name: '백련',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2021/10/09/07/37/maisan-provincial-park-6693310_1280.jpg',
+    price: 25000,
+  },
+  {
+    id: 8,
+    name: '미스티',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2022/04/09/17/30/coffee-7121939_1280.jpg',
+    price: 90000,
+  },
+  {
+    id: 9,
+    name: '나루',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2022/03/24/08/52/bird-7088667_1280.jpg',
+    price: 20000,
+  },
+  {
+    id: 10,
+    name: '매화깊은 밤',
+    count: 1,
+    isChecked: true,
+    productImg:
+      'https://cdn.pixabay.com/photo/2022/03/16/21/01/gentoo-penguin-7073391_1280.jpg',
+    price: 14900,
+  },
 ];
 
 const Cart = () => {
+  useEffect(() => {
+    fetch('')
+      .then(res => res.json())
+      .then();
+  }, []);
+  const navigate = useNavigate();
   const [products, setProductUpdate] = useState(temporaryData);
-  const [isCheckTrue, setIsCheckTrue] = useState(temporaryData);
 
-  // 주문 수량 plus
   const countPlusHandle = id => {
     const productIdx = products.findIndex(product => product.id === id);
     if (products[productIdx].count === 15) {
@@ -112,27 +117,18 @@ const Cart = () => {
     }
   };
 
-  // 주문 수량 minus
   const countMinusHandle = (id, count) => {
+    const productIdx = products.findIndex(product => product.id === id);
     if (count - 1 === 0) {
       const newProducts = [...products];
       setProductUpdate(newProducts);
     } else {
-      const productIdx = products.findIndex(product => product.id === id);
       const newProducts = [...products];
       newProducts[productIdx].count--;
       setProductUpdate(newProducts);
     }
   };
 
-  // 개별 삭제
-  const eachProductDelete = eachSelectedId => {
-    setProductUpdate(
-      products.filter(product => (product.id === eachSelectedId) === false)
-    );
-  };
-
-  // 체크박스 관리
   const checkValueHandle = (id, checked) => {
     const productIdx = products.findIndex(product => product.id === id);
     if (typeof id === 'number') {
@@ -146,27 +142,35 @@ const Cart = () => {
     }
   };
 
-  // 체크박스 true false 필터링
+  const isCheckTrue = [...products].filter(
+    product => product.isChecked === true
+  );
 
-  // const checkValueFalse = products.filter(
-  //   product => product.isChecked === false
-  // );
-  // payment 컴포넌트로 넘길 결제 총액
+  const eachProductDelete = eachSelectedId => {
+    const deleteThis = [...products].filter(
+      product => product.id === eachSelectedId
+    );
+    fetch('', {
+      method: 'delete',
+      body: JSON.stringify({
+        deleteThis,
+      }),
+    }).then(res => console.log(res.status));
+  };
+
   const amoutPrice = () => {
-    const sum = products.map(product => product.count * product.price);
+    const sum = isCheckTrue.map(product => product.count * product.price);
     const result = sum.reduce((x, y) => x + y, 0);
     return result;
   };
 
-  // 채크박스 true 인 것들 삭제
   const selectedDelete = () => {
-    // setProductUpdate(checkValueFalse);
     fetch('', {
       method: 'delete',
       body: JSON.stringify({
         isCheckTrue: isCheckTrue,
       }),
-    }).then(res => console.log(res));
+    }).then(Response => console.log(Response.status));
   };
 
   const isAllCheck =
@@ -177,6 +181,17 @@ const Cart = () => {
         : true
       : false;
 
+  const goOrder = () => {
+    fetch('', {
+      method: 'post',
+      body: JSON.stringify({
+        products,
+      }),
+    })
+      .then(Response => console.log(Response))
+      .then(navigate('/order'));
+  };
+
   return (
     <div id="cartMain">
       <div id="cart">
@@ -186,11 +201,11 @@ const Cart = () => {
           countMinusHandle={countMinusHandle}
           eachProductDelete={eachProductDelete}
           checkValueHandle={checkValueHandle}
-          // checkValueTrue={checkValueTrue}
+          isCheckTrue={isCheckTrue}
           selectedDelete={selectedDelete}
           isAllCheck={isAllCheck}
         />
-        <CartPayment wholePrice={amoutPrice()} ModDataProducts={products} />
+        <CartPayment goOrder={goOrder} wholePrice={amoutPrice()} />
       </div>
     </div>
   );

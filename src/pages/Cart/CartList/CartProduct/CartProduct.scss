@@ -87,8 +87,8 @@
 
           .cartProductCountBtn {
             display: flex;
+            justify-content: center;
             border: 1px solid black;
-            display: flex;
             width: 90px;
             height: 30px;
             justify-content: space-between;
@@ -104,10 +104,12 @@
               cursor: pointer;
             }
             .productCount {
+              display: flex;
+              justify-content: center;
+              align-items: center;
               width: 10px;
               height: 10px;
               margin-bottom: 7px;
-              text-align: center;
             }
           }
         }

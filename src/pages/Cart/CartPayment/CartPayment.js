@@ -1,12 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './CartPayment.scss';
 
-const CartPayment = ({ wholePrice }) => {
-  const navtigate = useNavigate();
-  const goPayment = () => {
-    navtigate('/Cart');
-  };
+const CartPayment = ({ wholePrice, goOrder }) => {
   return (
     <div id="cartPayment">
       <div className="paymentTop">
@@ -34,7 +29,7 @@ const CartPayment = ({ wholePrice }) => {
           <span>{wholePrice.toLocaleString()}원</span>
         </div>
       </div>
-      <button className="startPayment" onClick={goPayment}>
+      <button className="startPayment" onClick={goOrder}>
         구매하기
       </button>
     </div>

@@ -5,16 +5,14 @@ import './CartProduct.scss';
 const CartProduct = ({
   handlePlusCount,
   countMinusHandle,
-  product,
+  product: { id, name, count, isChecked, productImg, price },
   eachProductDelete,
   checkValueHandle,
 }) => {
-  const { id, name, count, isChecked, productImg, price } = product;
-
   const navigate = useNavigate();
 
   const goToCategory = () => {
-    navigate('/signup');
+    navigate('/main');
   };
 
   return (
@@ -30,7 +28,7 @@ const CartProduct = ({
             checkValueHandle(id, e.target.checked);
           }}
           checked={isChecked}
-          className="cartProductCheck altasdfasdf"
+          className="cartProductCheck"
           type="checkbox"
           readOnly
         />
@@ -62,7 +60,7 @@ const CartProduct = ({
                   list="cartProductOptionReCheck"
                   className="cartProductOptionReCheck"
                   placeholder="옵션 선택"
-                  value="500ml, Medium 사이즈"
+                  defaultValue="500ml, Medium 사이즈"
                 />
 
                 <datalist id="cartProductOptionReCheck" />
@@ -123,7 +121,7 @@ const CartProduct = ({
           </div>
 
           <button className="SeeMoreProductOfShop" onClick={goToCategory}>
-            양조장 상품 더보기
+            다른 상품 더보기
           </button>
         </div>
       </div>

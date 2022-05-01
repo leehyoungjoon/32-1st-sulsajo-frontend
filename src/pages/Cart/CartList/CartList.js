@@ -8,7 +8,7 @@ const CartList = ({
   ModDataProducts,
   eachProductDelete,
   checkValueHandle,
-  // checkValueTrue,
+  isCheckTrue,
   selectedDelete,
   isAllCheck,
 }) => {
@@ -40,11 +40,11 @@ const CartList = ({
             checked={isAllCheck}
             className="cartCheckAllBox"
             type="checkbox"
+            readOnly
           />
           <span>모두 선택</span>
           <span className="selectedLength">
-            {/* {checkValueTrue.length.toLocaleString()} /{' '} */}
-            {ModDataProducts.length.toLocaleString()}
+            {isCheckTrue.length} / {ModDataProducts.length}
           </span>
         </div>
         <button onClick={selectedDelete} className="cartSelectedDeleteAll">
