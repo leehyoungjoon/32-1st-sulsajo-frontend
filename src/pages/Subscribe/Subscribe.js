@@ -9,50 +9,6 @@ const Subscribe = () => {
   // const [product, setProduct] = useState([]);
   // const [taste, setTaste] = useState([]);
 
-  const leftclickhandler = () => {
-    return index !== 0 && setIndex(index - 1);
-  };
-
-  const rightclickhandler = () => {
-    return index !== 2 && setIndex(index + 1);
-  };
-
-  const changeModalBtn = () => {
-    setIndex(0);
-  };
-  const changeModalBtn1 = () => {
-    setIndex(1);
-  };
-  const changeModalBtn2 = () => {
-    setIndex(2);
-  };
-
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const outModal = useRef();
-
-  console.log(modalOpen);
-  const openModal = id => {
-    setModalOpen(true);
-    console.log(id);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = e => {
-      if (outModal.current && !outModal.current.contains(e.target)) {
-        setModalOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [outModal]);
-
   // useEffect(() => {
   //   fetch('asdf', {
   //     method: 'get',
@@ -88,6 +44,50 @@ const Subscribe = () => {
   //   setModalOpen(false);
   // };
 
+  const leftclickhandler = () => {
+    return index !== 0 && setIndex(index - 1);
+  };
+
+  const rightclickhandler = () => {
+    return index !== 2 && setIndex(index + 1);
+  };
+
+  const changeModalBtn = () => {
+    setIndex(0);
+  };
+  const changeModalBtn1 = () => {
+    setIndex(1);
+  };
+  const changeModalBtn2 = () => {
+    setIndex(2);
+  };
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const outModal = useRef();
+
+  // console.log(modalOpen);
+  const openModal = id => {
+    setModalOpen(true);
+    console.log(id);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (outModal.current && !outModal.current.contains(e.target)) {
+        setModalOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [outModal]);
+
   return (
     <div className="mainWrap">
       <div className="topWrap">
@@ -100,21 +100,23 @@ const Subscribe = () => {
         Modal={Modal}
         closeModal={closeModal}
         openModal={openModal}
+        // taste={taste}
+        // product={product}
       />
       <div className="mainBanner">
         <img
           className="mainBannerImg"
-          src="./images/landing-banner-pc1.png"
+          src="./images/mainbanner.jpg"
           alt="상자이미지"
         />
       </div>
-      <div className="firstMainText">한 달을 특별하게 해주는</div>
+      <div className="firstMainText">나를 기쁘게 해주는</div>
       <div className="secondMainText">가장 편리한 방법</div>
       <button className="subscribeButton">구독하러 가기</button>
       <div className="firstSubscribeText">전통주 구독을</div>
       <div className="secondSubscribeText">술담와로 시작해야 하는 이유</div>
       <div className="landingBanner">
-        <img src="./images/landing-banner-pc2.png" alt="술잔이미지" />
+        <img src="./images/mainbanner1.jpg" alt="술잔이미지" />
       </div>
       <div className="descriptionWrapper">
         <div className="landingIcon">
@@ -153,7 +155,7 @@ const Subscribe = () => {
       <div className="recentylBox">
         <div>한달에 한번씩</div>
         <div>나에게 주는 선물</div>
-        <div>HyeongJoon</div>
+        <div>술담와</div>
       </div>
       <div className="converSationWrapper">
         <img src="./images/bubble_conversation.png" alt="말풍선이미지" />

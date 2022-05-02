@@ -6,7 +6,7 @@ import CardBoxComponent from './CardBoxComponent';
 const CARD_DATA = [
   {
     id: 1,
-    img: './images/damhwabox_basic.png',
+    img: './images/box1.jpg',
     title: '담와박스',
     price: '39,000원 / 월',
     startDate: '결제일 : 12월 25일',
@@ -15,7 +15,7 @@ const CARD_DATA = [
   },
   {
     id: 2,
-    img: './images/damhwabox_soju.png',
+    img: './images/box.jpg',
     title: '증류주 담와박스',
     price: '49,000원 / 월',
     startDate: '결제일 : 1월 25일',
@@ -45,8 +45,14 @@ const CardBox = ({ outModal, modalOpen, closeModal, openModal }) => {
           />
         );
       })}
-
-      {modalOpen && <Modal closeModal={closeModal} outModal={outModal} />}
+      {modalOpen && (
+        <Modal
+          closeModal={closeModal}
+          outModal={outModal}
+          // taste={taste}
+          // product={product}
+        />
+      )}
     </div>
   );
 };

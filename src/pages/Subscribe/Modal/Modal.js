@@ -11,7 +11,10 @@ const Modal = ({ outModal, closeModal, modal }) => {
             X
           </button>
           <div className="modalbox">
-            <div className="modalOpen">술담아</div>
+            <div className="modalOpen">
+              술담아{/* taste={taste} */}
+              {/* product={product} */}
+            </div>
           </div>
         </div>
       </div>

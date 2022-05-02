@@ -1,4 +1,5 @@
 import React from 'react';
+import './CardBoxComponent.scss';
 
 const CardBoxComponent = ({
   id,
@@ -10,10 +11,10 @@ const CardBoxComponent = ({
   endDate,
 }) => {
   return (
-    <div className="leftCell">
-      <img className="leftImage" src={img} alt="왼쪽이미지" />
-      <div className="leftComment">
-        <div className="leftBox">
+    <div className="cell">
+      <img className="image" src={img} alt="이미지" />
+      <div className="comment">
+        <div className="topbox">
           <div className="header">
             <span className="box">{title}</span>
             <span className="price">{price}</span>
