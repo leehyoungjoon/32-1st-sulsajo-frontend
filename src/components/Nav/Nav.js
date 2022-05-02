@@ -4,24 +4,22 @@ import './Nav.scss';
 
 const Nav = () => {
   return (
-    <header className="navHeader">
+    <header className="Nav">
       <nav className="navBar">
-        <Link to="/">
-          <div className="navLogo">
-            <img alt="logo" src="/images/logo.jpg" className="logoImg" />
-          </div>
+        <Link to="/" className="navLogo">
+          <img alt="logo" src="/images/logo.jpg" className="logoImg" />
         </Link>
         <div className="navLogin">
-          <Link to="subscribe">
-            <div className="subscribeBtn">구독서비스</div>
+          <Link to="subscribe" className="moveBtn">
+            구독서비스
           </Link>
-          <Link to="/">
-            <div className="storeBtn">담아마켓(스토어)</div>
+          <Link to="/" className="moveBtn">
+            담아마켓(스토어)
           </Link>
-          <Link to="/login">
-            <div className="loginBtn">로그인</div>
+          <Link to="/login" className="moveBtn">
+            로그인
           </Link>
-          <div className="logoutBtn">로그아웃</div>
+          {/* <Link className="logoutBtn">로그아웃</Link> */}
           <Link to="/cart">
             <i className="fa-solid fa-1x fa-cart-shopping" />
           </Link>

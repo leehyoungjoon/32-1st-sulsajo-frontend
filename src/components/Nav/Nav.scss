@@ -1,4 +1,4 @@
-.navHeader {
+.Nav {
   position: relative;
   display: flex;
   justify-content: center;
@@ -31,10 +31,7 @@
       font-weight: bold;
       align-items: center;
 
-      .loginBtn,
-      .logoutBtn,
-      .subscribeBtn,
-      .storeBtn {
+      .moveBtn {
         margin: 0 15px;
         border: none;
         background-color: transparent;
