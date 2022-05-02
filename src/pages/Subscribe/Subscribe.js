@@ -12,20 +12,46 @@ const Subscribe = () => {
   const leftclickhandler = () => {
     return index !== 0 && setIndex(index - 1);
   };
+
   const rightclickhandler = () => {
     return index !== 2 && setIndex(index + 1);
   };
 
+  const changeModalBtn = () => {
+    setIndex(0);
+  };
+  const changeModalBtn1 = () => {
+    setIndex(1);
+  };
+  const changeModalBtn2 = () => {
+    setIndex(2);
+  };
+
   const [modalOpen, setModalOpen] = useState(false);
+
   const outModal = useRef();
 
-  const openModal = () => {
+  console.log(modalOpen);
+  const openModal = id => {
     setModalOpen(true);
+    console.log(id);
   };
 
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (outModal.current && !outModal.current.contains(e.target)) {
+        setModalOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [outModal]);
 
   // useEffect(() => {
   //   fetch('asdf', {
@@ -62,18 +88,6 @@ const Subscribe = () => {
   //   setModalOpen(false);
   // };
 
-  useEffect(() => {
-    const handleClickOutside = e => {
-      if (outModal.current && !outModal.current.contains(e.target)) {
-        setModalOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [outModal]);
-
   return (
     <div className="mainWrap">
       <div className="topWrap">
@@ -87,7 +101,6 @@ const Subscribe = () => {
         closeModal={closeModal}
         openModal={openModal}
       />
-
       <div className="mainBanner">
         <img
           className="mainBannerImg"
@@ -132,6 +145,9 @@ const Subscribe = () => {
         leftclickhandler={leftclickhandler}
         rightclickhandler={rightclickhandler}
         index={index}
+        changeModalBtn={changeModalBtn}
+        changeModalBtn1={changeModalBtn1}
+        changeModalBtn2={changeModalBtn2}
       />
       <div className="recentlyText">최근 담와, 함께 볼까요?</div>
       <div className="recentylBox">

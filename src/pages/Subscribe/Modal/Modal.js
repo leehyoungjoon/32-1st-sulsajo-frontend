@@ -1,24 +1,21 @@
 import React from 'react';
 import './Modal.scss';
 
-const Modal = ({ productData, tasteData, closeModal }) => {
-  // console.log(productData);
-  // console.log(tasteData);
-  // const { size, price, alchol } = productData;
-  // const { taste } = tasteData;
+const Modal = ({ outModal, closeModal, modal }) => {
   return (
-    <>
-      <div className="madalBack" onClick={closeModal} />
-      <div className="modalPage">
-        {/* {size} */}
-        <button className="modalBtn" onClick={closeModal}>
-          X
-        </button>
-        <div className="modalbox">
-          <div className="modalOpen">술담아</div>
+    <div className="modalPrac" ref={outModal}>
+      <div className="big">
+        <div className="madalBack" onClick={closeModal} />
+        <div className="modalPage">
+          <button className="modalBtn" onClick={closeModal}>
+            X
+          </button>
+          <div className="modalbox">
+            <div className="modalOpen">술담아</div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

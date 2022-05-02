@@ -1,14 +1,20 @@
 import React from 'react';
 import './Carousel.scss';
 
-const Carousel = ({ leftclickhandler, rightclickhandler, index }) => {
+const Carousel = ({
+  leftclickhandler,
+  rightclickhandler,
+  index,
+  changeModalBtn,
+  changeModalBtn1,
+  changeModalBtn2,
+}) => {
   return (
     <div className="Carousel">
       <div className="dontWorryWrapper">
         <div className="leftIcon">
           <button onClick={leftclickhandler} />
         </div>
-
         <div className="dontWorrySlideBox">
           <div
             className="dontWorrySubSlideBox"
@@ -40,9 +46,9 @@ const Carousel = ({ leftclickhandler, rightclickhandler, index }) => {
             <button onClick={rightclickhandler} />
           </div>
           <ul className="buttonWrapper">
-            <li className="slideButton" />
-            <li className="slideButton" />
-            <li className="slideButton" />
+            <li className="slideButton" onClick={changeModalBtn} />
+            <li className="slideButton" onClick={changeModalBtn1} />
+            <li className="slideButton" onClick={changeModalBtn2} />
           </ul>
         </div>
       </div>
