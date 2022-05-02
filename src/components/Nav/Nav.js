@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = () => {
+  const [isLogin, setIsLogin] = useState(false);
+
+  // useEffect(() => {
+  //   // 토큰확인 로직
+  // },[]);
+
   return (
     <header className="Nav">
       <nav className="navBar">
@@ -16,10 +22,21 @@ const Nav = () => {
           <Link to="/" className="moveBtn">
             담아마켓(스토어)
           </Link>
-          <Link to="/login" className="moveBtn">
-            로그인
-          </Link>
-          {/* <Link className="logoutBtn">로그아웃</Link> */}
+          {isLogin ? (
+            <div
+              onClick={() => {
+                setIsLogin(true);
+              }}
+              className="moveBtn"
+            >
+              로그아웃
+            </div>
+          ) : (
+            <Link to="/login" className="moveBtn">
+              로그인
+            </Link>
+          )}
+
           <Link to="/cart">
             <i className="fa-solid fa-1x fa-cart-shopping" />
           </Link>
