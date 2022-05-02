@@ -117,8 +117,6 @@ const SignUp = () => {
           </div>
           <form className="signUpForm">
             <p className="signUpFormTitle">이메일로 가입하기</p>
-
-            {/* 이메일 */}
             <p className="inputText">이메일</p>
             <input
               className="signUpInput"
@@ -131,8 +129,6 @@ const SignUp = () => {
               중복확인
             </button>
             <div className={emailCheck}>올바르지 않은 이메일 형식입니다.</div>
-
-            {/* 실명 */}
             <p className="inputText">이름</p>
             <input
               className="signUpInput"
@@ -141,8 +137,6 @@ const SignUp = () => {
               type="text"
               placeholder="성함을 입력해 주세요"
             />
-
-            {/* 비밀번호 */}
             <p className="inputText">비밀번호</p>
             <input
               className="signUpInput"
@@ -152,8 +146,6 @@ const SignUp = () => {
               placeholder="8자 이상 / 영문 / 숫자를 조합해 주세요"
             />
             <div className={checkPwd}>8자 이상, 영문, 숫자를 조합해 주세요</div>
-
-            {/* 비밀번호 확인 */}
             <p className="inputText">비밀번호 확인</p>
             <input
               className="signUpInput"
@@ -163,8 +155,6 @@ const SignUp = () => {
               placeholder="비밀번호를 한번 더 입력해주세요"
             />
             <div className={DoubleCheckPwd}>비밀번호가 일치하지 않습니다.</div>
-
-            {/* 닉네임 */}
             <p className="inputText">닉네임설정</p>
             <input
               className="signUpInput"

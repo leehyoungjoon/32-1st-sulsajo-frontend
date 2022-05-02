@@ -1,11 +1,11 @@
 @import '../../styles/variables.scss';
 
 .signUp {
-  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+  width: auto;
   padding: 20px;
   color: $detailFontColor;
 
@@ -16,10 +16,10 @@
     padding: 20px;
 
     .leftSignUpImg {
-      width: 300px;
-      height: 500px;
       margin-right: 70px;
       border-radius: 10px;
+      width: 300px;
+      height: 500px;
     }
 
     .signupHeader {
@@ -29,15 +29,15 @@
       align-items: center;
 
       .signupTitle {
-        font-size: 30px;
-        margin-bottom: 10px;
         padding: 0 20px;
+        margin-bottom: 10px;
+        font-size: 30px;
         color: $navFontColor;
       }
 
       .signUpImg {
-        width: 300px;
         border-radius: 10px;
+        width: 300px;
         opacity: 0.7;
       }
     }
@@ -53,18 +53,18 @@
       }
 
       .signUpFormTitle {
-        color: $navFontColor;
         margin-top: 30px;
+        color: $navFontColor;
         font-size: 23px;
       }
 
       .signUpInput {
+        margin-top: 10px;
         border-style: none;
         border-bottom: 1.5px solid $navFontColor;
+        color: $detailFontColor;
         width: 500px;
         height: 30px;
-        margin-top: 10px;
-        color: $detailFontColor;
         &:focus {
           outline: none;
           border-bottom: 3px solid $detailFontColor;
@@ -72,22 +72,22 @@
       }
 
       .emailCheck {
+        border-style: none;
         margin-top: 10px;
         width: 100px;
         height: 30px;
-        background-color: white;
-        border-style: none;
         color: $navFontColor;
+        background-color: white;
         border: 3px solid $navFontColor;
         cursor: pointer;
       }
 
       .btnSignUp {
+        border-style: none;
         margin-top: 30px;
         width: 200px;
         height: 30px;
         background-color: white;
-        border-style: none;
         color: $navFontColor;
         border: 3px solid $navFontColor;
         cursor: pointer;
