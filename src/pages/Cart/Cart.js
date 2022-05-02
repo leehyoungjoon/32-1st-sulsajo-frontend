@@ -8,6 +8,7 @@ const temporaryData = [
   {
     id: 1,
     name: '애플사이더',
+    category: '양주',
     count: 1,
     isChecked: true,
     productImg:
@@ -17,6 +18,7 @@ const temporaryData = [
   {
     id: 2,
     name: '스윗마마',
+    category: '소주',
     count: 1,
     isChecked: true,
     productImg:
@@ -26,6 +28,7 @@ const temporaryData = [
   {
     id: 3,
     name: '루드베리',
+    category: '담금주',
     count: 1,
     isChecked: true,
     productImg:
@@ -35,6 +38,7 @@ const temporaryData = [
   {
     id: 4,
     name: '미상',
+    category: '증류주',
     count: 1,
     isChecked: true,
     productImg:
@@ -44,6 +48,7 @@ const temporaryData = [
   {
     id: 5,
     name: '복순도가',
+    category: '양주',
     count: 1,
     isChecked: true,
     productImg:
@@ -53,6 +58,7 @@ const temporaryData = [
   {
     id: 6,
     name: '별산',
+    category: '맥주',
     count: 1,
     isChecked: true,
     productImg:
@@ -62,6 +68,7 @@ const temporaryData = [
   {
     id: 7,
     name: '백련',
+    category: '막걸리',
     count: 1,
     isChecked: true,
     productImg:
@@ -71,6 +78,7 @@ const temporaryData = [
   {
     id: 8,
     name: '미스티',
+    category: '소주',
     count: 1,
     isChecked: true,
     productImg:
@@ -80,6 +88,7 @@ const temporaryData = [
   {
     id: 9,
     name: '나루',
+    category: '양주',
     count: 1,
     isChecked: true,
     productImg:
@@ -89,6 +98,7 @@ const temporaryData = [
   {
     id: 10,
     name: '매화깊은 밤',
+    category: '전통',
     count: 1,
     isChecked: true,
     productImg:
@@ -98,18 +108,20 @@ const temporaryData = [
 ];
 
 const Cart = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch('')
       .then(res => res.json())
       .then();
   }, []);
-  const navigate = useNavigate();
+
   const [products, setProductUpdate] = useState(temporaryData);
 
   const countPlusHandle = id => {
     const productIdx = products.findIndex(product => product.id === id);
     if (products[productIdx].count === 15) {
-      alert('15개 이상 주문은 고객센터로 연락 바랍니다.');
+      alert('16개 이상 주문은 고객센터로 연락 바랍니다.');
     } else {
       const newProducts = [...products];
       newProducts[productIdx].count++;
@@ -142,7 +154,7 @@ const Cart = () => {
     }
   };
 
-  const isCheckTrue = [...products].filter(
+  const isCheckedTrue = [...products].filter(
     product => product.isChecked === true
   );
 
@@ -159,7 +171,7 @@ const Cart = () => {
   };
 
   const amoutPrice = () => {
-    const sum = isCheckTrue.map(product => product.count * product.price);
+    const sum = isCheckedTrue.map(product => product.count * product.price);
     const result = sum.reduce((x, y) => x + y, 0);
     return result;
   };
@@ -168,7 +180,7 @@ const Cart = () => {
     fetch('', {
       method: 'delete',
       body: JSON.stringify({
-        isCheckTrue: isCheckTrue,
+        isCheckTrue: isCheckedTrue,
       }),
     }).then(Response => console.log(Response.status));
   };
@@ -193,15 +205,15 @@ const Cart = () => {
   };
 
   return (
-    <div id="cartMain">
-      <div id="cart">
+    <div className="cartMain">
+      <div className="cart">
         <CartList
           ModDataProducts={products}
           handlePlusCount={countPlusHandle}
           countMinusHandle={countMinusHandle}
           eachProductDelete={eachProductDelete}
           checkValueHandle={checkValueHandle}
-          isCheckTrue={isCheckTrue}
+          isCheckedTrue={isCheckedTrue}
           selectedDelete={selectedDelete}
           isAllCheck={isAllCheck}
         />

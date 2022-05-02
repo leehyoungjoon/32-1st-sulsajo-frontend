@@ -8,11 +8,11 @@ const CartList = ({
   ModDataProducts,
   eachProductDelete,
   checkValueHandle,
-  isCheckTrue,
+  isCheckedTrue,
   selectedDelete,
   isAllCheck,
 }) => {
-  const emptyOrNot =
+  const cartEmptyOrNot =
     ModDataProducts.length > 0 ? (
       ModDataProducts.map((product, index) => (
         <CartProduct
@@ -29,7 +29,7 @@ const CartList = ({
     );
 
   return (
-    <div id="cartList">
+    <div className="cartList">
       <div className="cartListTop">
         <div className="cartSelectAllBox">
           <input
@@ -44,14 +44,14 @@ const CartList = ({
           />
           <span>모두 선택</span>
           <span className="selectedLength">
-            {isCheckTrue.length} / {ModDataProducts.length}
+            {isCheckedTrue.length} / {ModDataProducts.length}
           </span>
         </div>
         <button onClick={selectedDelete} className="cartSelectedDeleteAll">
           선택삭제
         </button>
       </div>
-      <div>{emptyOrNot}</div>
+      <div>{cartEmptyOrNot}</div>
     </div>
   );
 };
