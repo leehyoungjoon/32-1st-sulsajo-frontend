@@ -1,7 +1,7 @@
 .Footer {
   background-color: #fffcf7;
 
-  .footer_wrap {
+  .footerWrap {
     display: flex;
     justify-content: space-between;
     max-width: 1006px;
@@ -10,24 +10,24 @@
     color: #1b5218;
     margin: 0 auto;
 
-    .footer_left {
+    .footerLeft {
       display: flex;
       flex-direction: column;
       margin-right: 10px;
 
-      .footer_menu {
+      .footerMenu {
         display: flex;
         justify-content: space-between;
         font-size: 14px;
         font-weight: bold;
       }
 
-      .footer_information {
+      .footerInformation {
         font-size: 12px;
       }
     }
 
-    .footer_right {
+    .footerRight {
       margin-left: 10px;
       font-size: 12px;
 
@@ -38,11 +38,6 @@
         color: #1b5218;
         font-size: 20px;
         cursor: pointer;
-
-        button {
-          border-style: none;
-          background-color: #fffcf7;
-        }
       }
     }
   }

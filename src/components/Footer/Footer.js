@@ -4,14 +4,14 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer className="Footer">
-      <div className="footer_wrap">
-        <div className="footer_left">
-          <div className="footer_menu">
+      <div className="footerWrap">
+        <div className="footerLeft">
+          <div className="footerMenu">
             <span>이용약관</span>
             <span>정보처리방침</span>
             <span>파트너 문의</span>
           </div>
-          <ul className="footer_information">
+          <ul className="footerInformation">
             <li>
               <span>술사조</span>
               <span>PM : 종혁님</span>
@@ -34,8 +34,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer_right">
-          <div className="phone_number">
+        <div className="footerRight">
+          <div className="phoneNumber">
             <span>고객센터</span>
             <span>24시간 연중무휴</span>
           </div>
