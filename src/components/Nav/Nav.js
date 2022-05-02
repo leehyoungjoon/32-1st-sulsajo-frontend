@@ -5,10 +5,6 @@ import './Nav.scss';
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(false);
 
-  // useEffect(() => {
-  //   // 토큰확인 로직
-  // },[]);
-
   return (
     <header className="Nav">
       <nav className="navBar">
@@ -25,7 +21,7 @@ const Nav = () => {
           {isLogin ? (
             <div
               onClick={() => {
-                setIsLogin(true);
+                setIsLogin(false);
               }}
               className="moveBtn"
             >
