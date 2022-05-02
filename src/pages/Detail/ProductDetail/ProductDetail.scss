@@ -1,11 +1,12 @@
 @import '/src/styles/variables.scss';
 
 .productDetail {
-  width: 56vw;
   display: flex;
-  margin-left: 160px;
   flex-direction: column;
   justify-content: center;
+  max-width: 1000px;
+  width: 56vw;
+  margin-left: 160px;
   margin-bottom: 200px;
 
   .detailDescription {
@@ -27,15 +28,15 @@
       font-size: normal;
 
       .productTitletoRating {
-        height: 120px;
         display: flex;
         flex-direction: column;
-        margin-bottom: 40px;
+        height: 120px;
+        margin-bottom: 80px;
         padding-top: 30px;
 
         .productTitle {
-          font-size: x-large;
           margin-bottom: 10px;
+          font-size: 40px;
         }
 
         .productElement {
@@ -48,9 +49,10 @@
         }
 
         .productRating {
+          margin-top: 10px;
+          margin-bottom: 20px;
           color: $mainLayoutColor;
           font-size: x-large;
-          margin-top: 10px;
         }
       }
 
@@ -59,9 +61,9 @@
       }
 
       .productAdditional {
+        margin-bottom: 20px;
         color: $detailFontColor;
         font-size: normal;
-        margin-bottom: 20px;
 
         .productAdditionalElement {
           margin-bottom: 10px;
@@ -69,8 +71,8 @@
       }
 
       .productValue {
-        font-size: 30px;
         margin-bottom: 20px;
+        font-size: 30px;
       }
 
       .blueColor {
@@ -81,16 +83,16 @@
 
   .hacksim {
     width: 50vw;
+    margin: 60px 0;
+    padding: 70px;
     background-color: $detailBackgroundColor;
     border-radius: 6%;
     text-align: center;
-    padding: 70px;
-    margin: 60px 0;
 
     .pointFont {
-      font-size: 20px;
-      color: $detailFontColor;
       margin-bottom: 60px;
+      color: $detailFontColor;
+      font-size: 20px;
     }
 
     .twoPoint {
@@ -102,25 +104,31 @@
     .pointEach {
       width: 100%;
       height: auto;
+      padding: 20px;
+      margin-bottom: 50px;
+      color: $detailFontColor;
       background-color: white;
       border-radius: 5%;
       text-align: center;
       font-size: 20px;
-      color: $detailFontColor;
-      position: relative;
-      padding: 20px;
-      margin-bottom: 50px;
 
       .pointTitle {
+        margin: 30px 0;
         font-weight: bold;
-        margin-bottom: 40px;
+      }
 
-        .chartList {
-          width: 95%;
-          display: flex;
-          justify-content: baseline;
-          margin-bottom: 100px;
-          margin-left: 10px;
+      .chartList {
+        display: flex;
+        width: 100%;
+      }
+
+      .flavorInfo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .flavor {
+          width: 20%;
         }
       }
 
@@ -139,9 +147,9 @@
             .foodPicture {
               width: 150px;
               height: 150px;
-              border-radius: 50%;
               margin-bottom: 20px;
               margin-right: 20px;
+              border-radius: 50%;
             }
           }
         }
@@ -154,10 +162,10 @@
     flex-direction: column;
     align-items: center;
     width: 50vw;
-    background-color: $detailBackgroundColor;
     margin-bottom: 50px;
     border-radius: 10px;
     padding: 20px 10px;
+    background-color: $detailBackgroundColor;
 
     textarea {
       width: 100%;
@@ -165,8 +173,9 @@
       min-width: 50%;
       height: 25px;
       max-height: 200px;
-      min-height: 25px;
+      min-height: 50px;
       border: none;
+      font-size: 16px;
     }
 
     .submitInfo {

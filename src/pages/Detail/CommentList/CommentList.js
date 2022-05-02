@@ -9,7 +9,7 @@ const CommentList = ({ addComment, setAddComment }) => {
 
   return addComment.map(el => {
     return (
-      <div key={el.id}>
+      <div className="commentList" key={el.id}>
         <Comment
           id={el.id}
           nickname={el.nickname}

@@ -47,81 +47,39 @@ const temporaryData = [
   },
 ];
 
-// const productData = [
-//   {
-//     id: 1,
-//     name: '애플사이더',
-//     category: '탁주',
-//     ordercount: 1,
-//     productImg:
-//       'https://cdn.pixabay.com/photo/2022/04/24/15/38/bird-7153858_1280.jpg',
-//     price: 14000,
-//   },
-//   {
-//     id: 2,
-//     name: '스윗마마',
-//     category: '탁주',
-//     ordercount: 6,
-//     productImg:
-//       'https://cdn.pixabay.com/photo/2022/04/05/19/27/penguin-7114280_1280.jpg',
-//     price: 20000,
-//   },
-//   {
-//     id: 3,
-//     name: '루드베리',
-//     category: '약주',
-//     ordercount: 3,
-//     productImg:
-//       'https://cdn.pixabay.com/photo/2022/04/15/06/32/river-7133713_1280.jpg',
-//     price: 10000,
-//   },
-//   {
-//     id: 4,
-//     name: '미상',
-//     category: '증류주',
-//     ordercount: 4,
-//     productImg:
-//       'https://cdn.pixabay.com/photo/2022/02/06/19/05/lamp-6997864_1280.jpg',
-//     price: 15900,
-//   },
-//   {
-//     id: 5,
-//     name: '복순도가',
-//     category: '탁주',
-//     ordercount: 7,
-//     productImg:
-//       'https://cdn.pixabay.com/photo/2021/08/12/05/29/feather-6539949_1280.jpg',
-//     price: 52000,
-//   },
-//   {
-//     id: 6,
-//     name: '별산',
-//     category: '청주',
-//     ordercount: 2,
-//     productImg:
-//       'https://cdn.pixabay.com/photo/2022/02/16/18/10/fox-7017260_1280.jpg',
-//     price: 8000,
-//   },
-// ];
+const productData = [
+  {
+    alcohol_percentage: '6.0',
+    id: 1,
+    name: '애플사이더',
+    size: 500,
+    description_tag: '#아몰랑 #배고파',
+    description_detail: '고기랑 잘 어울리는 소주',
+    price: 14000,
+    product_image:
+      'https://media.istockphoto.com/photos/open-wine-bottle-with-cork-on-white-picture-id1298570428?s=612x612',
+    category: '소주',
+    finger_food: ['골뱅이 소면', '두부 김치', '닭발'],
+    taste: [1, 3, 2, 5, 4],
+  },
+];
 
 const Detail = () => {
   const [addCount, setAddCount] = useState(0);
   const [inputContent, setInputContent] = useState('');
   const [addComment, setAddComment] = useState(temporaryData);
   const [count, setCount] = useState(7);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(productData);
 
-  useEffect(() => {
-    fetch('http://10.58.6.222:8000/products/productdetail', {
-      method: 'get',
-    }).then(response => console.log(response));
-    // .then(data => console.log(data));
-  }, []);
-
-  // console.log(products)
+  // useEffect(() => {
+  //   fetch('http://10.58.6.222:8000/products/productdetail')
+  //     .then(response => response.json())
+  //     .then(data => setProducts(data.product_detail));
+  // }, []);
 
   return (
-    <div classnickname="detail">
+    <div classnickname="detail" key={products.id}>
       <Aside
         addCount={addCount}
         setAddCount={setAddCount}
