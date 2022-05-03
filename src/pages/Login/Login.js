@@ -18,7 +18,7 @@ const Login = () => {
   const goToLogin = e => {
     e.preventDefault();
     if (idInput && pwInput) {
-      fetch('http://10.58.5.183:8000/users/login', {
+      fetch('http://10.58.1.7:8000/users/login', {
         method: 'post',
         body: JSON.stringify({
           email: idInput,
@@ -27,9 +27,8 @@ const Login = () => {
       })
         .then(response => response.json())
         .then(result => {
-          console.log(result);
           if (result.message === 'SUCCESS') {
-            localStorage.setItem('token', result.JWT_TOKEN);
+            localStorage.setItem('token', result.token);
             alert('환영합니다!');
             navigate('/main');
           } else {
@@ -45,7 +44,7 @@ const Login = () => {
     idInput.includes('@') && pwInput.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/);
 
   return (
-    <div className="login">
+    <div className="Login">
       <p className="topLogin">로그인</p>
       <form className="inputWrap" onSubmit={goToLogin}>
         <div className="topEmail">이메일</div>
@@ -65,21 +64,24 @@ const Login = () => {
             type="password"
             placeholder="비밀번호을 입력해주세요"
             onChange={handlePwInput}
+            autoComplete="on"
           />
           <span className="separator" />
         </div>
 
-        <button className={`loginButton ${isBtnActive ? 'active' : ''}`}>
+        <button
+          className={`loginButton ${isBtnActive ? 'active' : 'loginButton'}`}
+        >
           로그인
         </button>
       </form>
       <div className="socialLogin">
         <button className="socialLoginBtn kakao">
-          <i class="fa-regular fa-1x fa-comment" />
+          <i className="fa-regular fa-1x fa-comment" />
           카카오 로그인
         </button>
         <button className="socialLoginBtn naver">
-          <i class="fa-brands fa-1x fa-neos" />
+          <i className="fa-brands fa-1x fa-neos" />
           네이버 로그인
         </button>
         <button className="socialLoginBtn google">
