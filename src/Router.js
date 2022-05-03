@@ -25,7 +25,7 @@ function Router() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main isToken={isToken} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/detail/1" element={<Detail />} />
