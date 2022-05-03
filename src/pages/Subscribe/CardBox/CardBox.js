@@ -1,7 +1,7 @@
-import React from 'react';
-import './CardBox.scss';
+import React, { useState, useRef, useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import CardBoxComponent from './CardBoxComponent';
+import './CardBox.scss';
 
 const CARD_DATA = [
   {
@@ -24,29 +24,47 @@ const CARD_DATA = [
   },
 ];
 
-const CardBox = ({ outModal, modalOpen, closeModal, openModal, product }) => {
+const CardBox = ({ product }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const outModal = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (outModal.current && !outModal.current.contains(e.target)) {
+        setModalOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="cardBox">
-      {CARD_DATA.map((cardItem, index) => {
+      {CARD_DATA.map(cardItem => {
         const { img, endDate, title, price, startDate, id } = cardItem;
+
         return (
           <CardBoxComponent
-            key={index}
-            outModal={outModal}
-            modalOpen={modalOpen}
-            closeModal={closeModal}
-            openModal={openModal}
-            img={img}
-            endDate={endDate}
+            key={id}
+            openModal={() => setModalOpen(true)}
             title={title}
+            img={img}
             price={price}
             startDate={startDate}
-            id={id}
+            endDate={endDate}
           />
         );
       })}
       {modalOpen && (
-        <Modal closeModal={closeModal} outModal={outModal} product={product} />
+        <Modal
+          closeModal={() => setModalOpen(false)}
+          outModal={outModal}
+          product={product}
+        />
       )}
     </div>
   );

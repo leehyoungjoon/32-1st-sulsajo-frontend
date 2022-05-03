@@ -28,11 +28,7 @@ const CardBoxComponent = ({
           <div className="buyDate">{startDate}</div>
           <div className="arriveDay">{endDate}</div>
         </div>
-        <button
-          className="modalOpenBtn"
-          type="button"
-          onClick={() => openModal(id)}
-        >
+        <button className="modalOpenBtn" type="button" onClick={openModal}>
           힌트공개
         </button>
         <div className="hintBox" />

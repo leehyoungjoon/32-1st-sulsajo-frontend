@@ -1,28 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Subscribe.scss';
-import Modal from './Modal/Modal';
 import Carousel from './Carousel/Carousel';
 import CardBox from './CardBox/CardBox';
+import './Subscribe.scss';
 
-const modalData = [
-  {
-    alcohol_percentage: '6.0',
-    id: 1,
-    name: '애플사이더',
-    size: 500,
-    description_tag: '#아몰랑 #배고파',
-    description_detail: '고기랑 잘 어울리는 소주',
-    price: 14000,
-    product_image:
-      'https://media.istockphoto.com/photos/open-wine-bottle-with-cork-on-white-picture-id1298570428?s=612x612',
-    category: '소주',
-    finger_food: ['골뱅이 소면', '두부 김치', '닭발'],
-    taste: [[1], [3], [2], [5], [4]],
-  },
-];
+// const modalData = [
+//   {
+//     alcohol_percentage: '6.0',
+//     id: 1,
+//     name: '애플사이더',
+//     size: 500,
+//     description_tag: '#아몰랑 #배고파',
+//     description_detail: '고기랑 잘 어울리는 소주',
+//     price: 14000,
+//     product_image:
+//       'https://media.istockphoto.com/photos/open-wine-bottle-with-cork-on-white-picture-id1298570428?s=612x612',
+//     category: '소주',
+//     finger_food: ['골뱅이 소면', '두부 김치', '닭발'],
+//     taste: [[1], [3], [2], [5], [4]],
+//   },
+// ];
 
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
+  const [product, setProduct] = useState([]);
+
   const leftclickhandler = () => {
     return index !== 0 && setIndex(index - 1);
   };
@@ -31,65 +32,28 @@ const Subscribe = () => {
     return index !== 2 && setIndex(index + 1);
   };
 
-  const changeModalBtn = () => {
-    setIndex(0);
+  const changeModalBtn = idx => {
+    setIndex(idx);
   };
-  const changeModalBtn1 = () => {
-    setIndex(1);
-  };
-  const changeModalBtn2 = () => {
-    setIndex(2);
-  };
-
-  const [product, setProduct] = useState(modalData);
-
-  // useEffect(() => {
-  //   fetch('http://10.58.1.7:8000/products/subscribe/1')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // console.log(data);
-  //       setProduct(data.product_detail);
-  //     });
-  // }, []);
-
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const outModal = useRef();
 
   useEffect(() => {
-    const handleClickOutside = e => {
-      if (outModal.current && !outModal.current.contains(e.target)) {
-        setModalOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [outModal]);
+    fetch('http://10.58.1.7:8000/products/subscribe/2')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setProduct(data.subscribe_detail[0]);
+      });
+  }, []);
+
+  console.log(product);
 
   return (
-    <div className="mainWrap">
+    <div className="subscribe">
       <div className="topWrap">
         <p className="firstComment">한달에 한 번, 찾아오는 인생술 만나보세요</p>
       </div>
       <div className="scrollEvent">구독이 망설여진다면 ?</div>
-      <CardBox
-        outModal={outModal}
-        modalOpen={modalOpen}
-        Modal={Modal}
-        closeModal={closeModal}
-        openModal={openModal}
-        product={product}
-      />
+      <CardBox product={product} />
       <div className="mainBanner">
         <img
           className="mainBannerImg"
@@ -133,10 +97,8 @@ const Subscribe = () => {
       <Carousel
         leftclickhandler={leftclickhandler}
         rightclickhandler={rightclickhandler}
-        index={index}
         changeModalBtn={changeModalBtn}
-        changeModalBtn1={changeModalBtn1}
-        changeModalBtn2={changeModalBtn2}
+        index={index}
       />
       <div className="recentlyText">최근 담와, 함께 볼까요?</div>
       <div className="recentylBox">
