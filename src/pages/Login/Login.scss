@@ -7,6 +7,7 @@
     color: rgb(244, 187, 95);
     font-weight: bold;
   }
+
   .inputWrap {
     display: flex;
     align-items: center;
@@ -15,12 +16,13 @@
 
     .loginWrapper {
       position: relative;
+
       .inputId,
       .inputPw {
-        font-size: 15px;
         width: 250px;
         height: 30px;
         margin-bottom: 50px;
+        font-size: 15px;
         text-align: center;
         border: none;
         border-bottom: 1px solid;
@@ -33,30 +35,31 @@
         &:hover {
           border-bottom: 2px solid rgb(95, 95, 95);
         }
+
         &:focus {
           outline: none;
         }
       }
 
       .separator {
+        display: block;
+        position: absolute;
+        top: 31px;
         height: 2px;
         width: 100%;
         background: rgb(67, 80, 175);
-        display: block;
         transform: scaleX(0) translateY(-2px);
         transform-origin: 50%;
         transition: all 0.15s linear;
-        position: absolute;
-        top: 31px;
       }
     }
 
     .topEmail,
     .topPassword {
+      margin-bottom: 30px;
       font-size: 20px;
       font-weight: bold;
       color: rgb(112, 112, 112);
-      margin-bottom: 30px;
     }
 
     .loginButton {
@@ -69,7 +72,7 @@
       font-size: 18px;
       background-color: transparent;
 
-      &.Active {
+      &.active {
         background-color: #f4bb5f;
         cursor: pointer;
       }

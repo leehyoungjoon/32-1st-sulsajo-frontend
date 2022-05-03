@@ -4,13 +4,12 @@ import './Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [idInput, setIdInput] = useState('');
+  const [pwInput, setPwInput] = useState('');
+
   const handleIdInput = event => {
     setIdInput(event.target.value);
   };
-
-  const [pwInput, setPwInput] = useState('');
 
   const handlePwInput = event => {
     setPwInput(event.target.value);
@@ -28,9 +27,8 @@ const Login = () => {
       })
         .then(response => response.json())
         .then(result => {
-          // console.log(result);
+          console.log(result);
           if (result.message === 'SUCCESS') {
-            // 로큰스토리지 저장하는 로직추가
             localStorage.setItem('token', result.JWT_TOKEN);
             alert('환영합니다!');
             navigate('/main');
@@ -47,7 +45,7 @@ const Login = () => {
     idInput.includes('@') && pwInput.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/);
 
   return (
-    <div className="Login">
+    <div className="login">
       <p className="topLogin">로그인</p>
       <form className="inputWrap" onSubmit={goToLogin}>
         <div className="topEmail">이메일</div>
@@ -71,7 +69,7 @@ const Login = () => {
           <span className="separator" />
         </div>
 
-        <button className={isBtnActive ? 'loginButton Active ' : 'loginButton'}>
+        <button className={`loginButton ${isBtnActive ? 'active' : ''}`}>
           로그인
         </button>
       </form>
