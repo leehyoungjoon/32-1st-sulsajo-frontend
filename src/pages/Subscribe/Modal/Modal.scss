@@ -41,7 +41,23 @@
     border-radius: 10px;
 
     .modalOpen {
+      display: flex;
       text-align: center;
+      .modalImage {
+        width: 80px;
+      }
+      .description_detail {
+        width: 100px;
+      }
+      .description_tag {
+        width: 100px;
+      }
+      .price {
+        width: 100px;
+      }
+      .size {
+        width: 100px;
+      }
     }
   }
 }

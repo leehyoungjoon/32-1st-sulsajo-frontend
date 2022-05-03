@@ -4,46 +4,25 @@ import Modal from './Modal/Modal';
 import Carousel from './Carousel/Carousel';
 import CardBox from './CardBox/CardBox';
 
+const modalData = [
+  {
+    alcohol_percentage: '6.0',
+    id: 1,
+    name: '애플사이더',
+    size: 500,
+    description_tag: '#아몰랑 #배고파',
+    description_detail: '고기랑 잘 어울리는 소주',
+    price: 14000,
+    product_image:
+      'https://media.istockphoto.com/photos/open-wine-bottle-with-cork-on-white-picture-id1298570428?s=612x612',
+    category: '소주',
+    finger_food: ['골뱅이 소면', '두부 김치', '닭발'],
+    taste: [[1], [3], [2], [5], [4]],
+  },
+];
+
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
-  // const [product, setProduct] = useState([]);
-  // const [taste, setTaste] = useState([]);
-
-  // useEffect(() => {
-  //   fetch('asdf', {
-  //     method: 'get',
-  //     body: JSON.stringify({
-  //       size,
-  //       price,
-  //       alchol,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setProduct(data);
-  //     });
-  // });
-
-  // useEffect(() => {
-  //   fetch('asdf', {
-  //     method: 'get',
-  //     body: JSON.stringify({
-  //       taste,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setTaste(data);
-  //     });
-  // });
-  // const outModalBtn = e => {
-  //   if (modalOpen && outModal.current === e.target) {
-  //     setModalOpen(false);
-  //     console.log('d');
-  //   }
-  //   setModalOpen(false);
-  // };
-
   const leftclickhandler = () => {
     return index !== 0 && setIndex(index - 1);
   };
@@ -62,19 +41,28 @@ const Subscribe = () => {
     setIndex(2);
   };
 
+  const [product, setProduct] = useState(modalData);
+
+  // useEffect(() => {
+  //   fetch('http://10.58.1.7:8000/products/subscribe/1')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       // console.log(data);
+  //       setProduct(data.product_detail);
+  //     });
+  // }, []);
+
   const [modalOpen, setModalOpen] = useState(false);
 
-  const outModal = useRef();
-
-  // console.log(modalOpen);
-  const openModal = id => {
+  const openModal = () => {
     setModalOpen(true);
-    console.log(id);
   };
 
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  const outModal = useRef();
 
   useEffect(() => {
     const handleClickOutside = e => {
@@ -100,8 +88,7 @@ const Subscribe = () => {
         Modal={Modal}
         closeModal={closeModal}
         openModal={openModal}
-        // taste={taste}
-        // product={product}
+        product={product}
       />
       <div className="mainBanner">
         <img

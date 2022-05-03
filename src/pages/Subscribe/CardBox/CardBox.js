@@ -24,7 +24,7 @@ const CARD_DATA = [
   },
 ];
 
-const CardBox = ({ outModal, modalOpen, closeModal, openModal }) => {
+const CardBox = ({ outModal, modalOpen, closeModal, openModal, product }) => {
   return (
     <div className="cardBox">
       {CARD_DATA.map((cardItem, index) => {
@@ -46,12 +46,7 @@ const CardBox = ({ outModal, modalOpen, closeModal, openModal }) => {
         );
       })}
       {modalOpen && (
-        <Modal
-          closeModal={closeModal}
-          outModal={outModal}
-          // taste={taste}
-          // product={product}
-        />
+        <Modal closeModal={closeModal} outModal={outModal} product={product} />
       )}
     </div>
   );
