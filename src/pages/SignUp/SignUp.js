@@ -64,7 +64,7 @@ const SignUp = () => {
           .then(result => {
             if (result.message === 'SUCCESS') {
               alert('회원가입에 성공하였습니다.');
-              navigate('/login', { replace: false });
+              navigate('/login');
             }
           });
       } else {
@@ -85,7 +85,7 @@ const SignUp = () => {
       : password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)
       ? 'hidden'
       : 'show';
-  const DoubleCheckPwd =
+  const doubleCheckPwd =
     passwordcheck === ''
       ? 'hidden'
       : password === passwordcheck
@@ -154,7 +154,7 @@ const SignUp = () => {
               type="password"
               placeholder="비밀번호를 한번 더 입력해주세요"
             />
-            <div className={DoubleCheckPwd}>비밀번호가 일치하지 않습니다.</div>
+            <div className={doubleCheckPwd}>비밀번호가 일치하지 않습니다.</div>
             <p className="inputText">닉네임설정</p>
             <input
               className="signUpInput"
