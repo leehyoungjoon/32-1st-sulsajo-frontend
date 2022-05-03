@@ -2,32 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductBoxCard.scss';
 
-// {
-//   id: 1,
-//   name: '애플사이더',
-//   category: '탁주',
-//   ordercount: 1,
-//   productImg:
-//     'https://cdn.pixabay.com/photo/2022/04/24/15/38/bird-7153858_1280.jpg',
-//   price: 14000,
-//   description_detail:
-//     '막걸리는 역시 장산! 한사랑 산악회 영남회장님 최애 막걸리',
-//   description_tag:
-//     '#달콤함 사이로 느껴지는 한국인의 정 #그리고 보리차의 구수함',
-// }
+// category_id: 3 number
+// description_tag: "#직장인들 최애"
+// name: "유채꽃, 선릉"
+// price: "10000.00"
+// product_id: 14
+// products_image: "h
 
 const ProductBoxCard = ({ data }) => {
+  console.log(data);
+
   return (
-    <Link className="sojuRecommendList" to={`/detail/${data.id}`}>
+    <Link className="sojuRecommendList" to={`/detail/${data.product_id}`}>
       <div>
         <img
           alt="recommend"
-          src={data.productImg}
+          src={data.products_image}
           className="recommendListImg"
         />
         <div className="contentWrapper">
           <h4 className="contentTitle">{data.name}</h4>
-          <p className="price">{data.price}원</p>
+          <p className="price">{parseInt(data.price).toLocaleString()}원</p>
           <div className="scoreAndReview">
             <span className="score">⭐ 4.5</span>
             <div className="border" />

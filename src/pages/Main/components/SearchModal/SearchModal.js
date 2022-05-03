@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Data from '../../Data';
+import React, { useEffect, useState } from 'react';
 import ProductBoxCard from '../ProductBoxCard/ProductBoxCard';
+import Data from '../../Data';
 import './SearchModal.scss';
 
 const SearchModal = ({ closeModal }) => {
@@ -16,8 +16,12 @@ const SearchModal = ({ closeModal }) => {
     }
   };
 
+  useEffect(() => {
+    fetch('/data/search.json').then().then();
+  }, []);
+  //실제데이터화 json+fetch
   return (
-    <div className="modalBackground">
+    <div className="searchModal">
       <div className="modalContainer">
         <div className="modalWrapper">
           <div className="closeBtn" onClick={() => closeModal(false)}>

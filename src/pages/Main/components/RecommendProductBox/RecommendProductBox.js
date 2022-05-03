@@ -7,14 +7,16 @@ const ProductBox = forwardRef(({ data }, ref) => {
   const [productCardNum, setProductCardNum] = useState(1);
 
   const getTitle = () => {
-    if (data[0]?.category === '탁주') {
+    if (data[0]?.category_id === 1) {
       return '술담화 전통주 소믈리에의 이번 탁주 P.I.C.K!';
-    } else if (data[0]?.category === '약주') {
+    } else if (data[0]?.category_id === 2) {
       return '술담화 약주약주 소믈리에의 이번 약주 P.I.C.K!';
-    } else if (data[0]?.category === '청주') {
+    } else if (data[0]?.category_id === 3) {
       return '술담화 청주청주 소믈리에의 이번 청주 P.I.C.K!';
-    } else if (data[0]?.category === '증류주') {
+    } else if (data[0]?.category_id === 4) {
       return '술담화 증류주 소믈리에의 이번 증류주 P.I.C.K!';
+    } else if (data[0]?.category_id === 5) {
+      return '술담화 증류주 소믈리에의 이번 맥주 P.I.C.K!';
     }
     return null;
   };
@@ -45,19 +47,19 @@ const ProductBox = forwardRef(({ data }, ref) => {
       </div>
       <button
         className={
-          data[0]?.category === '탁주' ? 'arrowLeftBtnTak' : 'arrowLeftBtn'
+          data[0]?.category_id === '1' ? 'arrowLeftBtnTak' : 'arrowLeftBtn'
         }
       >
         <i className="fa-solid fa-angle-left" onClick={moveCardLeft} />
       </button>
       <button
         className={
-          data[0]?.category === '탁주' ? 'arrowRightBtnTak' : 'arrowRightBtn'
+          data[0]?.category_id === '1' ? 'arrowRightBtnTak' : 'arrowRightBtn'
         }
       >
         <i className="fa-solid fa-angle-right" onClick={moveCardRight} />
       </button>
-      {data[0]?.category === '탁주' && <SpecialPriceCard />}
+      {data[0]?.category_id === '1' && <SpecialPriceCard />}
     </section>
   );
 });

@@ -2,34 +2,45 @@ import React, { useEffect, useRef, useState } from 'react';
 import RecommendProductBox from './components/RecommendProductBox/RecommendProductBox';
 import CategoryCard from './components/CategoryCard/CategoryCard';
 import ReviewCard from './components/ReviewCard/ReviewCard';
-import Data from './Data';
-import './Main.scss';
 import SearchModal from './components/SearchModal/SearchModal';
+import './Main.scss';
+
+const categoryInfo = ['탁주', '약주', '청주', '증류주', '맥주'];
 
 const Main = () => {
   const [recommendProductBoxies, setRecommendProductBoxies] = useState([]);
-  const categoryInfo = ['탁주', '약주', '청주', '증류주'];
-
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
   const productBoxRef = useRef({});
 
-  const [searchModalOpen, setSearchModalOpen] = useState(false);
-
   useEffect(() => {
-    const totalData = Data;
+    fetch('http://10.58.1.129:8000/products/productlist')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        const filteredTakju = data.product_list.filter(
+          value => value.category_id === 1
+        );
+        const filteredYakju = data.product_list.filter(
+          value => value.category_id === 2
+        );
+        const filteredChungju = data.product_list.filter(
+          value => value.category_id === 3
+        );
+        const filteredSoju = data.product_list.filter(
+          value => value.category_id === 4
+        );
+        const filteredBeer = data.product_list.filter(
+          value => value.category_id === 5
+        );
 
-    const filteredTakju = totalData.filter(value => value.category === '탁주');
-    const filteredYakju = totalData.filter(value => value.category === '약주');
-    const filteredChungju = totalData.filter(
-      value => value.category === '청주'
-    );
-    const filteredSoju = totalData.filter(value => value.category === '증류주');
-
-    setRecommendProductBoxies([
-      filteredTakju,
-      filteredYakju,
-      filteredChungju,
-      filteredSoju,
-    ]);
+        setRecommendProductBoxies([
+          filteredTakju,
+          filteredYakju,
+          filteredChungju,
+          filteredSoju,
+          filteredBeer,
+        ]);
+      });
   }, []);
 
   const scrollToCard = index => {
