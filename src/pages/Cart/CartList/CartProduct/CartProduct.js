@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './CartProduct.scss';
 
 const CartProduct = ({
-  handlePlusCount,
+  countPlusHandle,
   countMinusHandle,
   product: { id, name, category, count, isChecked, productImg, price },
   eachProductDelete,
@@ -60,14 +60,14 @@ const CartProduct = ({
               <div key={id} className="cartProductCountBtn">
                 <button
                   className="productCounterBtn"
-                  onClick={() => countMinusHandle(id, count)}
+                  onClick={() => countMinusHandle(id)}
                 >
                   -
                 </button>
                 <div className="productCount">{count}</div>
                 <button
                   className="productCounterBtn"
-                  onClick={() => handlePlusCount(id)}
+                  onClick={() => countPlusHandle(id)}
                 >
                   +
                 </button>

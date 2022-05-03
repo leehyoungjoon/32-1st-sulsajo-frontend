@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Cart.scss';
 import CartList from './CartList/CartList';
 import CartPayment from './CartPayment/CartPayment';
+import './Cart.scss';
 
-const temporaryData = [
+const TEMPORARY_DATA = [
   {
     id: 1,
     name: '애플사이더',
@@ -107,8 +107,11 @@ const temporaryData = [
   },
 ];
 
+const MAX_QUANTITY = 15;
+
 const Cart = () => {
   const navigate = useNavigate();
+  const [products, setProductUpdate] = useState(TEMPORARY_DATA);
 
   useEffect(() => {
     fetch('')
@@ -116,12 +119,10 @@ const Cart = () => {
       .then();
   }, []);
 
-  const [products, setProductUpdate] = useState(temporaryData);
-
   const countPlusHandle = id => {
     const productIdx = products.findIndex(product => product.id === id);
-    if (products[productIdx].count === 15) {
-      alert('16개 이상 주문은 고객센터로 연락 바랍니다.');
+    if (products[productIdx].count === MAX_QUANTITY) {
+      alert(`${MAX_QUANTITY + 1}개 이상 주문은 고객센터로 연락 바랍니다.`);
     } else {
       const newProducts = [...products];
       newProducts[productIdx].count++;
@@ -129,11 +130,10 @@ const Cart = () => {
     }
   };
 
-  const countMinusHandle = (id, count) => {
+  const countMinusHandle = id => {
     const productIdx = products.findIndex(product => product.id === id);
-    if (count - 1 === 0) {
-      const newProducts = [...products];
-      setProductUpdate(newProducts);
+    if (products[productIdx].count === 1) {
+      alert('최소 주문 수량은 1개입니다.');
     } else {
       const newProducts = [...products];
       newProducts[productIdx].count--;
@@ -154,12 +154,10 @@ const Cart = () => {
     }
   };
 
-  const isCheckedTrue = [...products].filter(
-    product => product.isChecked === true
-  );
+  const checkedTrue = products.filter(product => product.isChecked === true);
 
   const eachProductDelete = eachSelectedId => {
-    const deleteThis = [...products].filter(
+    const deleteThis = products.filter(
       product => product.id === eachSelectedId
     );
     fetch('', {
@@ -170,28 +168,24 @@ const Cart = () => {
     }).then(res => console.log(res.status));
   };
 
-  const amoutPrice = () => {
-    const sum = isCheckedTrue.map(product => product.count * product.price);
-    const result = sum.reduce((x, y) => x + y, 0);
-    return result;
-  };
+  const totalPrice = checkedTrue.reduce(
+    (sum, product) => sum + product.count * product.price,
+    0
+  );
 
   const selectedDelete = () => {
     fetch('', {
       method: 'delete',
       body: JSON.stringify({
-        isCheckTrue: isCheckedTrue,
+        isCheckTrue: checkedTrue,
       }),
-    }).then(Response => console.log(Response.status));
+    }).then(res => console.log(res.status));
   };
 
   const isAllCheck =
+    products.length !== 0 &&
     products.filter(product => product.isChecked === true).length ===
-    products.length
-      ? products.length === 0
-        ? false
-        : true
-      : false;
+      products.length;
 
   const goOrder = () => {
     fetch('', {
@@ -200,7 +194,7 @@ const Cart = () => {
         products,
       }),
     })
-      .then(Response => console.log(Response))
+      .then(res => console.log(res))
       .then(navigate('/order'));
   };
 
@@ -209,15 +203,15 @@ const Cart = () => {
       <div className="cart">
         <CartList
           ModDataProducts={products}
-          handlePlusCount={countPlusHandle}
+          countPlusHandle={countPlusHandle}
           countMinusHandle={countMinusHandle}
           eachProductDelete={eachProductDelete}
           checkValueHandle={checkValueHandle}
-          isCheckedTrue={isCheckedTrue}
+          checkedTrue={checkedTrue}
           selectedDelete={selectedDelete}
           isAllCheck={isAllCheck}
         />
-        <CartPayment goOrder={goOrder} wholePrice={amoutPrice()} />
+        <CartPayment goOrder={goOrder} totalPrice={totalPrice} />
       </div>
     </div>
   );

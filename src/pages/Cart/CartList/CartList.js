@@ -3,31 +3,15 @@ import './CartList.scss';
 import CartProduct from './CartProduct/CartProduct';
 
 const CartList = ({
-  handlePlusCount,
+  countPlusHandle,
   countMinusHandle,
   ModDataProducts,
   eachProductDelete,
   checkValueHandle,
-  isCheckedTrue,
+  checkedTrue,
   selectedDelete,
   isAllCheck,
 }) => {
-  const cartEmptyOrNot =
-    ModDataProducts.length > 0 ? (
-      ModDataProducts.map((product, index) => (
-        <CartProduct
-          key={index}
-          product={product}
-          handlePlusCount={handlePlusCount}
-          countMinusHandle={countMinusHandle}
-          eachProductDelete={eachProductDelete}
-          checkValueHandle={checkValueHandle}
-        />
-      ))
-    ) : (
-      <div className="emptyCart">지금 장바구니가 비어 있어요</div>
-    );
-
   return (
     <div className="cartList">
       <div className="cartListTop">
@@ -44,14 +28,27 @@ const CartList = ({
           />
           <span>모두 선택</span>
           <span className="selectedLength">
-            {isCheckedTrue.length} / {ModDataProducts.length}
+            {checkedTrue.length} / {ModDataProducts.length}
           </span>
         </div>
         <button onClick={selectedDelete} className="cartSelectedDeleteAll">
           선택삭제
         </button>
       </div>
-      <div>{cartEmptyOrNot}</div>
+      {ModDataProducts.length > 0 ? (
+        ModDataProducts.map((product, index) => (
+          <CartProduct
+            key={index}
+            product={product}
+            countPlusHandle={countPlusHandle}
+            countMinusHandle={countMinusHandle}
+            eachProductDelete={eachProductDelete}
+            checkValueHandle={checkValueHandle}
+          />
+        ))
+      ) : (
+        <div className="emptyCart">지금 장바구니가 비어 있어요</div>
+      )}
     </div>
   );
 };
