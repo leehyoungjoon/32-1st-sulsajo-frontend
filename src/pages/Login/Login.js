@@ -28,8 +28,10 @@ const Login = () => {
       })
         .then(response => response.json())
         .then(result => {
-          console.log(result);
+          // console.log(result);
           if (result.message === 'SUCCESS') {
+            // 로큰스토리지 저장하는 로직추가
+            localStorage.setItem('token', result.JWT_TOKEN);
             alert('환영합니다!');
             navigate('/main');
           } else {

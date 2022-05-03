@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
@@ -9,6 +9,18 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
 function Router() {
+  const [isToken, setIsToken] = useState(false);
+  useEffect(() => {
+    fetch(' ')
+      .then(res => res.json())
+      .then(result => {
+        if (result.token) {
+          setIsToken(true);
+        } else {
+          setIsToken(false);
+        }
+      });
+  });
   return (
     <BrowserRouter>
       <Nav />
