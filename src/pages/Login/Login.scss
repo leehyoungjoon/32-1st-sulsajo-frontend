@@ -1,0 +1,149 @@
+.Login {
+  .topLogin {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 25px;
+    color: rgb(244, 187, 95);
+    font-weight: bold;
+  }
+
+  .inputWrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 90px;
+
+    .loginWrapper {
+      position: relative;
+
+      .inputId,
+      .inputPw {
+        width: 250px;
+        height: 30px;
+        margin-bottom: 50px;
+        font-size: 15px;
+        text-align: center;
+        border: none;
+        border-bottom: 1px solid;
+
+        &:focus + .separator {
+          transform: scaleX(1) translateY(-2px);
+          opacity: 1;
+        }
+
+        &:hover {
+          border-bottom: 2px solid rgb(95, 95, 95);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .separator {
+        display: block;
+        position: absolute;
+        top: 31px;
+        height: 2px;
+        width: 100%;
+        background: rgb(67, 80, 175);
+        transform: scaleX(0) translateY(-2px);
+        transform-origin: 50%;
+        transition: all 0.15s linear;
+      }
+    }
+
+    .topEmail,
+    .topPassword {
+      margin-bottom: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(112, 112, 112);
+    }
+
+    .loginButton {
+      width: 150px;
+      height: 45px;
+      border-radius: 10px;
+      color: rgb(178, 178, 178);
+      border: 1px solid rgb(178, 178, 178);
+      font-weight: bold;
+      font-size: 18px;
+      background-color: transparent;
+
+      &.active {
+        background-color: #f4bb5f;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .socialLogin {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .socialLoginBtn {
+      width: 190px;
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: none;
+
+      &.kakao {
+        background-color: rgb(255, 232, 18);
+
+        .fa-comment {
+          color: #59500e;
+        }
+      }
+
+      &.naver {
+        color: white;
+        background-color: #37c736;
+
+        .fa-neos {
+          color: white;
+        }
+      }
+
+      &.google {
+        color: rgba(0, 0, 0, 0.54);
+        border: 0.5px solid rgb(178, 178, 178);
+        background-color: transparent;
+      }
+    }
+  }
+
+  .linkWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .findId,
+    .findPw {
+      width: 150px;
+      font-size: 20px;
+      color: rgb(178, 178, 178);
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+
+    .memberJoin {
+      text-decoration: underline;
+      border: none;
+      background-color: transparent;
+      width: 150px;
+      font-size: 20px;
+      color: #5197f2;
+      margin-bottom: 20px;
+    }
+  }
+}

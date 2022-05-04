@@ -8,6 +8,7 @@ import Cart from './pages/Cart/Cart';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import ListingNew from './pages/ListingNew/ListingNew';
+// import Subscribe from './pages/Subscribe/Subscribe';
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/listing/new" element={<ListingNew />} />
+        {/* <Route path="/subscribe" element={<Subscribe />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>
