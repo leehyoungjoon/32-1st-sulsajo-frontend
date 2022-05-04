@@ -1,34 +1,77 @@
 import React from 'react';
 import CircleTable from '../CircleTable/CircleTable';
-import CommentList from '../CommentList/CommentList';
+import Comment from '../Comment/Comment';
 import './ProductDetail.scss';
 
 const ProductDetail = ({
-  addComment,
-  setAddComment,
+  commentList,
+  setCommentList,
   inputContent,
   setInputContent,
   count,
   setCount,
-  products,
+  product,
+  param,
+  token,
 }) => {
+  const {
+    alcohol_percentage,
+    category,
+    description_detail,
+    description_tag,
+    finger_food,
+    id,
+    name,
+    price,
+    product_image,
+    size,
+    taste,
+  } = product;
   const postComment = e => {
     e.preventDefault();
-    let copyComment = [...addComment];
-    let copyCount = count;
-    copyCount += 1;
-    if (inputContent) {
-      copyComment.unshift({
-        id: count,
-        nickname: '에베레베',
-        products: '샴푸',
-        created_at: '언제든',
+    fetch(`http://10.58.1.7:8000/products/comment/${param.id}`, {
+      method: 'post',
+      headers: { Authorization: token },
+      body: JSON.stringify({
+        comment_id: id,
+        // user: user,
+        product_name: name,
         content: inputContent,
-      });
-      setAddComment(copyComment);
-      setInputContent('');
-      setCount(copyCount);
-    }
+      }),
+    }).then(response => {
+      if (response === 'success') {
+        const copyComment = [...commentList];
+        let copyCount = count;
+        copyCount += 1;
+        if (inputContent) {
+          copyComment.unshift({
+            id: count,
+            nickname: '에베레베',
+            products: name,
+            created_at: new Date().toLocaleString(),
+            content: inputContent,
+          });
+          setCommentList(copyComment);
+          setInputContent('');
+          setCount(copyCount);
+        }
+      }
+    });
+  };
+
+  const deleteComment = id => {
+    fetch(`http://10.58.1.7:8000/products/comment/${param.id}`, {
+      method: 'delete',
+      headers: { Authorization: token },
+      body: JSON.stringify({
+        comment_id: id,
+      }),
+    }).then(response => {
+      if (response === 'success') {
+        setCommentList(commentList.filter(comment => comment.id !== id));
+      }
+    });
+    setCommentList(commentList.filter(comment => comment.id !== id));
   };
 
   return (
@@ -38,19 +81,15 @@ const ProductDetail = ({
           <img
             alt="productImage"
             className="productImg"
-            src={products[0].product_image}
+            src={product_image && product_image[0].image_url}
           />
         </div>
         <div className="detailedProduct">
           <div className="productTitletoRating">
-            <h1 className="productTitle">{products[0].name}</h1>
+            <h1 className="productTitle">{name}</h1>
             <br />
-            <div className="productElement">
-              {products[0].description_detail}
-            </div>
-            <div className="productOrangecolor">
-              {products[0].description_tag}
-            </div>
+            <div className="productElement">{description_detail}</div>
+            <div className="productOrangecolor">{description_tag}</div>
             <div className="productRating">
               <i className="fa-solid fa-star" />
               <i className="fa-solid fa-star" />
@@ -59,11 +98,9 @@ const ProductDetail = ({
               <i className="fa-solid fa-star" />
             </div>
           </div>
-          <div className="productInfoElement">주종: {products[0].category}</div>
-          <div className="productInfoElement">
-            도수: {products[0].alcohol_percentage}%
-          </div>
-          <div className="productInfoElement">용량:{products[0].size}ml</div>
+          <div className="productInfoElement">주종: {category}</div>
+          <div className="productInfoElement">도수: {alcohol_percentage}%</div>
+          <div className="productInfoElement">용량:{size}ml</div>
           <div className="productAdditional">
             <div className="productAdditionalElement">
               배송기간: 2일이내 배송
@@ -75,11 +112,7 @@ const ProductDetail = ({
           <div className="productPrice">
             <div className="productElement">판매가격:</div>
             <div className="productValue">
-              {String(`${products[0].price}`).replace(
-                /\B(?=(\d{3})+(?!\d))/g,
-                ','
-              )}
-              원
+              {parseInt(price).toLocaleString()}원
             </div>
           </div>
           <div className="blueColor">유통기한: 유통기한 없음</div>
@@ -92,14 +125,18 @@ const ProductDetail = ({
           <div className="pointEach">
             <div className="pointTitle">맛</div>
             <div className="chartList">
-              <CircleTable taste={products[0].taste} />
+              <CircleTable intensity={taste && taste[0].spiceness} />
+              <CircleTable intensity={taste && taste[0].savory} />
+              <CircleTable intensity={taste && taste[0].refreshness} />
+              <CircleTable intensity={taste && taste[0].sweetness} />
+              <CircleTable intensity={taste && taste[0].taste_intensity} />
             </div>
             <div className="flavorInfo">
               <span className="flavor">매운맛</span>
               <span className="flavor">고소한맛</span>
               <span className="flavor">상쾌한맛</span>
-              <span className="flavor">맛의 강도</span>
               <span className="flavor">단맛</span>
+              <span className="flavor">맛의 강도</span>
             </div>
           </div>
           <div className="pointEach">
@@ -110,25 +147,25 @@ const ProductDetail = ({
                   <img
                     alt="golbang-e"
                     className="foodPicture"
-                    src="https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg"
+                    src={finger_food && finger_food[0].image_url}
                   />
-                  {products[0].finger_food[0]}
+                  {finger_food && finger_food[0].name}
                 </div>
                 <div className="andrewPicture">
                   <img
                     alt="golbang-e"
                     className="foodPicture"
-                    src="https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg"
+                    src={finger_food && finger_food[1].image_url}
                   />
-                  {products[0].finger_food[1]}
+                  {finger_food && finger_food[1].name}
                 </div>
                 <div className="andrewPicture">
                   <img
                     alt="golbang-e"
                     className="foodPicture"
-                    src="https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg"
+                    src={finger_food && finger_food[2].image_url}
                   />
-                  {products[0].finger_food[2]}
+                  {finger_food && finger_food[2].name}
                 </div>
               </div>
             </div>
@@ -150,7 +187,19 @@ const ProductDetail = ({
           여기를 눌러서 댓글을 작성하세요!
         </button>
       </form>
-      <CommentList addComment={addComment} setAddComment={setAddComment} />
+      {commentList.map(comment => {
+        const { id, nickname, product, created_at, content } = comment;
+        return (
+          <Comment
+            key={id}
+            nickname={nickname}
+            product={product}
+            createdAt={created_at}
+            content={content}
+            deleteComment={() => deleteComment(id)}
+          />
+        );
+      })}
     </div>
   );
 };

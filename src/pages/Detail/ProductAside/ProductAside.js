@@ -1,26 +1,38 @@
 import React from 'react';
 import './ProductAside.scss';
 
-function ProductAside({ addCount, setAddCount, products }) {
-  const goToCart = e => {
-    if (addCount !== 0) {
-      alert(`주문하신 상품 ${addCount}개가 성공적으로 장바구니에 담겼습니다.`);
+function ProductAside({ quantity, setQuantity, product, token, param }) {
+  const postToCart = e => {
+    if (quantity !== 0) {
+      fetch(`http://10.58.1.7:8000/products/product/${param.id}`, {
+        method: 'post',
+        headers: { Authorization: token },
+        body: JSON.stringify({
+          count: quantity,
+        }),
+      }).then(response => {
+        if (response === 'success') {
+          alert(
+            `주문하신 상품 ${quantity}개가 성공적으로 장바구니에 담겼습니다.`
+          );
+        }
+      });
     } else {
       e.preventDefault();
     }
   };
 
   const plus = () => {
-    if (addCount === 15) {
+    if (quantity === 15) {
       alert('16개 이상은 고객센터로 문의 주세요');
     } else {
-      setAddCount(prevCount => prevCount + 1);
+      setQuantity(prevCount => prevCount + 1);
     }
   };
 
   const minus = () => {
-    if (addCount === 0) return;
-    setAddCount(prevCount => prevCount - 1);
+    if (quantity === 0) return;
+    setQuantity(prevCount => prevCount - 1);
   };
 
   return (
@@ -35,7 +47,7 @@ function ProductAside({ addCount, setAddCount, products }) {
               옵션 하나지롱
             </option>
             <option value="술">
-              [{products[0].size}ml] {products[0].name}
+              [{product.size}ml] {product.name}
             </option>
           </select>
         </div>
@@ -46,7 +58,7 @@ function ProductAside({ addCount, setAddCount, products }) {
           <button className="minus" onClick={minus}>
             -
           </button>
-          <span>{addCount}</span>
+          <span>{quantity}</span>
           <button className="plus" onClick={plus}>
             +
           </button>
@@ -55,17 +67,13 @@ function ProductAside({ addCount, setAddCount, products }) {
           <label>총 상품가격</label>
         </div>
         <div className="price">
-          {String(addCount * `${products[0].price}`).replace(
-            /\B(?=(\d{3})+(?!\d))/g,
-            ','
-          )}
-          원
+          {parseInt(product.price * quantity).toLocaleString()}원
         </div>
         <div className="delivery">
           <div className="label">이벤트 기간 무료 배송!</div>
         </div>
         <form>
-          <button className="cart" onClick={goToCart}>
+          <button className="cart" onClick={postToCart}>
             장바구니 담기
           </button>
         </form>

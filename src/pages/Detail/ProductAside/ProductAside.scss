@@ -1,5 +1,10 @@
 @import '/src/styles/variables.scss';
 
+@media screen and (max-width: 1190px) {
+  .productAside {
+    display: none;
+  }
+}
 .productAside {
   position: sticky;
   float: right;

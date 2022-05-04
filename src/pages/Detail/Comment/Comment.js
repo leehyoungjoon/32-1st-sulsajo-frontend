@@ -1,16 +1,9 @@
 import React from 'react';
 import './Comment.scss';
 
-const Comment = ({
-  id,
-  nickname,
-  products,
-  createdAt,
-  content,
-  deleteComment,
-}) => {
+const Comment = ({ nickname, products, createdAt, content, deleteComment }) => {
   return (
-    <div key={id} className="comment">
+    <div className="comment">
       <div className="infoContainer">
         <div className="userId">{nickname}</div>
         <div className="elseInfo">
@@ -23,7 +16,7 @@ const Comment = ({
             <i className="fa-solid fa-star" />
           </div>
           <div className="commentTime">{createdAt}</div>
-          <button onClick={() => deleteComment(id)}>X</button>
+          <button onClick={deleteComment}>X</button>
         </div>
       </div>
       <div className="showComment">
