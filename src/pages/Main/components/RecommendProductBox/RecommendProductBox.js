@@ -47,19 +47,19 @@ const ProductBox = forwardRef(({ data }, ref) => {
       </div>
       <button
         className={
-          data[0]?.category_id === '1' ? 'arrowLeftBtnTak' : 'arrowLeftBtn'
+          data[0]?.category_id === 1 ? 'arrowLeftBtnTak' : 'arrowLeftBtn'
         }
       >
         <i className="fa-solid fa-angle-left" onClick={moveCardLeft} />
       </button>
       <button
         className={
-          data[0]?.category_id === '1' ? 'arrowRightBtnTak' : 'arrowRightBtn'
+          data[0]?.category_id === 1 ? 'arrowRightBtnTak' : 'arrowRightBtn'
         }
       >
         <i className="fa-solid fa-angle-right" onClick={moveCardRight} />
       </button>
-      {data[0]?.category_id === '1' && <SpecialPriceCard />}
+      {data[0]?.category_id === 1 && <SpecialPriceCard />}
     </section>
   );
 });

@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import ProductBoxCard from '../ProductBoxCard/ProductBoxCard';
-import Data from '../../Data';
 import './SearchModal.scss';
 
 const SearchModal = ({ closeModal }) => {
   const [filteredCards, setFilteredCards] = useState([]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://10.58.3.97:8000/products/list')
+      .then(res => res.json())
+      .then(data => {
+        setData(data.product_list);
+      });
+  }, []);
 
   const search = e => {
     if (e.target.value === '') {
       setFilteredCards([]);
     } else {
-      setFilteredCards(
-        Data.filter(value => value.name.includes(e.target.value))
-      );
+      setFilteredCards(data.filter(data => data.name.includes(e.target.value)));
     }
   };
 
-  useEffect(() => {
-    fetch('/data/search.json').then().then();
-  }, []);
-  //실제데이터화 json+fetch
   return (
     <div className="searchModal">
       <div className="modalContainer">

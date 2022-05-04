@@ -2,18 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductBoxCard.scss';
 
-// category_id: 3 number
-// description_tag: "#직장인들 최애"
-// name: "유채꽃, 선릉"
-// price: "10000.00"
-// product_id: 14
-// products_image: "h
-
 const ProductBoxCard = ({ data }) => {
-  console.log(data);
-
   return (
-    <Link className="sojuRecommendList" to={`/detail/${data.product_id}`}>
+    <Link className="ProductBoxCard" to={`/detail/${data.product_id}`}>
       <div>
         <img
           alt="recommend"

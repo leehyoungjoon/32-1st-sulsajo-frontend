@@ -3,7 +3,7 @@ import './ReviewCard.scss';
 
 const ReviewCard = () => {
   return (
-    <div className="reviewBoxContent">
+    <div className="ReviewCard">
       <img
         alt="userProduct"
         src="/images/Main/april.png"

@@ -2,21 +2,23 @@ import React, { useEffect, useRef, useState } from 'react';
 import RecommendProductBox from './components/RecommendProductBox/RecommendProductBox';
 import CategoryCard from './components/CategoryCard/CategoryCard';
 import ReviewCard from './components/ReviewCard/ReviewCard';
-import SearchModal from './components/SearchModal/SearchModal';
 import './Main.scss';
+import MainHeader from './components/MainHeader/MainHeader';
 
 const categoryInfo = ['탁주', '약주', '청주', '증류주', '맥주'];
 
 const Main = () => {
   const [recommendProductBoxies, setRecommendProductBoxies] = useState([]);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [data, setData] = useState([]);
   const productBoxRef = useRef({});
 
   useEffect(() => {
-    fetch('http://10.58.1.129:8000/products/productlist')
+    fetch('http://10.58.3.97:8000/products/list')
       .then(res => res.json())
+
       .then(data => {
-        console.log(data);
+        setData(data);
         const filteredTakju = data.product_list.filter(
           value => value.category_id === 1
         );
@@ -46,23 +48,9 @@ const Main = () => {
   const scrollToCard = index => {
     productBoxRef.current[index].scrollIntoView({ behavior: 'smooth' });
   };
-
   return (
     <section className="Main">
-      <header className="mainHeader">
-        <section className="mainHeaderTitle">
-          <div className="mainHeaderMenu">신상품</div>
-          <div className="mainHeaderMenu">베스트</div>
-          <div className="mainHeaderMenu">선물세트</div>
-          <div className="mainHeaderMenu">이벤트</div>
-          <div
-            className="mainSearchBar"
-            onClick={() => setSearchModalOpen(true)}
-          >
-            검색어를 입력해주세요
-          </div>
-        </section>
-      </header>
+      <MainHeader />
       <section className="mainRecommend">
         <img
           alt="recommend"
@@ -98,7 +86,6 @@ const Main = () => {
           <ReviewCard />
         </div>
       </section>
-      {searchModalOpen && <SearchModal closeModal={setSearchModalOpen} />}
     </section>
   );
 };

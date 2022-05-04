@@ -3,7 +3,7 @@ import './CategoryCard.scss';
 
 const CategoryCard = ({ index, title, scrollToCard }) => {
   return (
-    <div className="drinkType" onClick={() => scrollToCard(index)}>
+    <div className="CategoryCard" onClick={() => scrollToCard(index)}>
       <img alt="wineImg" src="/images/Main/wine.png" className="drinkTypeImg" />
       <span className="drinkTypeName">{title}</span>
     </div>

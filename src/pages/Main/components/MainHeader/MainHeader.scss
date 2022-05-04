@@ -1,0 +1,40 @@
+.MainHeader {
+  height: 40px;
+  background-color: rgb(244, 244, 244);
+
+  .mainHeaderTitle {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1006px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: transparent;
+    align-items: center;
+
+    .mainHeaderMenu {
+      margin: 0 20px;
+      font-size: 15px;
+      color: rgb(112, 112, 112);
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(244, 187, 95);
+        transition: 0.3s;
+      }
+    }
+
+    .mainSearchBar {
+      display: inline-block;
+      vertical-align: middle;
+      width: 198px;
+      height: 25px;
+      margin: 0 20px;
+      padding-left: 10px;
+      border-radius: 4px;
+      line-height: 25px;
+      color: rgb(178, 178, 178);
+      background-color: rgb(255, 255, 255);
+      font-size: 11px;
+    }
+  }
+}
