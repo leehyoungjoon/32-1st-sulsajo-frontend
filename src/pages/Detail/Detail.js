@@ -104,7 +104,7 @@ const Detail = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch(`http://10.58.1.7:8000/products/product/${param.id}`)
+    fetch(`http://10.58.2.197:8000/products/product/${param.id}`)
       .then(res => res.json())
       .then(data => setProduct(data.product_detail[0]));
   }, [param.id]);

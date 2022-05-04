@@ -29,17 +29,16 @@ const ProductDetail = ({
   } = product;
   const postComment = e => {
     e.preventDefault();
-    fetch(`http://10.58.1.7:8000/products/comment/${param.id}`, {
+    fetch(`http://10.58.2.197:8000/products/comment/${param.id}`, {
       method: 'post',
       headers: { Authorization: token },
       body: JSON.stringify({
-        comment_id: id,
-        // user: user,
+        id: id,
         product_name: name,
         content: inputContent,
       }),
     }).then(response => {
-      if (response === 'success') {
+      if (response === 'SUCCESS') {
         const copyComment = [...commentList];
         let copyCount = count;
         copyCount += 1;
@@ -60,14 +59,14 @@ const ProductDetail = ({
   };
 
   const deleteComment = id => {
-    fetch(`http://10.58.1.7:8000/products/comment/${param.id}`, {
+    fetch(`http://10.58.2.197:8000/products/comment/${param.id}`, {
       method: 'delete',
       headers: { Authorization: token },
       body: JSON.stringify({
-        comment_id: id,
+        id: id,
       }),
     }).then(response => {
-      if (response === 'success') {
+      if (response === 'SUCCESS') {
         setCommentList(commentList.filter(comment => comment.id !== id));
       }
     });

@@ -4,14 +4,19 @@ import './ProductAside.scss';
 function ProductAside({ quantity, setQuantity, product, token, param }) {
   const postToCart = e => {
     if (quantity !== 0) {
-      fetch(`http://10.58.1.7:8000/products/product/${param.id}`, {
+      fetch(`http://10.58.2.197:8000/products/product/${param.id}`, {
         method: 'post',
         headers: { Authorization: token },
         body: JSON.stringify({
+          product_id: product.id,
+          product_name: product.name,
+          category: product.category,
           count: quantity,
+          ischecked: true,
+          product_image: product.product_image[0],
         }),
       }).then(response => {
-        if (response === 'success') {
+        if (response === 'SUCCESS') {
           alert(
             `주문하신 상품 ${quantity}개가 성공적으로 장바구니에 담겼습니다.`
           );
