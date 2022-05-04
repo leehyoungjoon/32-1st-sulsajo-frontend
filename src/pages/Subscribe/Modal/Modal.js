@@ -20,11 +20,13 @@ const Modal = ({ outModal, closeModal, product }) => {
               {product.description_detail}
             </div>
             <div className="descriptionTag">{product.description_tag}</div>
-            <div className="price">{product.price}원</div>
-            <div className="size">{product.size}ml</div>
             <div className="alcholPercentage">
-              {product.alcohol_percentage}%
+              도수 :{product.alcohol_percentage}%
             </div>
+            <div className="price">
+              가격 : {parseInt(product.price).toLocaleString()}원
+            </div>
+
             {/* <div>{product[0].taste[0]}</div>
               <div>{product[0].taste[1]}</div>
               <div>{product[0].taste[2]}</div>

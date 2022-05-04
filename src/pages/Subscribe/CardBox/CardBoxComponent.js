@@ -3,12 +3,13 @@ import './CardBoxComponent.scss';
 
 const CardBoxComponent = ({
   id,
-  openModal,
   title,
   img,
   price,
+  description,
   startDate,
   endDate,
+  openModalFn,
 }) => {
   return (
     <div className="cell">
@@ -19,16 +20,18 @@ const CardBoxComponent = ({
             <span className="box">{title}</span>
             <span className="price">{price}</span>
           </div>
-          <div className="boxComment">
-            다양한 주종을 경험할 수 있는 담와박스
-          </div>
+          <div className="boxComment">{description}</div>
           <div className="hipoon" />
         </div>
         <div className="date">
           <div className="buyDate">{startDate}</div>
           <div className="arriveDay">{endDate}</div>
         </div>
-        <button className="modalOpenBtn" type="button" onClick={openModal}>
+        <button
+          className="modalOpenBtn"
+          type="button"
+          onClick={() => openModalFn(id)}
+        >
           힌트공개
         </button>
         <div className="hintBox" />
