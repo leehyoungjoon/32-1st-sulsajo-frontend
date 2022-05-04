@@ -5,6 +5,8 @@ import './Nav.scss';
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(false);
 
+  // TODO: 추후에 localStorage에서 토큰 유무 확인/삭제하는 로직으로 수정할 것
+
   return (
     <header className="Nav">
       <nav className="navBar">
