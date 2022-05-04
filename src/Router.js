@@ -7,7 +7,7 @@ import Detail from './pages/Detail/Detail';
 import Cart from './pages/Cart/Cart';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-// import Subscribe from './pages/Subscribe/Subscribe';
+import Subscribe from './pages/Subscribe/Subscribe';
 
 function Router() {
   return (
@@ -19,7 +19,7 @@ function Router() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/subscribe" element={<Subscribe />} /> */}
+        <Route path="/subscribe" element={<Subscribe />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,6 +1,5 @@
 import React from 'react';
 import './Modal.scss';
-
 const Modal = ({ outModal, closeModal, product }) => {
   return (
     <div className="modal" ref={outModal}>
@@ -21,17 +20,23 @@ const Modal = ({ outModal, closeModal, product }) => {
             </div>
             <div className="descriptionTag">{product.description_tag}</div>
             <div className="alcholPercentage">
-              도수 :{product.alcohol_percentage}%
+              도수 : {product.alcohol_percentage}%
             </div>
             <div className="price">
               가격 : {parseInt(product.price).toLocaleString()}원
             </div>
-
             {/* <div>{product[0].taste[0]}</div>
               <div>{product[0].taste[1]}</div>
               <div>{product[0].taste[2]}</div>
               <div>{product[0].taste[3]}</div> */}
           </div>
+        </div>
+        <div>
+          <style jsx="true">{`
+            body {
+              overflow: hidden;
+            }
+          `}</style>
         </div>
       </div>
     </div>

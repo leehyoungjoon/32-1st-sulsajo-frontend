@@ -31,14 +31,12 @@ const CardBox = () => {
   const [modalId, setModalId] = useState();
 
   const fetchData = () => {
-    fetch(`http://10.58.2.197:8000/products/subscribe/${modalId}`)
+    fetch(`http://10.58.2.197:8000/products/${modalId}/subscribe`)
       .then(response => response.json())
       .then(data => {
         setProduct(data.subscribe_detail[0]);
       });
   };
-
-  // console.log(typeof modalId == 'undefined');
 
   useEffect(() => {
     typeof modalId !== 'undefined' && fetchData();
@@ -57,7 +55,6 @@ const CardBox = () => {
         setModalOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
@@ -89,6 +86,7 @@ const CardBox = () => {
             startDate={startDate}
             endDate={endDate}
             openModalFn={openModalFn}
+            modalOpen={modalOpen}
           />
         );
       })}

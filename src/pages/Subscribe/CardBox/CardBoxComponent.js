@@ -12,7 +12,7 @@ const CardBoxComponent = ({
   openModalFn,
 }) => {
   return (
-    <div className="cell">
+    <div className="CardBoxComponent">
       <img className="image" src={img} alt="이미지" />
       <div className="comment">
         <div className="topbox">
