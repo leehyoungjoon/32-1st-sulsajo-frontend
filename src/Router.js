@@ -21,8 +21,8 @@ function Router() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/subscribe" element={<Subscribe />} 
-        <Route path="/listing/new" element={<ListingNew 
+        <Route path="/subscribe" element={<Subscribe />} />
+        <Route path="/listing/new" element={<ListingNew />} />
       </Routes>
       <Footer />
     </BrowserRouter>

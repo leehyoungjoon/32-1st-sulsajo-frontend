@@ -10,10 +10,6 @@ const ProductDetail = ({
   setInputContent,
   product,
   productId,
-  count,
-  setCount,
-  product,
-  param,
   token,
 }) => {
   const {
