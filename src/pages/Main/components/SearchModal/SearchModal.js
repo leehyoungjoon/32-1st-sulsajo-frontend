@@ -20,7 +20,7 @@ const SearchModal = ({ closeModal }) => {
   }, []);
 
   useEffect(() => {
-    fetch('http://10.58.3.97:8000/products/list')
+    fetch('http://10.58.2.197:8000/products/list')
       .then(res => res.json())
       .then(data => {
         setData(data.product_list);
