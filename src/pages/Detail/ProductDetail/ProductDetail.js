@@ -10,6 +10,10 @@ const ProductDetail = ({
   setInputContent,
   product,
   productId,
+  count,
+  setCount,
+  product,
+  param,
   token,
 }) => {
   const {
@@ -62,6 +66,7 @@ const ProductDetail = ({
       }
     });
   };
+
   return (
     <div className="productDetail">
       <div className="detailDescription">
