@@ -8,6 +8,8 @@ const ProductDetail = ({
   setCommentList,
   inputContent,
   setInputContent,
+  product,
+  productId,
   count,
   setCount,
   product,
@@ -27,50 +29,42 @@ const ProductDetail = ({
     size,
     taste,
   } = product;
+
   const postComment = e => {
     e.preventDefault();
-    fetch(`http://10.58.2.197:8000/products/comment/${param.id}`, {
+    if (!inputContent) return;
+    fetch(`http://10.58.6.20:8000/products/${productId}/comment`, {
       method: 'post',
       headers: { Authorization: token },
       body: JSON.stringify({
-        id: id,
-        product_name: name,
+        product_id: id,
         content: inputContent,
+        user: name,
       }),
     }).then(response => {
-      if (response === 'SUCCESS') {
-        const copyComment = [...commentList];
-        let copyCount = count;
-        copyCount += 1;
-        if (inputContent) {
-          copyComment.unshift({
-            id: count,
-            nickname: '에베레베',
-            products: name,
-            created_at: new Date().toLocaleString(),
-            content: inputContent,
+      if (response.status === 201) {
+        setInputContent('');
+        fetch(`http://10.58.6.20:8000/products/${productId}/comment`)
+          .then(res => res.json())
+          .then(data => {
+            setCommentList(data.data);
           });
-          setCommentList(copyComment);
-          setInputContent('');
-          setCount(copyCount);
-        }
       }
     });
   };
 
   const deleteComment = id => {
-    fetch(`http://10.58.2.197:8000/products/comment/${param.id}`, {
+    fetch(`http://10.58.6.20:8000/products/${productId}/comment/${id}`, {
       method: 'delete',
       headers: { Authorization: token },
       body: JSON.stringify({
         id: id,
       }),
     }).then(response => {
-      if (response === 'SUCCESS') {
+      if (response.status === 204) {
         setCommentList(commentList.filter(comment => comment.id !== id));
       }
     });
-    setCommentList(commentList.filter(comment => comment.id !== id));
   };
 
   return (
@@ -144,7 +138,7 @@ const ProductDetail = ({
               <div className="andrewPictures">
                 <div className="andrewPicture">
                   <img
-                    alt="golbang-e"
+                    alt="추천안주1"
                     className="foodPicture"
                     src={finger_food && finger_food[0].image_url}
                   />
@@ -152,7 +146,7 @@ const ProductDetail = ({
                 </div>
                 <div className="andrewPicture">
                   <img
-                    alt="golbang-e"
+                    alt="추천안주2"
                     className="foodPicture"
                     src={finger_food && finger_food[1].image_url}
                   />
@@ -160,7 +154,7 @@ const ProductDetail = ({
                 </div>
                 <div className="andrewPicture">
                   <img
-                    alt="golbang-e"
+                    alt="추천안주3"
                     className="foodPicture"
                     src={finger_food && finger_food[2].image_url}
                   />
@@ -187,11 +181,11 @@ const ProductDetail = ({
         </button>
       </form>
       {commentList.map(comment => {
-        const { id, nickname, product, created_at, content } = comment;
+        const { id, name, product, created_at, content } = comment;
         return (
           <Comment
             key={id}
-            nickname={nickname}
+            nickname={name}
             product={product}
             createdAt={created_at}
             content={content}
