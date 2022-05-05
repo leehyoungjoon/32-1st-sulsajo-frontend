@@ -1,0 +1,98 @@
+.dontWorryWrapper {
+  display: flex;
+  margin-top: 30px;
+  width: 575px;
+  height: 430px;
+  position: relative;
+}
+
+.leftIcon {
+  width: 100px;
+  text-align: center;
+  margin-top: 190px;
+
+  > button {
+    background-color: transparent;
+    border: none;
+    &::before {
+      background-image: url('../../../../public/images/lefticon.png');
+      background-size: cover;
+      display: inline-block;
+      width: 22px;
+      height: 40px;
+      content: '';
+      cursor: pointer;
+    }
+  }
+}
+.rightIcon {
+  position: absolute;
+  width: 100px;
+  text-align: center;
+  margin-top: 190px;
+  top: 0px;
+  right: 0px;
+
+  > button {
+    background-color: transparent;
+    border: none;
+    &::before {
+      background-image: url('../../../../public/images/rightIcon.png');
+      background-size: cover;
+      display: inline-block;
+      width: 22px;
+      height: 40px;
+      content: '';
+      cursor: pointer;
+    }
+  }
+}
+.dontWorrySlideBox {
+  height: 600px;
+  width: 375px;
+  overflow: hidden;
+
+  .dontWorrySubSlideBox {
+    width: 1125px;
+    display: flex;
+
+    .dontWorryBox {
+      border-radius: 20px;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 375px;
+      background-color: #5197f2;
+      > img {
+        width: 100px;
+        height: 100px;
+        margin: 100px 0 30px 0;
+      }
+      > div {
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
+        font-size: 15px;
+        line-height: 2;
+      }
+    }
+  }
+}
+.buttonWrapper {
+  display: flex;
+  width: 50px;
+  margin-top: 30px;
+  justify-content: space-evenly;
+  margin-left: 158px;
+
+  .slideButton {
+    width: 7px;
+    height: 7px;
+    background-color: #707070;
+    border-radius: 100%;
+    display: inline-block;
+    padding-right: 2px;
+    cursor: pointer;
+  }
+}
