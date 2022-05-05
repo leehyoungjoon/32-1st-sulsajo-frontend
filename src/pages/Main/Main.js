@@ -5,7 +5,13 @@ import ReviewCard from './components/ReviewCard/ReviewCard';
 import './Main.scss';
 import MainHeader from './components/MainHeader/MainHeader';
 
-const categoryInfo = ['탁주', '약주', '청주', '증류주', '맥주'];
+const categoryInfo = [
+  { title: '탁주', img: '/images/Main/takju.png' },
+  { title: '약주', img: '/images/Main/wine.png' },
+  { title: '청주', img: '/images/Main/chungju.png' },
+  { title: '증류주', img: '/images/Main/soju.png' },
+  { title: '맥주', img: '/images/Main/beer.jpeg' },
+];
 
 const Main = () => {
   const [recommendProductBoxies, setRecommendProductBoxies] = useState([]);
@@ -14,7 +20,7 @@ const Main = () => {
   const productBoxRef = useRef({});
 
   useEffect(() => {
-    fetch('http://10.58.3.97:8000/products/list')
+    fetch('http://10.58.2.197:8000/products/list')
       .then(res => res.json())
 
       .then(data => {
@@ -63,7 +69,7 @@ const Main = () => {
           <CategoryCard
             key={i}
             index={i}
-            title={value}
+            value={value}
             scrollToCard={scrollToCard}
           />
         ))}
