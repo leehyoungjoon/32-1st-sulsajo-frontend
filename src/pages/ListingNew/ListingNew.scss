@@ -1,0 +1,42 @@
+.ListingNew {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 948px;
+  margin: 0 auto;
+
+  .searchCategory {
+    display: flex;
+    margin: 30px auto;
+    font-size: 12px;
+    align-items: center;
+
+    .searchCategoryTitle {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: rgb(244, 244, 244);
+      font-weight: bold;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .categoryTitle {
+      padding: 10px 0;
+      margin: 0 10px;
+      color: rgb(178, 178, 178);
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .itemList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card {
+      width: 180px;
+      margin: 0 10px;
+    }
+  }
+}

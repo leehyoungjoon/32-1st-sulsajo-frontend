@@ -1,0 +1,198 @@
+@import '/src/styles/variables.scss';
+
+.productDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 700px;
+  width: 56vw;
+  margin-left: 160px;
+  margin-bottom: 200px;
+
+  .detailDescription {
+    display: flex;
+    font-size: 13px;
+
+    .detailCard {
+      .productImg {
+        width: 300px;
+        height: 400px;
+        margin-right: 50px;
+      }
+    }
+
+    .detailedProduct {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: normal;
+
+      .productTitletoRating {
+        display: flex;
+        flex-direction: column;
+        height: 120px;
+        margin-bottom: 80px;
+        padding-top: 30px;
+
+        .productTitle {
+          margin-bottom: 10px;
+          font-size: 40px;
+        }
+
+        .productElement {
+          margin-bottom: 10px;
+        }
+
+        .productOrangecolor {
+          color: $mainLayoutColor;
+          font-size: 16px;
+        }
+
+        .productRating {
+          margin-top: 10px;
+          margin-bottom: 20px;
+          color: $mainLayoutColor;
+          font-size: x-large;
+        }
+      }
+
+      .productInfoElement {
+        margin-bottom: 10px;
+      }
+
+      .productAdditional {
+        margin-bottom: 20px;
+        color: $detailFontColor;
+        font-size: normal;
+
+        .productAdditionalElement {
+          margin-bottom: 10px;
+        }
+      }
+
+      .productValue {
+        margin-bottom: 20px;
+        font-size: 30px;
+      }
+
+      .blueColor {
+        color: $productDetailFontColor;
+      }
+    }
+  }
+
+  .hacksim {
+    width: 50vw;
+    min-width: 700px;
+    margin: 60px 0;
+    padding: 70px;
+    background-color: $detailBackgroundColor;
+    border-radius: 6%;
+    text-align: center;
+
+    .pointFont {
+      margin-bottom: 60px;
+      color: $detailFontColor;
+      font-size: 20px;
+    }
+
+    .twoPoint {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pointEach {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      margin-bottom: 50px;
+      color: $detailFontColor;
+      background-color: white;
+      border-radius: 5%;
+      text-align: center;
+      font-size: 20px;
+
+      .pointTitle {
+        margin: 30px 0;
+        font-weight: bold;
+      }
+
+      .chartList {
+        display: flex;
+        width: 100%;
+      }
+
+      .flavorInfo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .flavor {
+          width: 20%;
+        }
+      }
+
+      .andrew {
+        text-align: center;
+
+        .andrewPictures {
+          display: flex;
+          justify-content: center;
+          margin: 30px 0;
+
+          .andrewPicture {
+            display: flex;
+            flex-direction: column;
+
+            .foodPicture {
+              width: 150px;
+              height: 150px;
+              margin-bottom: 20px;
+              margin-right: 20px;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    min-width: 700px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-color: $detailBackgroundColor;
+
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      min-width: 50%;
+      height: 25px;
+      max-height: 200px;
+      min-height: 50px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .submitInfo {
+      margin: 20px 0;
+    }
+
+    button {
+      width: 200px;
+      height: 30px;
+      border: none;
+      border-radius: 6px;
+
+      cursor: pointer;
+      background-color: $mainLayoutColor;
+      color: whitesmoke;
+    }
+  }
+}

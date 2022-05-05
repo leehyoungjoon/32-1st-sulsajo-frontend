@@ -1,0 +1,50 @@
+@import '/src/styles/variables.scss';
+
+.comment {
+  width: 50vw;
+
+  .infoContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: $detailBackgroundColor;
+    color: $detailFontColor;
+
+    .userId {
+      font-weight: bold;
+    }
+
+    .elseInfo {
+      display: flex;
+      justify-content: space-between;
+      width: 340px;
+
+      .starRating {
+        color: $mainLayoutColor;
+      }
+
+      .commentTime {
+        font-size: 10px;
+        padding-top: 5px;
+      }
+
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 15px;
+        cursor: pointer;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .showComment {
+    height: 130px;
+    padding: 20px 40px;
+    color: $detailFontColor;
+  }
+}
