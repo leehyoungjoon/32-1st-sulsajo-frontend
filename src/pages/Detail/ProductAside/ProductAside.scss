@@ -1,0 +1,109 @@
+@import '/src/styles/variables.scss';
+
+@media screen and (max-width: 1190px) {
+  .productAside {
+    display: none;
+  }
+}
+.productAside {
+  position: sticky;
+  float: right;
+  top: 30px;
+  width: 350px;
+  margin-right: 100px;
+
+  .asideBar {
+    width: 300px;
+    padding: 30px 20px;
+    border-radius: 5%;
+    box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+    text-align: center;
+
+    .label {
+      margin: 25px 0;
+      text-align: right;
+    }
+
+    .option {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+      border-radius: 3px;
+
+      select {
+        width: 160px;
+        height: 25px;
+        border: none;
+      }
+    }
+
+    .amount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 100px;
+      box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+
+      .minus,
+      .plus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      .plus {
+        color: $mainLayoutColor;
+      }
+    }
+
+    .price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      height: 50px;
+      box-shadow: rgb(0 0 0 / 16%) 0px 0px 2px 0px;
+    }
+
+    .delivery {
+      margin-bottom: 30px;
+
+      .label {
+        color: $mainLayoutColor;
+      }
+    }
+
+    .cart,
+    .purchase {
+      width: 150px;
+      height: 40px;
+      margin-bottom: 15px;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .cart {
+      background-color: $mainLayoutColor;
+      font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        color: $mainLayoutColor;
+        border: 2px solid $mainLayoutColor;
+        transition: all 0.4s;
+      }
+    }
+  }
+}
