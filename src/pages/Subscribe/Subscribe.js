@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import Carousel from './Carousel/Carousel';
 import CardBox from './CardBox/CardBox';
 import './Subscribe.scss';
+
 const Subscribe = () => {
   const [index, setIndex] = useState(0);
-  // const [product, setProduct] = useState([]);
 
   const leftclickhandler = () => {
     return index !== 0 && setIndex(index - 1);
@@ -14,7 +14,7 @@ const Subscribe = () => {
     return index !== 2 && setIndex(index + 1);
   };
 
-  const changeModalBtn = idx => {
+  const changeBtn = idx => {
     setIndex(idx);
   };
 
@@ -68,7 +68,7 @@ const Subscribe = () => {
       <Carousel
         leftclickhandler={leftclickhandler}
         rightclickhandler={rightclickhandler}
-        changeModalBtn={changeModalBtn}
+        changeBtn={changeBtn}
         index={index}
       />
       <div className="recentlyText">최근 담와, 함께 볼까요?</div>

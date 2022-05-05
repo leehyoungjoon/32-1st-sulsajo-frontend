@@ -5,7 +5,7 @@ const Carousel = ({
   leftclickhandler,
   rightclickhandler,
   index,
-  changeModalBtn,
+  changeBtn,
 }) => {
   return (
     <div className="Carousel">
@@ -44,9 +44,9 @@ const Carousel = ({
             <button onClick={rightclickhandler} />
           </div>
           <ul className="buttonWrapper">
-            <li className="slideButton" onClick={() => changeModalBtn(0)} />
-            <li className="slideButton" onClick={() => changeModalBtn(1)} />
-            <li className="slideButton" onClick={() => changeModalBtn(2)} />
+            <li className="slideButton" onClick={() => changeBtn(0)} />
+            <li className="slideButton" onClick={() => changeBtn(1)} />
+            <li className="slideButton" onClick={() => changeBtn(2)} />
           </ul>
         </div>
       </div>

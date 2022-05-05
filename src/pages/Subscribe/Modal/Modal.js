@@ -25,10 +25,6 @@ const Modal = ({ outModal, closeModal, product }) => {
             <div className="price">
               가격 : {parseInt(product.price).toLocaleString()}원
             </div>
-            {/* <div>{product[0].taste[0]}</div>
-              <div>{product[0].taste[1]}</div>
-              <div>{product[0].taste[2]}</div>
-              <div>{product[0].taste[3]}</div> */}
           </div>
         </div>
         <div>
