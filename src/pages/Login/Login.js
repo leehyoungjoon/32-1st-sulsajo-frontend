@@ -40,6 +40,10 @@ const Login = () => {
     }
   };
 
+  const goToSignup = () => {
+    navigate('/signup');
+  };
+
   const isBtnActive =
     idInput.includes('@') && pwInput.match(/^(?=.*[a-zA-Z])((?=.*\d)).{8,16}$/);
 
@@ -90,13 +94,9 @@ const Login = () => {
         </button>
       </div>
       <div className="linkWrap">
-        <a className="findId" href="">
-          아이디 찾기
-        </a>
-        <a className="findPw" href="">
-          비밀번호 찾기
-        </a>
-        <button className="memberJoin">회원가입</button>
+        <button className="memberJoin" onClick={goToSignup}>
+          회원가입
+        </button>
       </div>
     </div>
   );
