@@ -8,16 +8,17 @@ const MAX_QUANTITY = 15;
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [products, setProductUpdate] = useState([]);
+  const [products, setProductUpdate] = useState();
 
   useEffect(() => {
-    fetch('')
-      .then(res => res.json())
-      .then();
+    fetch('http://10.58.3.97:8000/products/orderitem').then(res =>
+      console.log(res)
+    );
+    // .then(result => console.log(result));
   }, []);
 
   const countPlusHandle = id => {
-    const productIdx = products.findIndex(product => product.id === id);
+    const productIdx = products.findIndex(product => product.product_id === id);
     if (products[productIdx].count === MAX_QUANTITY) {
       alert(`${MAX_QUANTITY + 1}개 이상 주문은 고객센터로 연락 바랍니다.`);
     } else {
@@ -28,7 +29,7 @@ const Cart = () => {
   };
 
   const countMinusHandle = id => {
-    const productIdx = products.findIndex(product => product.id === id);
+    const productIdx = products.findIndex(product => product.product_id === id);
     if (products[productIdx].count === 1) {
       alert('최소 주문 수량은 1개입니다.');
     } else {
@@ -39,23 +40,23 @@ const Cart = () => {
   };
 
   const checkValueHandle = (id, checked) => {
-    const productIdx = products.findIndex(product => product.id === id);
+    const productIdx = products.findIndex(product => product.product_id === id);
     if (typeof id === 'number') {
       const newProducts = [...products];
-      newProducts[productIdx].isChecked = checked;
+      newProducts[productIdx].is_Checked = checked;
       setProductUpdate(newProducts);
     } else {
       const newProducts = [...products];
-      newProducts.map(product => (product.isChecked = checked));
+      newProducts.map(product => (product.is_Checked = checked));
       setProductUpdate(newProducts);
     }
   };
 
-  const checkedTrue = products.filter(product => product.isChecked === true);
+  const checkedTrue = products.filter(product => product.is_Checked === true);
 
   const eachProductDelete = eachSelectedId => {
     const deleteThis = products.filter(
-      product => product.id === eachSelectedId
+      product => product.product_id === eachSelectedId
     );
     fetch('', {
       method: 'delete',
@@ -74,14 +75,14 @@ const Cart = () => {
     fetch('', {
       method: 'delete',
       body: JSON.stringify({
-        isCheckTrue: checkedTrue,
+        is_CheckTrue: checkedTrue,
       }),
     }).then(res => console.log(res.status));
   };
 
   const isAllCheck =
     products.length !== 0 &&
-    products.filter(product => product.isChecked === true).length ===
+    products.filter(product => product.is_Checked === true).length ===
       products.length;
 
   const goOrder = () => {

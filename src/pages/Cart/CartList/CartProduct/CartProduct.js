@@ -5,7 +5,15 @@ import './CartProduct.scss';
 const CartProduct = ({
   countPlusHandle,
   countMinusHandle,
-  product: { id, name, category, count, isChecked, productImg, price },
+  product: {
+    product_id,
+    product_name,
+    category_name,
+    count,
+    isChecked,
+    product_image,
+    price,
+  },
   eachProductDelete,
   checkValueHandle,
 }) => {
@@ -14,13 +22,13 @@ const CartProduct = ({
   return (
     <div className="cartProduct">
       <div className="cartProductTop">
-        <span>{category}</span>
+        <span>{category_name}</span>
         <span className="freeDelevery">이벤트기간 무료배송!</span>
       </div>
       <div className="cartProductBottom">
         <input
           onChange={e => {
-            checkValueHandle(id, e.target.checked);
+            checkValueHandle(product_id, e.target.checked);
           }}
           checked={isChecked}
           className="cartProductCheck"
@@ -33,15 +41,15 @@ const CartProduct = ({
               <img
                 className="cartProductImg"
                 alt="cartProductImg"
-                src={productImg}
+                src={product_image}
               />
               <div className="productOption">
                 <div className="productNameAndOption">
-                  <div className="CartProductName">{name}</div>
+                  <div className="CartProductName">{product_name}</div>
                   <button
                     className="cartDeleteProduct"
                     onClick={() => {
-                      eachProductDelete(id);
+                      eachProductDelete(product_id);
                     }}
                   >
                     X
@@ -57,17 +65,17 @@ const CartProduct = ({
               </div>
             </div>
             <div className="cartProductCountAndPrice">
-              <div key={id} className="cartProductCountBtn">
+              <div key={product_id} className="cartProductCountBtn">
                 <button
                   className="productCounterBtn"
-                  onClick={() => countMinusHandle(id)}
+                  onClick={() => countMinusHandle(product_id)}
                 >
                   -
                 </button>
                 <div className="productCount">{count}</div>
                 <button
                   className="productCounterBtn"
-                  onClick={() => countPlusHandle(id)}
+                  onClick={() => countPlusHandle(product_id)}
                 >
                   +
                 </button>
@@ -103,7 +111,7 @@ const CartProduct = ({
               navigate('/main');
             }}
           >
-            {category} 카테고리 상품 더보기
+            {category_name} 카테고리 상품 더보기
           </button>
         </div>
       </div>
