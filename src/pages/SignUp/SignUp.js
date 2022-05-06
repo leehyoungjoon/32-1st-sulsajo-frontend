@@ -24,7 +24,7 @@ const SignUp = () => {
 
   const checkEmailValid = e => {
     e.preventDefault();
-    fetch('http://10.58.5.183:8000/users/signup', {
+    fetch('http://10.58.6.20:8000/users/email', {
       method: 'post',
       body: JSON.stringify({
         email,
@@ -32,7 +32,7 @@ const SignUp = () => {
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'KEY_ERROR') {
+        if (result.message === 'SUCCESS') {
           alert('사용 가능한 이메일입니다.');
           setIsCheckEmailFirst(true);
         } else if (result.message === 'ALREADY_EXISTS_EMAIL') {

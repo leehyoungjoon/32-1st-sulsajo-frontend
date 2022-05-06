@@ -10,7 +10,7 @@ const CartProduct = ({
     product_name,
     category_name,
     count,
-    isChecked,
+    is_Checked,
     product_image,
     price,
   },
@@ -30,7 +30,7 @@ const CartProduct = ({
           onChange={e => {
             checkValueHandle(product_id, e.target.checked);
           }}
-          checked={isChecked}
+          checked={is_Checked}
           className="cartProductCheck"
           type="checkbox"
           readOnly
